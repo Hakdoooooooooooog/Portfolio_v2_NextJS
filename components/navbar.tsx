@@ -6,48 +6,50 @@ import ThemeSwitch from "./switch";
 import { useState } from "react";
 
 const items = [
-  { label: "About Me", href: "/about-me" },
+  { label: "Skills & certificates", href: "/skills-and-certificates" },
   { label: "Projects", href: "/projects" },
 ];
 
 const Navbar = () => {
   return (
-    <NavigationMenu.Root
-      className={
-        "w-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md shadow-lg"
-      }
-    >
-      <NavigationMenu.List className="flex items-center justify-between p-4">
-        <NavigationMenu.Item>
-          <NavigationMenu.Link href="/" className="text-lg font-bold">
-            My Portfolio
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-
-        <NavigationMenu.List className="hidden sm:flex items-center space-x-4">
-          <NavItems items={items} />
+    <header>
+      <NavigationMenu.Root
+        className={
+          "fixed z-999 w-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md shadow-lg"
+        }
+      >
+        <NavigationMenu.List className="flex items-center justify-between p-4">
           <NavigationMenu.Item>
-            <Button
-              variant="ghost"
-              size="md"
-              className="text-md font-bold no-underline"
-            >
-              <NavigationMenu.Link href="/contact" className={"size-full "}>
-                My Resume
-              </NavigationMenu.Link>
-            </Button>
+            <NavigationMenu.Link href="/" className="text-lg font-bold">
+              My Portfolio
+            </NavigationMenu.Link>
+          </NavigationMenu.Item>
+
+          <NavigationMenu.List className="hidden sm:flex items-center space-x-4">
+            <NavItems items={items} />
+            <NavigationMenu.Item>
+              <Button
+                variant="ghost"
+                size="md"
+                className="text-md font-bold no-underline"
+              >
+                <NavigationMenu.Link href="/contact" className={"size-full "}>
+                  My Resume
+                </NavigationMenu.Link>
+              </Button>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+
+          <NavigationMenu.Item className="hidden sm:block">
+            <ThemeSwitch />
+          </NavigationMenu.Item>
+
+          <NavigationMenu.Item className="relative sm:hidden">
+            <Drawers />
           </NavigationMenu.Item>
         </NavigationMenu.List>
-
-        <NavigationMenu.Item className="hidden sm:block">
-          <ThemeSwitch />
-        </NavigationMenu.Item>
-
-        <NavigationMenu.Item className="relative sm:hidden">
-          <Drawers />
-        </NavigationMenu.Item>
-      </NavigationMenu.List>
-    </NavigationMenu.Root>
+      </NavigationMenu.Root>
+    </header>
   );
 };
 
@@ -96,11 +98,11 @@ const Drawers = () => {
 
       {isOpen && (
         <div
-          className={`absolute z-50 min-w-[150px] -top-4 -right-4 bg-white dark:bg-gray-800 transition-opacity duration-300 ease-in-out ${
+          className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-white dark:bg-gray-800 transition-opacity duration-300 ease-in-out ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="size-full bg-white dark:bg-gray-800 p-4 shadow-lg">
+          <div className="size-full p-4">
             <NavigationMenu.Trigger
               onClick={toggleDrawer}
               className="absolute top-4 right-4 text-gray-700 dark:text-gray-
@@ -123,7 +125,7 @@ const Drawers = () => {
               </svg>
             </NavigationMenu.Trigger>
 
-            <div className="flex flex-col space-y-4 mt-4">
+            <div className="flex flex-col gap-4">
               <NavItems items={items} />
               <NavigationMenu.Item>
                 <Button

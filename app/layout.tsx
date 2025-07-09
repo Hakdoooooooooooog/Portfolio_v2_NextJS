@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -29,16 +30,9 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${notoSansMono.variable} antialiased`}
       >
-        <header>
-          <Navbar />
-        </header>
+        <Navbar />
         {children}
-        <footer className="text-center p-4 bg-gray-100 dark:bg-gray-800">
-          <p className="text-gray-600 dark:text-gray-300">
-            © {new Date().getFullYear()} Hicap&apos;s Portfolio. All rights
-            reserved.
-          </p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
