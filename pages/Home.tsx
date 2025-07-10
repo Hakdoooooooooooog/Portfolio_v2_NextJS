@@ -5,6 +5,7 @@ import React, { useRef, useEffect } from "react";
 
 const HomeSection = () => {
   const refSpanText = useRef<HTMLSpanElement>(null);
+  const refSection = useRef<HTMLDivElement>(null);
 
   const animateText = () => {
     if (refSpanText.current) {
@@ -12,7 +13,11 @@ const HomeSection = () => {
       refSpanText.current.textContent = "";
       const tl = gsap.timeline();
 
-      tl.to(refSpanText.current, {
+      tl.to(refSection.current, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "none",
+      }).to(refSpanText.current, {
         duration: 0.5,
         ease: "none",
         onUpdate: function () {
@@ -40,7 +45,8 @@ const HomeSection = () => {
   return (
     <section
       id="hero"
-      className="flex items-center p-8 gap-12 m-auto max-w-[1200px] flex-wrap-reverse"
+      ref={refSection}
+      className={`flex items-center p-8 gap-12 m-auto max-w-[1200px] flex-wrap-reverse opacity-0`}
     >
       <div className="flex-[1_0_70%] mb-6 text-justify self-start">
         <h1 className="text-3xl font-bold mb-4">
