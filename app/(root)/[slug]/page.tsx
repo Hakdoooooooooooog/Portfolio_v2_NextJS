@@ -10,7 +10,11 @@ function isValidSlug(slug: string): slug is ValidSlug {
   return VALID_SLUGS.includes(slug as ValidSlug);
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
 
   // Validate slug early and return 404 for invalid routes
@@ -27,9 +31,5 @@ export default async function Page({ params }: { params: { slug: string } }) {
     }
   };
 
-  return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center">
-      {renderSection(slug)}
-    </main>
-  );
+  return <div className="relative w-full m-auto">{renderSection(slug)}</div>;
 }
