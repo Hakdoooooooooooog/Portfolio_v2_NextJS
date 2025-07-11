@@ -3,109 +3,180 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CertificatesData, skillsData } from "../utils/constants";
 
-// Skill data configuration
-const skillsData = [
-  {
-    src: "/images/skills/react.png",
-    name: "React",
-    position: { x: 30, y: -20 },
-  },
-  {
-    src: "/images/skills/ts.png",
-    name: "TypeScript",
-    position: { x: 150, y: -20 },
-  },
-  {
-    src: "/images/skills/postgresql.png",
-    name: "PostgreSQL",
-    position: { x: 170, y: -150 },
-  },
-  {
-    src: "/images/skills/mysql.png",
-    name: "MySQL",
-    position: { x: -50, y: 60 },
-  },
-  { src: "/images/skills/git.png", name: "Git", position: { x: 90, y: 80 } },
-  {
-    src: "/images/skills/prisma.png",
-    name: "Prisma",
-    position: { x: -50, y: -100 },
-  },
-  {
-    src: "/images/skills/nodejs-express-js.png",
-    name: "Node.js",
-    position: { x: -150, y: -150 },
-  },
-  {
-    src: "/images/skills/tailwind-css.png",
-    name: "Tailwind",
-    position: { x: 60, y: -120 },
-  },
-  {
-    src: "/images/skills/zustand.png",
-    name: "Zustand",
-    position: { x: -20, y: 140 },
-  },
-  {
-    src: "/images/skills/aws-s3.png",
-    name: "AWS S3",
-    position: { x: -120, y: -20 },
-  },
-  {
-    src: "/images/skills/react-query.png",
-    name: "React Query",
-    position: { x: -150, y: 120 },
-  },
-  { src: "/images/skills/zod.png", name: "Zod", position: { x: 190, y: 120 } },
-];
+gsap.registerPlugin(ScrollTrigger);
 
 const SkillsAndCertificatesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const certificatesRef = useRef<HTMLDivElement>(null);
   const [showImages, setShowImages] = useState(false);
 
-  useEffect(() => {
-    setShowImages(true);
-
+  const floatingAnimation = () => {
     if (!containerRef.current) return;
-
     const images = containerRef.current.querySelectorAll(".skill-image");
 
-    // Add floating animation
     images.forEach((image) => {
+      if (!image || !(image instanceof HTMLElement)) return;
+
       gsap.to(image, {
         y: "+=10",
-        duration: 1 + Math.random() * 2, // Random duration between 2-4 seconds
+        duration: 1 + Math.random() * 2, // Random duration between 1-4 seconds
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
         delay: Math.random() * 2, // Random delay for each image
       });
     });
+  };
+
+  const showCertificatesOnScroll = () => {
+    if (!certificatesRef.current) return;
+    const certificates =
+      certificatesRef.current.querySelectorAll(".certificates");
+    certificates.forEach((cert) => {
+      if (cert instanceof HTMLDivElement) {
+        gsap.fromTo(
+          cert,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: cert,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    });
+  };
+
+  useEffect(() => {
+    setShowImages(true);
+
+    // Initialize animations
+    floatingAnimation();
+    showCertificatesOnScroll();
   }, []);
 
   return (
-    <div className="w-full max-w-5xl mx-auto flex flex-wrap gap-8 items-center justify-center p-4">
-      <h2 className="w-full md:w-auto md:flex-1 text-2xl font-bold text-center pb-12">
-        Tech Stacks & Skills
-      </h2>
-      <div
-        ref={containerRef}
-        className="w-full md:w-96 md:flex-shrink-0 relative h-80 md:h-96"
+    <>
+      <section className="w-full max-w-5xl mx-auto min-h-screen flex flex-wrap gap-8 items-center justify-evenly p-4">
+        <h2
+          className={`w-full md:w-auto md:flex-1 text-2xl font-bold text-center transition-opacity duration-500 ${
+            showImages ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          Tech Stacks & Skills
+        </h2>
+        <div
+          ref={containerRef}
+          className="w-full md:w-96 md:flex-shrink-0 relative h-96 md:h-80"
+        >
+          {skillsData.map((skill, index) => (
+            <ImageCollage
+              key={skill.name}
+              src={skill.src}
+              alt={skill.name}
+              position={skill.position}
+              index={index}
+              show={showImages}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="w-full max-w-5xl mx-auto min-h-screen flex flex-col items-center gap-8 pb-20">
+        <h2 className="text-2xl font-bold text-center pb-12">Certificates</h2>
+        <div
+          ref={certificatesRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {CertificatesData.sort(
+            (a, b) =>
+              new Date(b.metadata.date).getTime() -
+              new Date(a.metadata.date).getTime()
+          ).map((cert) => (
+            <Certificates
+              key={cert.id}
+              src={cert.src}
+              alt={cert.alt}
+              metadata={cert.metadata}
+              link={cert.link}
+            />
+          ))}
+        </div>
+      </section>
+    </>
+  );
+};
+
+const Certificates = ({
+  src,
+  alt,
+  metadata,
+  link,
+}: {
+  src: string;
+  alt: string;
+  metadata?: {
+    title: string;
+    description: string;
+    date: string;
+    issuer: string;
+    tags: string[];
+    image: string;
+  };
+  link: {
+    href: string;
+    target: string;
+    rel: string;
+  };
+}) => {
+  return (
+    <div className="certificates bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+      <a
+        href={link.href}
+        target={link.target}
+        rel={link.rel}
+        className="w-full block"
       >
-        {skillsData.map((skill, index) => (
-          <ImageCollage
-            key={skill.name}
-            src={skill.src}
-            alt={skill.name}
-            position={skill.position}
-            index={index}
-            show={showImages}
-          />
-        ))}
-      </div>
+        <Image
+          src={src}
+          alt={alt}
+          width={300}
+          height={200}
+          className="w-full h-60 object-cover cursor-pointer"
+        />
+      </a>
+      {metadata && (
+        <div className="p-4">
+          <div className="mb-2">
+            <span className="text-sm text-gray-600 dark:text-gray-400">
+              Issued: {new Date(metadata.date).toLocaleDateString()}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Tags tags={metadata.tags} />
+          </div>
+        </div>
+      )}
     </div>
   );
+};
+
+const Tags = ({ tags }: { tags: string[] }) => {
+  return tags.map((tag, index) => (
+    <span
+      key={index}
+      className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
+    >
+      {tag}
+    </span>
+  ));
 };
 
 const ImageCollage = ({
@@ -126,10 +197,8 @@ const ImageCollage = ({
 
   return (
     <div
-      className="absolute skill-image"
+      className="absolute skill-image top-1/2 left-1/2"
       style={{
-        top: "50%",
-        left: "50%",
         transform: `translate(-50%, -50%) translate(${position.x}px, ${position.y}px)`,
         zIndex: 10 + index,
         opacity: show ? 1 : 0,
