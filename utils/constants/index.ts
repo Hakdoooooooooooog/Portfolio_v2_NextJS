@@ -1,3 +1,8 @@
+export const navLinks = [
+  { label: "Skills & certificates", href: "/skills-and-certificates" },
+  { label: "Projects", href: "/projects" },
+];
+
 export const skillsData = [
   {
     src: "/images/skills/react.png",

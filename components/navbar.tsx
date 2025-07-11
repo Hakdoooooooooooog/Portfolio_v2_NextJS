@@ -3,12 +3,8 @@
 import { NavigationMenu } from "@base-ui-components/react";
 import { Button } from "./button";
 import ThemeSwitch from "./switch";
-import { useState } from "react";
-
-const items = [
-  { label: "Skills & certificates", href: "/skills-and-certificates" },
-  { label: "Projects", href: "/projects" },
-];
+import { useState, useEffect, useRef } from "react";
+import { navLinks } from "../utils/constants";
 
 const Navbar = () => {
   return (
@@ -26,7 +22,7 @@ const Navbar = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.List className="hidden sm:flex items-center space-x-4">
-            <NavItems items={items} />
+            <NavItems items={navLinks} />
             <NavigationMenu.Item>
               <Button
                 variant="ghost"
@@ -68,10 +64,34 @@ const NavItems = ({ items }: { items: { label: string; href: string }[] }) => {
 };
 const Drawers = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      // Focus the first focusable element in the drawer
+      setTimeout(() => {
+        const firstFocusable = drawerRef.current?.querySelector(
+          'a, button, [tabindex="0"]'
+        ) as HTMLElement;
+        firstFocusable?.focus();
+      }, 0);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -98,17 +118,21 @@ const Drawers = () => {
 
       {isOpen && (
         <div
-          className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-white dark:bg-gray-800 transition-opacity duration-300 ease-in-out ${
+          ref={drawerRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-white dark:bg-gray-800 transition-opacity duration-300 ease-in-out shadow-lg border border-gray-200 dark:border-gray-700 z-[1000] rounded-lg ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
         >
           <div className="size-full p-4">
-            <NavigationMenu.Trigger
+            <button
+              type="button"
               onClick={toggleDrawer}
-              className="absolute top-4 right-4 text-gray-700 dark:text-gray-
-          300 hover:text-blue-500 hover:dark:text-blue-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+              className="absolute top-4 right-4 text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 rounded-md p-1"
+              aria-label="Close menu"
             >
-              <span className="sr-only">Close menu</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -123,10 +147,14 @@ const Drawers = () => {
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
-            </NavigationMenu.Trigger>
+            </button>
 
-            <div className="flex flex-col gap-4">
-              <NavItems items={items} />
+            <nav
+              className="flex flex-col gap-4"
+              role="navigation"
+              aria-label="Mobile navigation"
+            >
+              <NavItems items={navLinks} />
               <NavigationMenu.Item>
                 <Button
                   variant="ghost"
@@ -141,8 +169,10 @@ const Drawers = () => {
                   </NavigationMenu.Link>
                 </Button>
               </NavigationMenu.Item>
-              <ThemeSwitch />
-            </div>
+              <div className="mt-2">
+                <ThemeSwitch />
+              </div>
+            </nav>
           </div>
         </div>
       )}
