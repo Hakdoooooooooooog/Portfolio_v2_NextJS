@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CertificatesData, skillsData } from "../utils/constants";
+import { TCertificate } from "../utils/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,8 +98,8 @@ const SkillsAndCertificatesSection = () => {
         >
           {CertificatesData.sort(
             (a, b) =>
-              new Date(b.metadata.date).getTime() -
-              new Date(a.metadata.date).getTime()
+              new Date(b.metadata?.date || 0).getTime() -
+              new Date(a.metadata?.date || 0).getTime()
           ).map((cert) => (
             <Certificates
               key={cert.id}
@@ -119,23 +120,7 @@ const Certificates = ({
   alt,
   metadata,
   link,
-}: {
-  src: string;
-  alt: string;
-  metadata?: {
-    title: string;
-    description: string;
-    date: string;
-    issuer: string;
-    tags: string[];
-    image: string;
-  };
-  link: {
-    href: string;
-    target: string;
-    rel: string;
-  };
-}) => {
+}: Omit<TCertificate, "id">) => {
   return (
     <div className="certificates bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
       <a
@@ -202,7 +187,7 @@ const ImageCollage = ({
         transform: `translate(-50%, -50%) translate(${position.x}px, ${position.y}px)`,
         zIndex: 10 + index,
         opacity: show ? 1 : 0,
-        transition: "opacity 0.5s",
+        transition: "opacity 0.5s ease-in-out",
       }}
     >
       <Image

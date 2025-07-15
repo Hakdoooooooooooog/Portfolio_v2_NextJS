@@ -5,6 +5,7 @@ import { Button } from "./button";
 import ThemeSwitch from "./switch";
 import { useState, useEffect, useRef } from "react";
 import { navLinks } from "../utils/constants";
+import { TNavigationLink } from "../utils/types";
 
 const Navbar = () => {
   return (
@@ -49,7 +50,7 @@ const Navbar = () => {
   );
 };
 
-const NavItems = ({ items }: { items: { label: string; href: string }[] }) => {
+const NavItems = ({ items }: { items: TNavigationLink[] }) => {
   return items.map((item) => (
     <NavigationMenu.Item key={item.label} className="group">
       <NavigationMenu.Link

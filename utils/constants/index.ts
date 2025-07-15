@@ -1,9 +1,11 @@
-export const navLinks = [
+import { TCertificate, TNavigationLink, TSkillData } from "../types";
+
+export const navLinks: TNavigationLink[] = [
   { label: "Skills & certificates", href: "/skills-and-certificates" },
   { label: "Projects", href: "/projects" },
 ];
 
-export const skillsData = [
+export const skillsData: TSkillData[] = [
   {
     src: "/images/skills/react.png",
     name: "React",
@@ -58,7 +60,7 @@ export const skillsData = [
   { src: "/images/skills/zod.png", name: "Zod", position: { x: 190, y: 120 } },
 ];
 
-export const CertificatesData = [
+export const CertificatesData: TCertificate[] = [
   {
     id: 1,
     src: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.png",
@@ -69,7 +71,6 @@ export const CertificatesData = [
         "Certificate for completing the basic level of cloud computing.",
       date: "2024-12-26",
       issuer: "Department of Information and Communications Technology (DICT)",
-      skills: ["Cloud Computing", "Basic Concepts"],
       tags: ["Cloud", "Cloud Computing", "Basic Concepts", "DICT"],
       image: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.png", // Example image, replace with actual
     },
