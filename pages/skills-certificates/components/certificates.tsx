@@ -20,7 +20,7 @@ const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
             </span>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Tags tags={metadata.tags} />
+            <Tags item={{ metadata }} />
           </div>
         </div>
       )}

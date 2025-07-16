@@ -80,9 +80,7 @@ const SkillsAndCertificatesSection = () => {
           {skillsData.map((skill, index) => (
             <ImageCollage
               key={skill.name}
-              src={skill.src}
-              alt={skill.name}
-              position={skill.position}
+              {...skill}
               index={index}
               show={showImages}
             />
@@ -101,13 +99,7 @@ const SkillsAndCertificatesSection = () => {
               new Date(b.metadata?.date || 0).getTime() -
               new Date(a.metadata?.date || 0).getTime()
           ).map((cert) => (
-            <Certificates
-              key={cert.id}
-              src={cert.src}
-              alt={cert.alt}
-              metadata={cert.metadata}
-              link={cert.link}
-            />
+            <Certificates key={cert.id} {...cert} />
           ))}
         </div>
       </section>
