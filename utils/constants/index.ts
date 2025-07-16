@@ -3,6 +3,7 @@ import { TCertificate, TNavigationLink, TSkillData } from "../types";
 export const navLinks: TNavigationLink[] = [
   { label: "Skills & certificates", href: "/skills-and-certificates" },
   { label: "Projects", href: "/projects" },
+  { label: "Experiences", href: "/experiences" },
 ];
 
 export const skillsData: TSkillData[] = [

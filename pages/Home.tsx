@@ -72,7 +72,7 @@ const HomeSection = () => {
           <Image
             priority
             loading="eager"
-            src="/profile.jpg"
+            src="/images/profile.jpg"
             alt="Profile Picture"
             fill
             sizes="(max-width: 768px) 320px, (max-width: 1200px) 320px, 320px"

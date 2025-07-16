@@ -1,14 +1,7 @@
 import { notFound } from "next/navigation";
 import Projects from "@/portfolio/pages/Projects";
 import SkillsAndCertificatesSection from "@/portfolio/pages/Skills_Certificates";
-
-// Define valid slugs for type safety
-const VALID_SLUGS = ["projects", "skills-and-certificates"] as const;
-type ValidSlug = (typeof VALID_SLUGS)[number];
-
-function isValidSlug(slug: string): slug is ValidSlug {
-  return VALID_SLUGS.includes(slug as ValidSlug);
-}
+import Experiences from "@/portfolio/pages/Experiences";
 
 export default async function Page({
   params,
@@ -17,17 +10,17 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  // Validate slug early and return 404 for invalid routes
-  if (!isValidSlug(slug)) {
-    notFound();
-  }
-
-  const renderSection = (slug: ValidSlug) => {
+  const renderSection = (slug: string) => {
     switch (slug) {
       case "projects":
         return <Projects />;
       case "skills-and-certificates":
         return <SkillsAndCertificatesSection />;
+      case "experiences":
+        return <Experiences />;
+      default:
+        notFound();
+        return null; // This line is never reached, but TypeScript requires a return value
     }
   };
 

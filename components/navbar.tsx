@@ -28,9 +28,13 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="md"
-                className="text-md font-bold no-underline"
+                className="text-md font-bold no-underline cursor-pointer"
               >
-                <NavigationMenu.Link href="/contact" className={"size-full "}>
+                <NavigationMenu.Link
+                  href="https://drive.google.com/drive/folders/1z5k0cXU6HfPy3AV9yGlnmxecilbXYYRm"
+                  target="_blank"
+                  className="size-full block"
+                >
                   My Resume
                 </NavigationMenu.Link>
               </Button>
@@ -160,11 +164,12 @@ const Drawers = () => {
                 <Button
                   variant="ghost"
                   size="md"
-                  className="text-md font-bold no-underline"
+                  className="text-md font-bold no-underline cursor-pointer"
                 >
                   <NavigationMenu.Link
-                    href="/contact"
-                    className={"size-full block"}
+                    href="https://drive.google.com/drive/folders/1z5k0cXU6HfPy3AV9yGlnmxecilbXYYRm"
+                    target="_blank"
+                    className="size-full block"
                   >
                     My Resume
                   </NavigationMenu.Link>
