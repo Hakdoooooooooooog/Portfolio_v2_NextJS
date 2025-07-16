@@ -1,4 +1,9 @@
-import { TCertificate, TNavigationLink, TSkillData } from "../types";
+import {
+  TCertificate,
+  TNavigationLink,
+  TProjectData,
+  TSkillData,
+} from "../types";
 
 export const navLinks: TNavigationLink[] = [
   { label: "Skills & certificates", href: "/skills-and-certificates" },
@@ -200,5 +205,85 @@ export const CertificatesData: TCertificate[] = [
       target: "_blank",
       rel: "noopener noreferrer",
     },
+  },
+];
+
+export const ProjectsData: TProjectData[] = [
+  {
+    title: "TOPCIT LCMS",
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Material UI",
+      "Zustand",
+      "Zod",
+    ],
+    link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
+    description:
+      "A comprehensive web-based Learning Content Management System designed specifically for IT students at Cavite State University. This application serves as a centralized platform for managing educational resources, tracking progress, and preparing students for practical competency assessments. Built with modern React architecture, it features robust state management through Zustand, type-safe form validation using Zod, and a responsive design system combining Tailwind CSS with Material UI components for an optimal user experience.",
+    metadata: {
+      imageSrc: "/images/projects/topcit-thumbnail.png",
+      imageAlt: "TOPCIT Learners Content Management System",
+    },
+  },
+  {
+    title: "TOPCIT LCMS API",
+    tags: [
+      "API",
+      "Node.js",
+      "Express",
+      "Amazon S3",
+      "Prisma",
+      "Zod",
+      "PostgreSQL",
+    ],
+    description:
+      "The backend API for the TOPCIT LCMS, built with Node.js and Express. It provides a RESTful interface for managing educational content, user data, and progress tracking. The API integrates with Amazon S3 for file storage, uses Prisma for database interactions with PostgreSQL, and employs Zod for type-safe request validation.",
+    link: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
+  },
+  {
+    title: "E-CPLGT",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    description:
+      "An E-Library platform for the City Public Library of General Trias, Cavite. This application allows users to browse and manage library resources, including books and other media. Built with Next.js and TypeScript, it features a modern design with animations powered by Framer Motion.",
+    link: "https://github.com/Hakdoooooooooooog/e-library",
+    metadata: {
+      imageSrc: "/images/projects/ecplgt-thumbnail.png",
+      imageAlt: "E-CPLGT E-Library",
+      demoLink: "https://e-cplgt.netlify.app/",
+    },
+  },
+  {
+    title: "Event Management System API",
+    tags: ["API", "Node.js", "Express", "Prisma", "PostgreSQL"],
+    description:
+      "A RESTful API for managing events, built with Node.js and Express. It provides endpoints for creating, updating, and retrieving event data, utilizing Prisma for database interactions with PostgreSQL. The API is designed to be scalable and secure, supporting various event management functionalities.",
+    link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
+  },
+  {
+    title: "Portfolio",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP"],
+    description:
+      "A personal portfolio website showcasing my skills, projects, and experiences. Built with Next.js and TypeScript, it features a modern design with smooth animations powered by GSAP. The site is fully responsive and optimized for performance.",
+    link: "https://github.com/Hakdoooooooooooog/Portfolio_v2_NextJS",
+    metadata: {
+      imageSrc: "/images/projects/portfolio-v2-thumbnail.png",
+      imageAlt: "Portfolio Website",
+    },
+  },
+  {
+    title: "Ordering System",
+    tags: ["Java"],
+    description:
+      "A simple cmd-based ordering system built with Java. This application allows users to place orders, manage inventory, and process transactions through a command-line interface.",
+    link: "https://github.com/Hakdoooooooooooog/Ordering-System",
+  },
+  {
+    title: "Rock Paper Scissor and Text-based RPG Game",
+    tags: ["Java"],
+    description:
+      "A simple cmd-based game that includes both Rock Paper Scissor and a text-based RPG game, built with Java. This application provides an interactive gaming experience through a command-line interface.",
+    link: "https://github.com/Hakdoooooooooooog/Game-Project-Java",
   },
 ];
