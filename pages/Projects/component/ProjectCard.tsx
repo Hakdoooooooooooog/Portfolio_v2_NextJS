@@ -34,7 +34,7 @@ export const ProjectCard = ({
             alt={metadata.imageAlt || "Project image"}
             width={300}
             height={200}
-            className="w-full h-auto object-cover rounded-lg"
+            className="w-full h-60 object-cover rounded-lg"
           />
         </div>
       )}
