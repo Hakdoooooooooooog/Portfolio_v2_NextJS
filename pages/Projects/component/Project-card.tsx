@@ -1,10 +1,10 @@
 import ImageModal from "@/portfolio/components/modal-image";
 import { TProjectData } from "@/portfolio/utils/types";
-import ProjectCTA from "./Project-cta";
+import ProjectCTA from "./project-cta";
 
 const ProjectCard = ({
   title,
-  tags,
+  tags = [],
   description,
   link,
   metadata,
@@ -14,14 +14,16 @@ const ProjectCard = ({
       <div className="flex-[1_0_30%]">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <div className="flex flex-wrap gap-2 mb-12">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
+          {tags &&
+            Array.isArray(tags) &&
+            tags.map((tag, index) => (
+              <span
+                key={index}
+                className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
         </div>
         <p className="text-gray-600 dark:text-gray-400">{description}</p>
       </div>
