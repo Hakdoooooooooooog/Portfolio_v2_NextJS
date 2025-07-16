@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CertificatesData, skillsData } from "../utils/constants";
 import { TCertificate } from "../utils/types";
+import ImageModal from "../components/modal-image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,28 +116,16 @@ const SkillsAndCertificatesSection = () => {
   );
 };
 
-const Certificates = ({
-  src,
-  alt,
-  metadata,
-  link,
-}: Omit<TCertificate, "id">) => {
+const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
   return (
-    <div className="certificates bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
-      <a
-        href={link.href}
-        target={link.target}
-        rel={link.rel}
-        className="w-full block"
-      >
-        <Image
-          src={src}
-          alt={alt}
-          width={300}
-          height={200}
-          className="w-full h-60 object-cover cursor-pointer"
-        />
-      </a>
+    <div className="certificates bg-white dark:bg-gray-800/80 rounded-lg shadow-lg overflow-clip">
+      <ImageModal
+        src={src}
+        alt={alt}
+        width={300}
+        height={200}
+        className="w-full h-60 object-cover"
+      />
       {metadata && (
         <div className="p-4">
           <div className="mb-2">
