@@ -1,73 +1,13 @@
 "use client";
 
+import { TNavigationLink } from "@/portfolio/utils/types";
 import { NavigationMenu } from "@base-ui-components/react";
-import { Button } from "./button";
-import ThemeSwitch from "./switch";
-import { useState, useEffect, useRef } from "react";
-import { navLinks } from "../utils/constants";
-import { TNavigationLink } from "../utils/types";
+import { useState, useRef, useEffect } from "react";
+import { Button } from "../button";
+import ThemeSwitch from "../switch";
+import { NavItems } from "./nav-item";
 
-const Navbar = () => {
-  return (
-    <header>
-      <NavigationMenu.Root
-        className={
-          "fixed z-999 w-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md shadow-lg"
-        }
-      >
-        <NavigationMenu.List className="flex items-center justify-between p-4">
-          <NavigationMenu.Item>
-            <NavigationMenu.Link href="/" className="text-lg font-bold">
-              My Portfolio
-            </NavigationMenu.Link>
-          </NavigationMenu.Item>
-
-          <NavigationMenu.List className="hidden sm:flex items-center space-x-4">
-            <NavItems items={navLinks} />
-            <NavigationMenu.Item>
-              <Button
-                variant="ghost"
-                size="md"
-                className="text-md font-bold no-underline cursor-pointer"
-              >
-                <NavigationMenu.Link
-                  href="https://drive.google.com/drive/folders/1z5k0cXU6HfPy3AV9yGlnmxecilbXYYRm"
-                  target="_blank"
-                  className="size-full block"
-                >
-                  My Resume
-                </NavigationMenu.Link>
-              </Button>
-            </NavigationMenu.Item>
-          </NavigationMenu.List>
-
-          <NavigationMenu.Item className="hidden sm:block">
-            <ThemeSwitch />
-          </NavigationMenu.Item>
-
-          <NavigationMenu.Item className="relative sm:hidden">
-            <Drawers />
-          </NavigationMenu.Item>
-        </NavigationMenu.List>
-      </NavigationMenu.Root>
-    </header>
-  );
-};
-
-const NavItems = ({ items }: { items: TNavigationLink[] }) => {
-  return items.map((item) => (
-    <NavigationMenu.Item key={item.label} className="group">
-      <NavigationMenu.Link
-        href={item.href}
-        className="text-md font-semibold text-gray-700 dark:text-gray-300 no-underline transition-all duration-200 hover:text-blue-500 hover:dark:text-blue-400 relative"
-      >
-        {item.label}
-        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 dark:bg-blue-400 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100" />
-      </NavigationMenu.Link>
-    </NavigationMenu.Item>
-  ));
-};
-const Drawers = () => {
+export const Drawers = ({ items }: { items: TNavigationLink[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
 
@@ -159,7 +99,7 @@ const Drawers = () => {
               role="navigation"
               aria-label="Mobile navigation"
             >
-              <NavItems items={navLinks} />
+              <NavItems items={items} />
               <NavigationMenu.Item>
                 <Button
                   variant="ghost"
@@ -185,5 +125,3 @@ const Drawers = () => {
     </>
   );
 };
-
-export default Navbar;
