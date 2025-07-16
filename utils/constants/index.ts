@@ -274,14 +274,14 @@ export const ProjectsData: TProjectData[] = [
   },
   {
     title: "Ordering System",
-    tags: ["Java"],
+    tags: ["Java", "Object-Oriented Programming", "CMD"],
     description:
       "A simple cmd-based ordering system built with Java. This application allows users to place orders, manage inventory, and process transactions through a command-line interface.",
     link: "https://github.com/Hakdoooooooooooog/Ordering-System",
   },
   {
     title: "Rock Paper Scissor and Text-based RPG Game",
-    tags: ["Java"],
+    tags: ["Java", "Object-Oriented Programming", "CMD"],
     description:
       "A simple cmd-based game that includes both Rock Paper Scissor and a text-based RPG game, built with Java. This application provides an interactive gaming experience through a command-line interface.",
     link: "https://github.com/Hakdoooooooooooog/Game-Project-Java",
