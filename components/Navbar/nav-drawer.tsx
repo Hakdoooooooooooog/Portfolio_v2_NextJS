@@ -4,7 +4,7 @@ import { TNavigationLink } from "@/portfolio/utils/types";
 import { NavigationMenu } from "@base-ui-components/react";
 import { useState, useRef, useEffect } from "react";
 import { Button } from "../button";
-import ThemeSwitch from "../switch";
+// import ThemeSwitch from "../switch";
 import { NavItems } from "./nav-item";
 
 export const Drawers = ({ items }: { items: TNavigationLink[] }) => {
@@ -115,9 +115,9 @@ export const Drawers = ({ items }: { items: TNavigationLink[] }) => {
                   </NavigationMenu.Link>
                 </Button>
               </NavigationMenu.Item>
-              <div className="mt-2">
+              {/* <div className="mt-2">
                 <ThemeSwitch />
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>

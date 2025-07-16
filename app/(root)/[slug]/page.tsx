@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Projects from "@/portfolio/pages/projects";
+import Projects from "@/portfolio/components/projects";
 import SkillsAndCertificatesSection from "@/portfolio/pages/skills-certificates";
 import Experiences from "@/portfolio/pages/Experiences";
 

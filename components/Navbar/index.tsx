@@ -1,7 +1,7 @@
 import { navLinks } from "@/portfolio/utils/constants";
 import { NavigationMenu } from "@base-ui-components/react";
 import { Button } from "../button";
-import ThemeSwitch from "../switch";
+// import ThemeSwitch from "../switch";
 import { Drawers } from "./nav-drawer";
 import { NavItems } from "./nav-item";
 
@@ -39,9 +39,9 @@ const Navbar = () => {
             </NavigationMenu.Item>
           </NavigationMenu.List>
 
-          <NavigationMenu.Item className="hidden sm:block">
+          {/* <NavigationMenu.Item className="hidden sm:block">
             <ThemeSwitch />
-          </NavigationMenu.Item>
+          </NavigationMenu.Item> */}
 
           <NavigationMenu.Item className="relative sm:hidden">
             <Drawers items={navLinks} />
