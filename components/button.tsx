@@ -10,7 +10,8 @@ export const Button = ({
   size?: "sm" | "md" | "lg";
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const baseStyles = "px-4 py-2 rounded focus:outline-none focus:ring-2";
+  const baseStyles =
+    "px-4 py-2 rounded focus:outline-none focus:ring-2 flex items-center justify-center transition-colors duration-200 [&>svg]:mx-1";
 
   const variantStyles = {
     primary:

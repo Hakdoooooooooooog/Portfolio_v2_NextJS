@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -86,7 +88,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
           onClick={closeModal}
         >
           <div
-            className="relative max-w-4xl max-h-[80vh] w-full h-full flex items-center justify-center"
+            className="relative max-w-4xl max-h-[75vh] w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
