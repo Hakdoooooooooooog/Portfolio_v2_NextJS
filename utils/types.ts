@@ -28,3 +28,15 @@ export type TNavigationLink = {
   label: string;
   icon?: React.ReactNode;
 };
+
+export type TProjectData = {
+  title: string;
+  tags: string[];
+  description: string;
+  link?: string;
+  metadata?: Partial<{
+    imageSrc: string;
+    imageAlt: string;
+    demoLink: string;
+  }>;
+};
