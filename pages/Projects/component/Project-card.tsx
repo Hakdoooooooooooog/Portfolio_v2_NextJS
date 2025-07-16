@@ -2,7 +2,7 @@ import ImageModal from "@/portfolio/components/modal-image";
 import { TProjectData } from "@/portfolio/utils/types";
 import ProjectCTA from "./Project-cta";
 
-export const ProjectCard = ({
+const ProjectCard = ({
   title,
   tags,
   description,
@@ -41,3 +41,5 @@ export const ProjectCard = ({
     </div>
   );
 };
+
+export default ProjectCard;

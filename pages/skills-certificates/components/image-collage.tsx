@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const ImageCollage = ({
+const ImageCollage = ({
   src,
   alt,
   position,
@@ -36,3 +36,5 @@ export const ImageCollage = ({
     </div>
   );
 };
+
+export default ImageCollage;

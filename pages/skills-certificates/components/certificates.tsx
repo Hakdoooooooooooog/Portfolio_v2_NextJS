@@ -1,12 +1,8 @@
 import ImageModal from "@/portfolio/components/modal-image";
 import { TCertificate } from "@/portfolio/utils/types";
-import { Tags } from "./Tags";
+import Tags from "./tags";
 
-export const Certificates = ({
-  src,
-  alt,
-  metadata,
-}: Omit<TCertificate, "id">) => {
+const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
   return (
     <div className="certificates bg-white dark:bg-gray-800/80 rounded-lg shadow-lg overflow-clip">
       <ImageModal
@@ -31,3 +27,5 @@ export const Certificates = ({
     </div>
   );
 };
+
+export default Certificates;

@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CertificatesData, skillsData } from "../../utils/constants";
-import { ImageCollage } from "./components/image-collage";
-import { Certificates } from "./components/Certificates";
+import ImageCollage from "./components/image-collage";
+import Certificates from "./components/certificates";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,4 +1,4 @@
-export const Tags = ({ tags }: { tags: string[] }) => {
+const Tags = ({ tags }: { tags: string[] }) => {
   return tags.map((tag, index) => (
     <span
       key={index}
@@ -8,3 +8,5 @@ export const Tags = ({ tags }: { tags: string[] }) => {
     </span>
   ));
 };
+
+export default Tags;
