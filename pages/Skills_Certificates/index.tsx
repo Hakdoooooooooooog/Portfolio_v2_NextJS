@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CertificatesData, skillsData } from "../utils/constants";
-import { TCertificate } from "../utils/types";
-import ImageModal from "../components/modal-image";
+import { CertificatesData, skillsData } from "../../utils/constants";
+import { ImageCollage } from "./components/image-collage";
+import { Certificates } from "./components/Certificates";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,80 +112,6 @@ const SkillsAndCertificatesSection = () => {
         </div>
       </section>
     </>
-  );
-};
-
-const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
-  return (
-    <div className="certificates bg-white dark:bg-gray-800/80 rounded-lg shadow-lg overflow-clip">
-      <ImageModal
-        src={src}
-        alt={alt}
-        width={300}
-        height={200}
-        className="w-full h-60 object-cover"
-      />
-      {metadata && (
-        <div className="p-4">
-          <div className="mb-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">
-              Issued: {new Date(metadata.date).toLocaleDateString()}
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Tags tags={metadata.tags} />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const Tags = ({ tags }: { tags: string[] }) => {
-  return tags.map((tag, index) => (
-    <span
-      key={index}
-      className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-    >
-      {tag}
-    </span>
-  ));
-};
-
-const ImageCollage = ({
-  src,
-  alt,
-  position,
-  index,
-  show,
-}: {
-  src: string;
-  alt: string;
-  position: { x: number; y: number };
-  index: number;
-  show: boolean;
-}) => {
-  const baseStyles =
-    "p-2 bg-gray-400/75 border border-amber-600 rounded-lg transition-transform hover:scale-110 duration-300";
-
-  return (
-    <div
-      className="absolute skill-image top-1/2 left-1/2"
-      style={{
-        transform: `translate(-50%, -50%) translate(${position.x}px, ${position.y}px)`,
-        zIndex: 10 + index,
-        opacity: show ? 1 : 0,
-        transition: "opacity 0.5s ease-in-out",
-      }}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        height={75}
-        width={75}
-        className={baseStyles}
-      />
-    </div>
   );
 };
 

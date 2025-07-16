@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Projects from "@/portfolio/pages/Projects";
-import SkillsAndCertificatesSection from "@/portfolio/pages/Skills-and-certificates";
+import SkillsAndCertificatesSection from "@/portfolio/pages/Skills_Certificates";
 
 // Define valid slugs for type safety
 const VALID_SLUGS = ["projects", "skills-and-certificates"] as const;
