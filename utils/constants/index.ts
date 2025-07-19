@@ -6,6 +6,7 @@ import {
 } from "../types";
 
 export const navLinks: TNavigationLink[] = [
+  { label: "About Me", href: "/" },
   { label: "Skills & certificates", href: "/skills-and-certificates" },
   { label: "Projects", href: "/projects" },
   { label: "Experiences", href: "/experiences" },

@@ -13,13 +13,7 @@ const Navbar = () => {
           "fixed z-999 w-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md shadow-lg"
         }
       >
-        <NavigationMenu.List className="flex items-center justify-between p-4">
-          <NavigationMenu.Item>
-            <NavigationMenu.Link href="/" className="text-lg font-bold">
-              My Portfolio
-            </NavigationMenu.Link>
-          </NavigationMenu.Item>
-
+        <NavigationMenu.List className="flex items-center justify-end md:justify-center p-4">
           <NavigationMenu.List className="hidden sm:flex items-center space-x-4">
             <NavItems items={navLinks} />
             <NavigationMenu.Item>
