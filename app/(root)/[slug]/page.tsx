@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import Projects from "@/portfolio/components/projects";
-import SkillsAndCertificatesSection from "@/portfolio/components/skills-certificates";
+import Projects from "@/portfolio/components/Projects";
+import SkillsAndCertificatesSection from "@/portfolio/components/Skills-certificates";
 import Experiences from "@/portfolio/components/Experiences";
 
 export default async function Page({

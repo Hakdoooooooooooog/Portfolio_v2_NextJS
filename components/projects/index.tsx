@@ -1,6 +1,6 @@
 import React from "react";
 import { ProjectsData } from "@/portfolio/utils/constants";
-import ProjectCard from "./component/project-card";
+import ProjectCard from "./components/project-card";
 import { Separator } from "@base-ui-components/react";
 
 const Projects = () => {
