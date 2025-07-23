@@ -1,29 +1,9 @@
 "use client";
 
+import useIsSmallDevice from "@/portfolio/utils/hooks/useIsSmallDevice";
 import { TSkillData } from "@/portfolio/utils/types";
 import Image from "next/image";
-import { useState, useEffect, useMemo } from "react";
-
-const useIsSmallDevice = (breakpoint: number = 768) => {
-  const [isSmallDevice, setIsSmallDevice] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-    const checkScreenSize = () => {
-      setIsSmallDevice(window.innerWidth < breakpoint);
-    };
-
-    // Initial check after mount
-    checkScreenSize();
-
-    window.addEventListener("resize", checkScreenSize);
-
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, [breakpoint]);
-
-  return hasMounted ? isSmallDevice : false;
-};
+import { useMemo } from "react";
 
 const ImageCollage = ({
   src,
@@ -44,7 +24,7 @@ const ImageCollage = ({
   const adjustedPosition = useMemo(() => {
     if (!position) return { x: 0, y: 0 };
 
-    const scaleFactor = isSmallDevice ? 0.6 : 1;
+    const scaleFactor = isSmallDevice ? 0.65 : 1;
     return {
       x: position.x * scaleFactor,
       y: position.y * scaleFactor,
