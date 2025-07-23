@@ -33,12 +33,16 @@ const ExperienceHero = ({
         )}
 
         <div className="flex flex-col w-full flex-1">
-          <h2 className="text-lg font-semibold">{title}</h2>
-          <h3 className="text-sm text-gray-500">{subtitle}</h3>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            {title}
+          </h2>
+          <h3 className="text-sm text-gray-600 dark:text-gray-500">
+            {subtitle}
+          </h3>
         </div>
 
         {/* Location */}
-        <div className="flex-[1_1_100%] flex items-center gap-2 text-sm text-gray-600">
+        <div className="flex-[1_1_100%] flex items-center gap-2 text-sm text-gray-500 dark:text-gray-600">
           <svg
             width="16"
             height="16"
@@ -71,14 +75,14 @@ const ExperienceDescription = ({
         isExpanded ? "" : "line-clamp-2"
       }`}
     >
-      <span className="text-gray-300">{description}</span>
+      <span className="text-gray-700 dark:text-gray-300">{description}</span>
     </div>
   );
 };
 
 const ExperienceTags = ({ tags }: { tags: string[] }) => {
   return (
-    <ul className="flex justify-between flex-wrap text-sm text-gray-500 underline underline-offset-6">
+    <ul className="flex justify-between flex-wrap text-sm text-gray-600 dark:text-gray-500 underline underline-offset-6">
       {tags.map((tag, index) => (
         <li key={index} className="text-sm">
           {tag}
@@ -90,11 +94,11 @@ const ExperienceTags = ({ tags }: { tags: string[] }) => {
 
 const ExperienceSkills = ({ skills }: { skills: string[] }) => {
   return (
-    <ul className="flex justify-start flex-wrap gap-y-2 gap-x-4 text-sm text-black">
+    <ul className="flex justify-start flex-wrap gap-y-2 gap-x-4 text-sm text-gray-800 dark:text-black">
       {skills.map((skill, index) => (
         <li
           key={index}
-          className="p-2 bg-gray-200/75 text-sm rounded-lg shadow-sm hover:bg-gray-300 transition-colors duration-200"
+          className="p-2 bg-blue-100 dark:bg-gray-200/75 text-sm rounded-lg shadow-sm hover:bg-blue-200 dark:hover:bg-gray-300 transition-colors duration-200"
         >
           {skill}
         </li>
@@ -134,7 +138,7 @@ const ExperienceCard = ({
 
   return (
     <>
-      <div className="flex flex-col  justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-amber-500 bg-gray-800/75 shadow-lg">
+      <div className="flex flex-col  justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-amber-500 bg-white/90 dark:bg-gray-800/75 shadow-lg">
         {/* Experience Hero */}
         <ExperienceHero
           title={experienceData.workInfo.title}
@@ -148,14 +152,14 @@ const ExperienceCard = ({
         </div>
 
         {/* Description */}
-        <div className="w-full text-sm text-gray-300">
+        <div className="w-full text-sm text-gray-700 dark:text-gray-300">
           <ExperienceDescription
             description={experienceData.additionalInfo.description || ""}
             isExpanded={isDescriptionExpanded}
           />
           <button
             onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-            className="text-xs text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium underline mt-1"
+            className="text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200 font-medium underline mt-1"
           >
             {isDescriptionExpanded ? "Show less" : "Show more"}
           </button>
@@ -170,7 +174,7 @@ const ExperienceCard = ({
 
         <div className="w-full flex flex-col gap-3 mt-auto">
           {/* Duration */}
-          <span className="text-sm text-gray-300">
+          <span className="text-sm text-gray-600 dark:text-gray-300">
             {experienceData.workInfo.startDate && (
               <span>
                 {experienceData.workInfo.startDate} -{" "}
@@ -186,7 +190,7 @@ const ExperienceCard = ({
               </p>
               <a
                 href={experienceData.additionalInfo.project.projectOutputLink}
-                className="flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 hover:underline transition-all duration-200 font-semibold group"
+                className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline transition-all duration-200 font-semibold group"
                 target="_blank"
                 rel="noopener noreferrer"
               >
