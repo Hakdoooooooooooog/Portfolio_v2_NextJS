@@ -4,7 +4,7 @@ import { TNavigationLink } from "@/portfolio/utils/types";
 import { NavigationMenu } from "@base-ui-components/react";
 import { usePathname } from "next/navigation";
 
-export const NavItems = ({ items }: { items: TNavigationLink[] }) => {
+const NavItems = ({ items }: { items: TNavigationLink[] }) => {
   const pathname = usePathname();
 
   return items.map((item) => {
@@ -31,3 +31,5 @@ export const NavItems = ({ items }: { items: TNavigationLink[] }) => {
     );
   });
 };
+
+export default NavItems;

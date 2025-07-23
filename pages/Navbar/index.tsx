@@ -2,8 +2,8 @@ import { navLinks } from "@/portfolio/utils/constants";
 import { NavigationMenu } from "@base-ui-components/react";
 import { Button } from "../../components/button";
 // import ThemeSwitch from "../switch";
-import { Drawers } from "./components/nav-drawer";
-import { NavItems } from "./components/nav-item";
+import Drawers from "./components/nav-drawer";
+import NavItems from "./components/nav-item";
 
 const Navbar = () => {
   return (
