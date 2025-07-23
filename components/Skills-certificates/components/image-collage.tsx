@@ -2,28 +2,27 @@
 
 import { TSkillData } from "@/portfolio/utils/types";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
-// Custom hook to detect small viewport
 const useIsSmallDevice = (breakpoint: number = 768) => {
   const [isSmallDevice, setIsSmallDevice] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const checkScreenSize = () => {
       setIsSmallDevice(window.innerWidth < breakpoint);
     };
 
-    // Initial check
+    // Initial check after mount
     checkScreenSize();
 
-    // Add event listener
     window.addEventListener("resize", checkScreenSize);
 
-    // Cleanup
     return () => window.removeEventListener("resize", checkScreenSize);
   }, [breakpoint]);
 
-  return isSmallDevice;
+  return hasMounted ? isSmallDevice : false;
 };
 
 const ImageCollage = ({
@@ -41,15 +40,18 @@ const ImageCollage = ({
   // Adjust size based on device
   const imageSize = isSmallDevice ? 50 : 75;
 
-  // Scale down position for small devices
-  const adjustedPosition = position
-    ? {
-        x: isSmallDevice ? position.x * 0.6 : position.x,
-        y: isSmallDevice ? position.y * 0.6 : position.y,
-      }
-    : { x: 0, y: 0 };
+  // Use useMemo to ensure position calculations are stable
+  const adjustedPosition = useMemo(() => {
+    if (!position) return { x: 0, y: 0 };
 
-  const baseStyles = `p-2 bg-gray-400/75 border border-amber-600 rounded-lg transition-transform hover:scale-110 duration-300 ${
+    const scaleFactor = isSmallDevice ? 0.9 : 1;
+    return {
+      x: position.x * scaleFactor,
+      y: position.y * scaleFactor,
+    };
+  }, [position, isSmallDevice]);
+
+  const baseStyles = `bg-gray-400/75 border border-amber-600 rounded-lg transition-transform hover:scale-110 duration-300 ${
     isSmallDevice ? "p-1" : "p-2"
   }`;
 
