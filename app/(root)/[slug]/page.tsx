@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
+import Experiences from "@/portfolio/components/Experiences";
 import Projects from "@/portfolio/components/Projects";
 import SkillsAndCertificatesSection from "@/portfolio/components/Skills-certificates";
-import Experiences from "@/portfolio/components/Experiences";
 
 // This generates static params at build time
 export async function generateStaticParams() {
