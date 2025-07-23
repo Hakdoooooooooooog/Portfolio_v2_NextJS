@@ -92,7 +92,7 @@ const HomeSection = () => {
       <section
         id="hero"
         ref={refSection}
-        className={`relative px-8 w-full min-h-screen opacity-0 pt-20 md:py-0`}
+        className={`relative px-8 size-full opacity-0 py-20 md:py-0`}
       >
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 h-full max-w-6xl m-auto text-center md:text-left">
           <div className="flex-1 order-2 md:order-1 px-4">
