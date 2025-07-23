@@ -82,7 +82,7 @@ const ExperienceDescription = ({
 
 const ExperienceTags = ({ tags }: { tags: string[] }) => {
   return (
-    <ul className="flex justify-between flex-wrap text-sm text-gray-600 dark:text-gray-500 underline underline-offset-6">
+    <ul className="flex justify-between flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-500 underline underline-offset-6">
       {tags.map((tag, index) => (
         <li key={index} className="text-sm">
           {tag}
