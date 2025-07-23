@@ -92,7 +92,7 @@ const HomeSection = () => {
       <section
         id="hero"
         ref={refSection}
-        className={`relative px-8 size-full opacity-0 py-20 md:py-0`}
+        className={`relative px-4 size-full opacity-0 py-20 md:py-0`}
       >
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 h-full max-w-6xl m-auto text-center md:text-left">
           <div className="flex-1 order-2 md:order-1 px-4">
@@ -114,19 +114,18 @@ const HomeSection = () => {
               and frameworks to help me improve my skills as a developer.
             </p>
           </div>
-          <div className="relative flex-1 w-full max-w-xs order-1 md:order-2">
-            <div className="relative h-[20rem]">
-              <Image
-                priority
-                loading="eager"
-                src="/images/profile.jpg"
-                alt="Profile Picture"
-                fill
-                sizes="(max-width: 768px) 320px, (max-width: 1200px) 320px, 320px"
-                className="relative z-1 rounded-lg m-auto"
-              />
-              <span className="absolute z-0 top-4 left-4 border-3 border-gray-500 text-white text-xs px-2 py-1 rounded size-full" />
-            </div>
+          <div className="relative flex-1 w-full max-w-[250px] order-1 md:order-2">
+            <Image
+              priority
+              loading="eager"
+              src="/images/profile.jpg"
+              alt="Profile Picture"
+              width={250}
+              height={250}
+              sizes="(max-width: 768px) 320px, (max-width: 1200px) 320px, 320px"
+              className="relative rounded-md w-full z-1 h-auto shadow-lg object-cover"
+            />
+            <span className="absolute z-0 top-4 left-4 border-3 border-gray-500 text-white text-xs px-2 py-1 rounded size-full" />
           </div>
         </div>
 
