@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import ImageModal from "@/portfolio/components/modal-image";
 import { TProjectData } from "@/portfolio/utils/types";
 import ProjectCTA from "./project-cta";
@@ -9,6 +12,8 @@ const ProjectCard = ({
   link,
   metadata,
 }: TProjectData) => {
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+
   return (
     <div className="flex flex-col sm:flex-row flex-wrap gap-12 shadow-xl p-4 bg-blue-50/75 dark:bg-gray-900/75 rounded-lg">
       <div className="flex-[1_0_30%]">
@@ -25,7 +30,21 @@ const ProjectCard = ({
               </span>
             ))}
         </div>
-        <p className="text-gray-600 dark:text-gray-400">{description}</p>
+        <div className="text-gray-600 dark:text-gray-400">
+          <div
+            className={`leading-relaxed transition-all duration-300 ${
+              isDescriptionExpanded ? "" : "line-clamp-2"
+            }`}
+          >
+            <span>{description}</span>
+          </div>
+          <button
+            onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+            className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 font-medium underline mt-1"
+          >
+            {isDescriptionExpanded ? "Show less" : "Show more"}
+          </button>
+        </div>
       </div>
       {metadata && metadata.imageSrc && (
         <div className="flex-[1_0_40%] relative m-auto p-2">

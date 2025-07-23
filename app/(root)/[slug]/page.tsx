@@ -3,6 +3,15 @@ import Projects from "@/portfolio/components/Projects";
 import SkillsAndCertificatesSection from "@/portfolio/components/Skills-certificates";
 import Experiences from "@/portfolio/components/Experiences";
 
+// This generates static params at build time
+export async function generateStaticParams() {
+  return [
+    { slug: "projects" },
+    { slug: "skills-and-certificates" },
+    { slug: "experiences" },
+  ];
+}
+
 export default async function Page({
   params,
 }: {
@@ -10,7 +19,6 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  // Create a Promise that resolves after 2 seconds to simulate loading
   await new Promise((resolve) => {
     setTimeout(() => {
       resolve(void 0);
@@ -33,3 +41,6 @@ export default async function Page({
 
   return <div className="relative w-full m-auto">{renderSection(slug)}</div>;
 }
+
+// Force static generation for these routes
+export const dynamicParams = false;
