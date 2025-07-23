@@ -5,6 +5,10 @@
   --foreground: hsl(221 83% 6%);
 }
 
+/* * * * * {
+  outline: 1px solid red;
+} */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
