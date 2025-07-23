@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import Experiences from "@/portfolio/components/Experiences";
-import Projects from "@/portfolio/components/Projects";
-import SkillsAndCertificatesSection from "@/portfolio/components/Skills-certificates";
+import Experiences from "@/portfolio/pages/Experiences";
+import Projects from "@/portfolio/pages/Projects";
+import SkillsAndCertificatesSection from "@/portfolio/pages/Skills-certificates";
 
 export async function generateStaticParams() {
   return [

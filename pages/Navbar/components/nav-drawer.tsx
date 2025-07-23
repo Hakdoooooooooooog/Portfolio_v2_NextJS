@@ -3,7 +3,7 @@
 import { TNavigationLink } from "@/portfolio/utils/types";
 import { NavigationMenu } from "@base-ui-components/react";
 import { useState, useRef, useEffect } from "react";
-import { Button } from "../../button";
+import { Button } from "../../../components/button";
 // import ThemeSwitch from "../switch";
 import { NavItems } from "./nav-item";
 
