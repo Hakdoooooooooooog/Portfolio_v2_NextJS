@@ -47,13 +47,13 @@ const ProjectCard = ({
         </div>
       </div>
       {metadata && metadata.imageSrc && (
-        <div className="flex-[1_0_40%] relative m-auto p-2">
+        <div className="flex-[1_0_35%] lg:flex-[1_0_auto] relative m-auto p-2">
           <ImageModal
             src={metadata.imageSrc}
             alt={metadata.imageAlt || "Project image"}
             width={300}
             height={200}
-            className="w-full h-60 object-cover rounded-lg"
+            className=" object-cover rounded-lg"
           />
         </div>
       )}
