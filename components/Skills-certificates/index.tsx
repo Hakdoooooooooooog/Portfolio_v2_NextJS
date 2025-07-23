@@ -65,7 +65,7 @@ const SkillsAndCertificatesSection = () => {
 
   return (
     <>
-      <section className="w-full max-w-5xl mx-auto min-h-screen flex flex-wrap gap-8 items-center justify-center">
+      <section className="w-full max-w-5xl m-auto min-h-screen flex flex-wrap gap-8 items-center justify-center py-20 md:py-0">
         <h2
           className={`w-full md:w-auto md:flex-1 text-2xl font-bold text-center transition-opacity duration-500 ${
             showImages ? "opacity-100" : "opacity-0"
