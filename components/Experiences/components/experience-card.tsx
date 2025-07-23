@@ -28,114 +28,111 @@ export type TExperienceData = {
 const ExperienceCard = ({
   experienceData,
 }: {
-  experienceData: TExperienceData[];
+  experienceData: TExperienceData;
 }) => {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
   return (
     <>
-      {experienceData.map((experience, index) => (
-        <div
-          key={index}
-          className="flex flex-col  justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-amber-500 bg-gray-800/75 shadow-lg"
-        >
-          {/* Experience Hero */}
-          <ExperienceHero
-            title={experience.workInfo.title}
-            subtitle={experience.workInfo.subtitle}
-            location={experience.workInfo.location}
-            imageData={experience.workInfo.imageData}
-          />
-          {/* Tags */}
-          <div className="w-full">
-            <ExperienceTags tags={experience.additionalInfo.workTags || []} />
-          </div>
-
-          {/* Description */}
-          <div className="w-full text-sm text-gray-300">
-            <ExperienceDescription
-              description={experience.additionalInfo.description || ""}
-              isExpanded={isDescriptionExpanded}
-            />
-            <button
-              onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-              className="text-xs text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium underline mt-1"
-            >
-              {isDescriptionExpanded ? "Show less" : "Show more"}
-            </button>
-          </div>
-
-          {/* Skills Acquired */}
-          <div className="w-full">
-            <ExperienceSkills skills={experience.additionalInfo.skills || []} />
-          </div>
-
-          <div className="w-full flex flex-col gap-3 mt-auto">
-            {/* Duration */}
-            <span className="text-sm text-gray-300">
-              {experience.workInfo.startDate && (
-                <span>
-                  {experience.workInfo.startDate} -{" "}
-                  {experience.workInfo.endDate || "Present"}
-                </span>
-              )}
-            </span>
-
-            {experience.additionalInfo.project && (
-              <div className="border border-amber-400/30 bg-amber-500/10 rounded-lg p-3">
-                <p className="text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wide">
-                  📋 Internship Output
-                </p>
-                <a
-                  href={experience.additionalInfo.project.projectOutputLink}
-                  className="flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 hover:underline transition-all duration-200 font-semibold group"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="group-hover:scale-110 transition-transform duration-200"
-                  >
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <polyline
-                      points="15,3 21,3 21,9"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <line
-                      x1="10"
-                      y1="14"
-                      x2="21"
-                      y2="3"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span className="group-hover:translate-x-1 transition-transform duration-200">
-                    View My Project Output
-                  </span>
-                </a>
-              </div>
-            )}
-          </div>
+      <div className="flex flex-col  justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-amber-500 bg-gray-800/75 shadow-lg">
+        {/* Experience Hero */}
+        <ExperienceHero
+          title={experienceData.workInfo.title}
+          subtitle={experienceData.workInfo.subtitle}
+          location={experienceData.workInfo.location}
+          imageData={experienceData.workInfo.imageData}
+        />
+        {/* Tags */}
+        <div className="w-full">
+          <ExperienceTags tags={experienceData.additionalInfo.workTags || []} />
         </div>
-      ))}
+
+        {/* Description */}
+        <div className="w-full text-sm text-gray-300">
+          <ExperienceDescription
+            description={experienceData.additionalInfo.description || ""}
+            isExpanded={isDescriptionExpanded}
+          />
+          <button
+            onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+            className="text-xs text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium underline mt-1"
+          >
+            {isDescriptionExpanded ? "Show less" : "Show more"}
+          </button>
+        </div>
+
+        {/* Skills Acquired */}
+        <div className="w-full">
+          <ExperienceSkills
+            skills={experienceData.additionalInfo.skills || []}
+          />
+        </div>
+
+        <div className="w-full flex flex-col gap-3 mt-auto">
+          {/* Duration */}
+          <span className="text-sm text-gray-300">
+            {experienceData.workInfo.startDate && (
+              <span>
+                {experienceData.workInfo.startDate} -{" "}
+                {experienceData.workInfo.endDate || "Present"}
+              </span>
+            )}
+          </span>
+
+          {experienceData.additionalInfo.project && (
+            <div className="border border-amber-400/30 bg-amber-500/10 rounded-lg p-3">
+              <p className="text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wide">
+                📋 Internship Output
+              </p>
+              <a
+                href={experienceData.additionalInfo.project.projectOutputLink}
+                className="flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 hover:underline transition-all duration-200 font-semibold group"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="group-hover:scale-110 transition-transform duration-200"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                  <polyline
+                    points="15,3 21,3 21,9"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                  <line
+                    x1="10"
+                    y1="14"
+                    x2="21"
+                    y2="3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="group-hover:translate-x-1 transition-transform duration-200">
+                  View My Project Output
+                </span>
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 };
