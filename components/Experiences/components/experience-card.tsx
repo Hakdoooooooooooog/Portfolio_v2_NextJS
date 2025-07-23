@@ -3,6 +3,106 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+const ExperienceHero = ({
+  title,
+  subtitle,
+  location,
+  imageData,
+}: {
+  title: string;
+  subtitle: string;
+  location: string;
+  imageData?: {
+    src: string;
+    alt: string;
+  };
+}) => {
+  return (
+    <>
+      {/* Work Image */}
+      <div className="flex items-start gap-y-2 gap-x-4 flex-wrap">
+        {/* Optional */}
+        {imageData && (
+          <Image
+            src={imageData.src}
+            alt={imageData.alt}
+            width={75}
+            height={75}
+            className="rounded-md object-cover flex-shrink-0"
+          />
+        )}
+
+        <div className="flex flex-col w-full flex-1">
+          <h2 className="text-lg font-semibold">{title}</h2>
+          <h3 className="text-sm text-gray-500">{subtitle}</h3>
+        </div>
+
+        {/* Location */}
+        <div className="flex-[1_1_100%] flex items-center gap-2 text-sm text-gray-600">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              fill="currentColor"
+            />
+          </svg>
+          <p>{location}</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const ExperienceDescription = ({
+  description,
+  isExpanded,
+}: {
+  description: string;
+  isExpanded: boolean;
+}) => {
+  return (
+    <div
+      className={`leading-relaxed transition-all duration-300 ${
+        isExpanded ? "" : "line-clamp-2"
+      }`}
+    >
+      <span className="text-gray-300">{description}</span>
+    </div>
+  );
+};
+
+const ExperienceTags = ({ tags }: { tags: string[] }) => {
+  return (
+    <ul className="flex justify-between flex-wrap text-sm text-gray-500 underline underline-offset-6">
+      {tags.map((tag, index) => (
+        <li key={index} className="text-sm">
+          {tag}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const ExperienceSkills = ({ skills }: { skills: string[] }) => {
+  return (
+    <ul className="flex justify-start flex-wrap gap-y-2 gap-x-4 text-sm text-black">
+      {skills.map((skill, index) => (
+        <li
+          key={index}
+          className="p-2 bg-gray-200/75 text-sm rounded-lg shadow-sm hover:bg-gray-300 transition-colors duration-200"
+        >
+          {skill}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 export type TExperienceData = {
   workInfo: {
     title: string;
@@ -134,106 +234,6 @@ const ExperienceCard = ({
         </div>
       </div>
     </>
-  );
-};
-
-const ExperienceHero = ({
-  title,
-  subtitle,
-  location,
-  imageData,
-}: {
-  title: string;
-  subtitle: string;
-  location: string;
-  imageData?: {
-    src: string;
-    alt: string;
-  };
-}) => {
-  return (
-    <>
-      {/* Work Image */}
-      <div className="flex items-start gap-y-2 gap-x-4 flex-wrap">
-        {/* Optional */}
-        {imageData && (
-          <Image
-            src={imageData.src}
-            alt={imageData.alt}
-            width={75}
-            height={75}
-            className="rounded-md object-cover flex-shrink-0"
-          />
-        )}
-
-        <div className="flex flex-col w-full flex-1">
-          <h2 className="text-lg font-semibold">{title}</h2>
-          <h3 className="text-sm text-gray-500">{subtitle}</h3>
-        </div>
-
-        {/* Location */}
-        <div className="flex-[1_1_100%] flex items-center gap-2 text-sm text-gray-600">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-              fill="currentColor"
-            />
-          </svg>
-          <p>{location}</p>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const ExperienceDescription = ({
-  description,
-  isExpanded,
-}: {
-  description: string;
-  isExpanded: boolean;
-}) => {
-  return (
-    <div
-      className={`leading-relaxed transition-all duration-300 ${
-        isExpanded ? "" : "line-clamp-2"
-      }`}
-    >
-      <span className="text-gray-300">{description}</span>
-    </div>
-  );
-};
-
-const ExperienceTags = ({ tags }: { tags: string[] }) => {
-  return (
-    <ul className="flex justify-between flex-wrap text-sm text-gray-500 underline underline-offset-6">
-      {tags.map((tag, index) => (
-        <li key={index} className="text-sm">
-          {tag}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const ExperienceSkills = ({ skills }: { skills: string[] }) => {
-  return (
-    <ul className="flex justify-start flex-wrap gap-y-2 gap-x-4 text-sm text-black">
-      {skills.map((skill, index) => (
-        <li
-          key={index}
-          className="p-2 bg-gray-200/75 text-sm rounded-lg shadow-sm hover:bg-gray-300 transition-colors duration-200"
-        >
-          {skill}
-        </li>
-      ))}
-    </ul>
   );
 };
 

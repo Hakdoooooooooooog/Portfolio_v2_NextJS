@@ -52,9 +52,10 @@ const ExperienceData: TExperienceData[] = [
 const Experiences = () => {
   return (
     <section className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(500px,1fr))] gap-y-8 gap-x-4 py-24 items-start justify-items-center max-w-7xl m-auto">
-      {ExperienceData.map((experienceData, index) => (
-        <ExperienceCard key={index} experienceData={experienceData} />
-      ))}
+      {ExperienceData &&
+        ExperienceData.map((experienceData, index) => (
+          <ExperienceCard key={index} experienceData={experienceData} />
+        ))}
     </section>
   );
 };
