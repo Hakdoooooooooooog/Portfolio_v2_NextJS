@@ -3,7 +3,6 @@ import Experiences from "@/portfolio/components/Experiences";
 import Projects from "@/portfolio/components/Projects";
 import SkillsAndCertificatesSection from "@/portfolio/components/Skills-certificates";
 
-// This generates static params at build time
 export async function generateStaticParams() {
   return [
     { slug: "projects" },
@@ -41,6 +40,3 @@ export default async function Page({
 
   return <div className="relative w-full m-auto">{renderSection(slug)}</div>;
 }
-
-// Force static generation for these routes
-export const dynamicParams = false;
