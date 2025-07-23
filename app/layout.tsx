@@ -18,6 +18,42 @@ export const metadata: Metadata = {
   title: "Hicap's Portfolio",
   description:
     "Welcome to my portfolio! Explore my projects, skills, and experiences.",
+  authors: [{ name: "Darenz Hicap" }],
+  keywords: [
+    "Portfolio",
+    "Web Development",
+    "Projects",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Full Stack Developer",
+  ],
+  creator: "Darenz Hicap",
+  metadataBase: new URL("https://hicapdarenz.netlify.app"),
+  openGraph: {
+    title: "Hicap's Portfolio",
+    description:
+      "Welcome to my portfolio! Explore my projects, skills, and experiences.",
+    url: "https://hicapdarenz.netlify.app",
+    siteName: "Hicap's Portfolio",
+    images: [
+      {
+        url: "/images/site-thumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "Hicap's Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hicap's Portfolio",
+    description:
+      "Welcome to my portfolio! Explore my projects, skills, and experiences.",
+    images: ["/images/site-thumbnail.png"],
+  },
 };
 
 export default function RootLayout({
