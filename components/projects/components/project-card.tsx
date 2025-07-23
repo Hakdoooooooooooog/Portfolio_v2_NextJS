@@ -51,9 +51,7 @@ const ProjectCard = ({
           <ImageModal
             src={metadata.imageSrc}
             alt={metadata.imageAlt || "Project image"}
-            width={300}
-            height={200}
-            className=" object-cover rounded-lg"
+            className="w-full object-cover rounded-lg"
           />
         </div>
       )}
