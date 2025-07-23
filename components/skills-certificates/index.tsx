@@ -65,7 +65,7 @@ const SkillsAndCertificatesSection = () => {
 
   return (
     <>
-      <section className="w-full max-w-5xl mx-auto min-h-screen flex flex-wrap gap-8 items-center justify-center p-4">
+      <section className="w-full max-w-5xl mx-auto min-h-screen flex flex-wrap gap-8 items-center justify-center">
         <h2
           className={`w-full md:w-auto md:flex-1 text-2xl font-bold text-center transition-opacity duration-500 ${
             showImages ? "opacity-100" : "opacity-0"
@@ -75,7 +75,7 @@ const SkillsAndCertificatesSection = () => {
         </h2>
         <div
           ref={containerRef}
-          className="w-full md:w-96 md:flex-shrink-0 relative h-96 md:h-80"
+          className="w-full md:w-[500px] md:flex-shrink-0 relative h-96 md:h-96"
         >
           {skillsData.map((skill, index) => (
             <ImageCollage
