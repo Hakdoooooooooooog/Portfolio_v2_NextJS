@@ -44,7 +44,7 @@ const ImageCollage = ({
   const adjustedPosition = useMemo(() => {
     if (!position) return { x: 0, y: 0 };
 
-    const scaleFactor = isSmallDevice ? 0.9 : 1;
+    const scaleFactor = isSmallDevice ? 0.6 : 1;
     return {
       x: position.x * scaleFactor,
       y: position.y * scaleFactor,
