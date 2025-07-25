@@ -5,7 +5,7 @@ import { Separator } from "@base-ui-components/react";
 
 const Projects = () => {
   return (
-    <section className="w-full max-w-6xl py-24 mx-auto">
+    <section className="min-h-screen w-full max-w-6xl py-24 mx-auto">
       <div className="flex flex-col gap-4 w-full bg-gray-300/75 dark:bg-gray-800/75 p-6 rounded-r-md rounded-md">
         {ProjectsData.map((project, index) => (
           <React.Fragment key={index}>
