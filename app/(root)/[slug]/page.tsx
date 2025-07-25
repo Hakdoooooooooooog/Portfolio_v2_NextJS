@@ -18,12 +18,6 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(void 0);
-    }, 1000);
-  });
-
   const renderSection = (slug: string) => {
     switch (slug) {
       case "projects":

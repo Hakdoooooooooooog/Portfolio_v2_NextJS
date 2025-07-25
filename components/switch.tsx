@@ -7,27 +7,32 @@ import { useShallow } from "zustand/shallow";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
+  const [cachedTheme, setCachedTheme] = useState<string>("light");
   const { theme, setTheme } = useThemeStore(
     useShallow((state) => ({
       theme: state.theme,
       setTheme: state.setTheme,
     }))
   );
+
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
+    setCachedTheme(newTheme);
   };
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    setCachedTheme(theme);
+  }, [theme]);
+
+  // Use cached theme for consistent rendering
+  const currentTheme = mounted ? theme : cachedTheme;
 
   if (!mounted) {
     return (
       <div className="flex items-center">
-        <span className="text-sm text-gray-700 dark:text-gray-300 mr-2">
-          Loading...
-        </span>
+        <div className="mr-2 w-5 h-5 rounded-full bg-gray-300 dark:bg-gray-600 animate-pulse"></div>
         <Switch.Root
           checked={false}
           className={
@@ -45,7 +50,7 @@ const ThemeSwitch = () => {
   return (
     <div className="flex items-center">
       <div className="mr-2">
-        {theme === "light" ? (
+        {currentTheme === "light" ? (
           <svg
             className="w-5 h-5 text-gray-800 dark:text-gray-300"
             fill="currentColor"
@@ -69,14 +74,14 @@ const ThemeSwitch = () => {
       </div>
       <Switch.Root
         onCheckedChange={toggleTheme}
-        checked={theme === "dark"}
+        checked={currentTheme === "dark"}
         className={
           "w-10 h-6 bg-gray-300 dark:bg-gray-700 rounded-full relative transition-colors duration-300 cursor-pointer"
         }
       >
         <Switch.Thumb
           className={`absolute top-1 left-1 w-4 h-4 bg-white dark:bg-gray-800 rounded-full shadow-md transform transition-transform duration-300
-          ${theme === "dark" ? "translate-x-4" : "translate-x-0"}`}
+          ${currentTheme === "dark" ? "translate-x-4" : "translate-x-0"}`}
         />
       </Switch.Root>
     </div>
