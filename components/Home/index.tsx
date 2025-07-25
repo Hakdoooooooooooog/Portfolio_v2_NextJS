@@ -96,11 +96,11 @@ const HomeSection = () => {
       >
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 h-full max-w-6xl m-auto text-center md:text-left">
           <div className="flex-1 order-2 md:order-1 px-4">
-            <h1 className="text-2xl md:text-3xl font-bold mb-4">
+            <h1 className="text-2xl md:text-3xl font-bold mb-4 dark:text-white text-gray-900">
               Hello! My name is{" "}
               <span ref={refSpanText} className="text-blue-500 relative" />
             </h1>
-            <p className="text-sm md:text-md leading-8 mb-4 text-justify">
+            <p className="text-sm md:text-md leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
               A 22-years old web developer, lived in Rosario, Cavite,
               Philippines. A Bachelor of Science in Information Technology in
               Cavite State University - Main Campus{" "}
@@ -135,7 +135,7 @@ const HomeSection = () => {
         >
           <button
             onClick={toggleDrawer}
-            className="absolute -left-[41px] top-1/2 transform -translate-y-1/2 p-2 rounded-l-lg bg-gray-900 hover:bg-gray-600 border border-gray-200 dark:border-gray-700 border-r-0 text-white transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="absolute -left-[41px] top-1/2 transform -translate-y-1/2 p-2 rounded-l-lg bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-700 border-r-0 text-gray-900 dark:text-white transition-all duration-300 shadow-lg hover:shadow-xl"
             aria-label="Toggle social links"
           >
             <svg

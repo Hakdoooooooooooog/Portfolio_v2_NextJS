@@ -31,7 +31,7 @@ const ImageCollage = ({
     };
   }, [position, isSmallDevice]);
 
-  const baseStyles = `bg-gray-400/75 border border-amber-600 rounded-lg transition-transform hover:scale-110 duration-300 ${
+  const baseStyles = `bg-gray-300/75 dark:bg-gray-800/75 border border-amber-600 rounded-lg transition-transform hover:scale-110 duration-300 ${
     isSmallDevice ? "p-1" : "p-2"
   }`;
 

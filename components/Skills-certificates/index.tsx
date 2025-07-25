@@ -67,7 +67,7 @@ const SkillsAndCertificatesSection = () => {
     <>
       <section className="w-full max-w-5xl m-auto min-h-screen flex flex-wrap gap-8 items-center justify-center py-20 md:py-0">
         <h2
-          className={`w-full md:w-auto md:flex-1 text-2xl font-bold text-center transition-opacity duration-500 ${
+          className={`w-full md:w-auto md:flex-1 text-2xl font-bold text-center transition-opacity duration-500 text-gray-700 dark:text-gray-300 ${
             showImages ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -89,7 +89,9 @@ const SkillsAndCertificatesSection = () => {
       </section>
 
       <section className="w-full max-w-5xl mx-auto min-h-screen flex flex-col items-center gap-8 pb-20">
-        <h2 className="text-2xl font-bold text-center pb-12">Certificates</h2>
+        <h2 className="text-2xl font-bold text-center pb-12 text-gray-700 dark:text-gray-300">
+          Certificates
+        </h2>
         <div
           ref={certificatesRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"

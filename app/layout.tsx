@@ -3,6 +3,8 @@ import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
+import ThemeProvider from "../components/theme-provider";
+import ThemeScript from "../components/theme-script";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -17,7 +19,7 @@ const notoSansMono = Noto_Sans_Mono({
 export const metadata: Metadata = {
   title: "Hicap's Portfolio",
   description:
-    "Welcome to my portfolio! Explore my projects, skills, and experiences.",
+    "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer.",
   authors: [{ name: "Darenz Hicap" }],
   keywords: [
     "Portfolio",
@@ -27,21 +29,23 @@ export const metadata: Metadata = {
     "React",
     "TypeScript",
     "Full Stack Developer",
+    "Darenz Hicap",
   ],
   creator: "Darenz Hicap",
   metadataBase: new URL("https://hicapdarenz.netlify.app"),
   openGraph: {
-    title: "Hicap's Portfolio",
+    title: "Hicap's Portfolio - Full Stack Developer",
     description:
-      "Welcome to my portfolio! Explore my projects, skills, and experiences.",
+      "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer specializing in React, Next.js, and TypeScript.",
     url: "https://hicapdarenz.netlify.app",
     siteName: "Hicap's Portfolio",
     images: [
       {
-        url: "/images/site-thumbnail.png",
+        url: "https://hicapdarenz.netlify.app/images/site-thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Hicap's Portfolio Preview",
+        alt: "Hicap's Portfolio - Full Stack Developer Showcase",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -49,10 +53,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hicap's Portfolio",
+    title: "Hicap's Portfolio - Full Stack Developer",
     description:
-      "Welcome to my portfolio! Explore my projects, skills, and experiences.",
-    images: ["/images/site-thumbnail.png"],
+      "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer.",
+    images: ["https://hicapdarenz.netlify.app/images/site-thumbnail.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -62,13 +70,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className="transition-colors duration-300 ease-in-out"
+    >
+      <head>
+        <ThemeScript />
+      </head>
       <body
         className={`${notoSans.variable} ${notoSansMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

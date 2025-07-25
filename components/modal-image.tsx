@@ -58,9 +58,11 @@ const ImageModal: React.FC<ImageModalProps> = ({
           alt={alt}
           width={width}
           height={height}
+          priority
+          sizes="(max-width: 768px) 300px, (max-width: 1200px) 500px, 300px"
           className={`${className}`}
         />
-        <div className="absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="text-white text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

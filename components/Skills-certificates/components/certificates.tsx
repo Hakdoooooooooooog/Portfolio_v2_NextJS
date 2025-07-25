@@ -7,7 +7,7 @@ const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
   const isSmallDevice = useIsSmallDevice();
 
   return (
-    <div className="certificates bg-white dark:bg-gray-800/80 rounded-lg shadow-lg overflow-clip">
+    <div className="certificates bg-gray-300/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-clip">
       <div className="relative">
         <ImageModal
           src={src}

@@ -5,6 +5,9 @@
   --foreground: hsl(221 83% 6%);
 }
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
+
 /* * * * * {
   outline: 1px solid red;
 } */
@@ -18,13 +21,24 @@
 
 @layer components {
   .bg-grid-pattern {
+    background-size: 50px 50px;
+
+    /* Default/Light theme styles */
     background-image: linear-gradient(
         rgba(255, 255, 255, 0.1) 1px,
         transparent 1px
       ),
       linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
     background-color: var(--background);
+
+    @variant light {
+      background-color: hsl(216 46% 91%);
+      background-image: linear-gradient(
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        ),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    }
 
     @variant dark {
       background-color: hsl(224 74% 2%);
