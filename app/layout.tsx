@@ -32,16 +32,16 @@ export const metadata: Metadata = {
     "Darenz Hicap",
   ],
   creator: "Darenz Hicap",
-  metadataBase: new URL("https://hicapdarenz.netlify.app"),
+  metadataBase: new URL("https://darenzhicap.netlify.app"),
   openGraph: {
     title: "Hicap's Portfolio - Full Stack Developer",
     description:
       "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer specializing in React, Next.js, and TypeScript.",
-    url: "https://hicapdarenz.netlify.app",
+    url: "https://darenzhicap.netlify.app",
     siteName: "Hicap's Portfolio",
     images: [
       {
-        url: "https://hicapdarenz.netlify.app/images/site-thumbnail.png",
+        url: "https://darenzhicap.netlify.app/images/site-thumbnail.png",
         width: 1200,
         height: 630,
         alt: "Hicap's Portfolio - Full Stack Developer Showcase",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Hicap's Portfolio - Full Stack Developer",
     description:
       "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer.",
-    images: ["https://hicapdarenz.netlify.app/images/site-thumbnail.png"],
+    images: ["https://darenzhicap.netlify.app/images/site-thumbnail.png"],
   },
   robots: {
     index: true,
