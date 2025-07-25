@@ -59,7 +59,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
           width={width}
           height={height}
           priority
-          sizes="(max-width: 768px) 300px, (max-width: 1200px) 500px, 300px"
+          sizes="(max-width: 768px) 300px, (max-width: 1200px) 300px, 300px"
           className={`${className}`}
         />
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
