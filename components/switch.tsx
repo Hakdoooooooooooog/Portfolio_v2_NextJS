@@ -26,6 +26,12 @@ const ThemeSwitch = () => {
     setCachedTheme(theme);
   }, [theme]);
 
+  useEffect(() => {
+    if (mounted) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+  }, [theme, mounted]);
+
   // Use cached theme for consistent rendering
   const currentTheme = mounted ? theme : cachedTheme;
 
