@@ -5,6 +5,13 @@
   --foreground: hsl(221 83% 6%);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(224 74% 2%);
+    --foreground: hsl(216 100% 97%);
+  }
+}
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @custom-variant light (&:where([data-theme=light], [data-theme=light] *));
 
@@ -48,13 +55,6 @@
         ),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: hsl(224 74% 2%);
-    --foreground: hsl(216 100% 97%);
   }
 }
 
