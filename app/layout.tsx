@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       {
         url: "https://darenzhicap.netlify.app/images/site-thumbnail.png",
         width: 1200,
-        height: 630,
+        height: 720,
         alt: "Hicap's Portfolio - Full Stack Developer Showcase",
         type: "image/png",
       },
