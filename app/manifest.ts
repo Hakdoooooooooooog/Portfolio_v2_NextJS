@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Hicap's Portfolio",
     short_name: "Hicap Portfolio",
     description:
-      "Portfolio of Hicap showcasing projects, skills, and experiences.",
+      "My personal portfolio showcasing my skills and projects as a Full Stack Developer.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
