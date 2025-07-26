@@ -15,24 +15,24 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en",
     icons: [
       {
-        src: "/images/android-chrome-192x192.png",
+        src: "/images/pwa-icons/android-chrome-192x192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "/images/android-chrome-512x512.png",
+        src: "/images/pwa-icons/android-chrome-512x512.png",
         sizes: "512x512",
         type: "image/png",
       },
       {
-        src: "/images/apple-touch-icon.png",
+        src: "/images/pwa-icons/apple-touch-icon.png",
         sizes: "180x180",
         type: "image/png",
       },
     ],
     screenshots: [
       {
-        src: "/images/desktop-screenshot.png",
+        src: "/images/pwa-icons/desktop-screenshot.png",
         sizes: "1200x630",
         type: "image/png",
         form_factor: "wide",
@@ -40,7 +40,7 @@ export default function manifest(): MetadataRoute.Manifest {
           "Desktop view of Hicap's Portfolio showcasing projects and skills",
       },
       {
-        src: "/images/mobile-screenshot.png",
+        src: "/images/pwa-icons/mobile-screenshot.png",
         sizes: "1200x630",
         type: "image/png",
         form_factor: "narrow",
