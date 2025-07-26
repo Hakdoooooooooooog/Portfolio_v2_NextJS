@@ -98,7 +98,7 @@ const ExperienceSkills = ({ skills }: { skills: string[] }) => {
       {skills.map((skill, index) => (
         <li
           key={index}
-          className="p-2 bg-blue-200 dark:bg-gray-800/75 text-blue-900 dark:text-gray-300 text-sm rounded-lg shadow-sm hover:bg-blue-300 dark:hover:bg-gray-700 transition-colors duration-200"
+          className="p-2 bg-blue-300 dark:bg-blue-700/50 text-blue-900 dark:text-gray-300 text-sm rounded-lg shadow-sm hover:bg-blue-300 dark:hover:bg-gray-700 transition-colors duration-200"
         >
           {skill}
         </li>
@@ -138,7 +138,7 @@ const ExperienceCard = ({
 
   return (
     <>
-      <div className="flex flex-col  justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-amber-500 bg-gray-300/75 dark:bg-gray-800/75 shadow-lg">
+      <div className="flex flex-col  justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-gray-200 dark:border-gray-700 bg-gray-300/75 dark:bg-gray-800/75 shadow-lg">
         {/* Experience Hero */}
         <ExperienceHero
           title={experienceData.workInfo.title}

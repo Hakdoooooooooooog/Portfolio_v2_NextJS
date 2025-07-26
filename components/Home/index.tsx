@@ -100,7 +100,7 @@ const HomeSection = () => {
               Hello! My name is{" "}
               <span ref={refSpanText} className="text-blue-500 relative" />
             </h1>
-            <p className="text-sm md:text-md leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
+            <p className="text-smd md:text-lg leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
               A 22-years old web developer, lived in Rosario, Cavite,
               Philippines. A Bachelor of Science in Information Technology in
               Cavite State University - Main Campus{" "}
