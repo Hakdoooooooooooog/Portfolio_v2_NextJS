@@ -24,6 +24,28 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "512x512",
         type: "image/png",
       },
+      {
+        src: "/images/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/desktop-screenshot.png",
+        sizes: "1200x630",
+        type: "image/png",
+        form_factor: "wide",
+        label:
+          "Desktop view of Hicap's Portfolio showcasing projects and skills",
+      },
+      {
+        src: "/images/mobile-screenshot.png",
+        sizes: "1200x630",
+        type: "image/png",
+        form_factor: "narrow",
+        label: "Mobile view of Hicap's Portfolio with responsive design",
+      },
     ],
   };
 }
