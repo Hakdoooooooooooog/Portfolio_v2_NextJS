@@ -23,7 +23,7 @@ const Navbar = () => {
                 className="text-md font-bold no-underline cursor-pointer"
               >
                 <NavigationMenu.Link
-                  href="https://drive.google.com/drive/folders/1z5k0cXU6HfPy3AV9yGlnmxecilbXYYRm"
+                  href="https://drive.google.com/file/d/1AkTlqKIMGDQVnbBBLfmYqtrznzSysXEQ/view"
                   target="_blank"
                   className="size-full block"
                 >
