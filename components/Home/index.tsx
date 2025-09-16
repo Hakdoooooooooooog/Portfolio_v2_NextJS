@@ -116,11 +116,11 @@ const HomeSection = () => {
               priority
               loading="eager"
               src="/images/profile.jpg"
-              alt="A picture of Darenz Jasper A. Hicap"
+              alt="A picture of Darenz Jasper A. Hicap, dressed in a white barong, smiling at the camera with arms crossed."
               width={250}
               height={250}
               sizes="(max-width: 250px) 100vw, 250px"
-              className="relative rounded-md w-full z-1 h-auto shadow-lg object-cover"
+              className="relative rounded-md w-full z-1 shadow-lg object-contain"
             />
             <span className="absolute z-0 top-4 left-4 border-3 border-gray-500 text-white text-xs px-2 py-1 rounded size-full" />
           </div>
