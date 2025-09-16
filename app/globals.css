@@ -7,7 +7,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: hsl(224 74% 2%);
+    --background: hsl(221 83% 6%);
     --foreground: hsl(216 100% 97%);
   }
 }
