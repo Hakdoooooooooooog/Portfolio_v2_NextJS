@@ -100,18 +100,15 @@ const HomeSection = () => {
               Hello! My name is{" "}
               <span ref={refSpanText} className="text-blue-500 relative" />
             </h1>
-            <p className="text-smd md:text-lg leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
-              A 22-years old web developer, lived in Rosario, Cavite,
-              Philippines. A Bachelor of Science in Information Technology in
-              Cavite State University - Main Campus{" "}
-              <span
-                className="text-blue-500 font-semibold relative before:absolute before:content-[''] before:w-full before:h-[1px] before:bg-blue-500 before:-bottom-1 before:left-0 before:transition-all before:duration-300 hover:before:w-0 hover:text-gray-700 dark:hover:text-gray-300 transition-all duration-300"
-                title="Full Stack Web Developer"
-              >
-                specializing in full-stack web development{" "}
-              </span>
-              . I am highly motivated and eager to learn new web technologies
-              and frameworks to help me improve my skills as a developer.
+            <p className="text-sm md:text-lg leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
+              An Information Technology student at Cavite State University -
+              Main Campus, aiming to become a full-stack developer. I possess a
+              solid technical foundation in cloud computing and comprehensive
+              web development skills, currently working with the PERN stack
+              (PostgreSQL, Express.js, React/Next.js, Node.js). With experience
+              as an IT Support intern and various web development projects, I
+              demonstrate a strong work ethic and focus on delivering successful
+              implementations.
             </p>
           </div>
           <div className="relative flex-1 w-full max-w-[250px] order-1 md:order-2">
