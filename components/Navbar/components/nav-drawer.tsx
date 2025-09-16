@@ -66,7 +66,7 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 z-[1000] rounded-lg transform-gpu transition-all duration-300 ease-in-out origin-top-right ${
+        className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 z-999 rounded-lg transform-gpu transition-all duration-300 ease-in-out origin-top-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
@@ -119,7 +119,7 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
                 </NavigationMenu.Link>
               </Button>
             </NavigationMenu.Item>
-            <div className="self-center w-fit bg-gray-200/50 dark:bg-gray-400/50 p-2 rounded-lg">
+            <div className="self-center w-fit pt-6 rounded-lg">
               <ThemeSwitch />
             </div>
           </nav>
