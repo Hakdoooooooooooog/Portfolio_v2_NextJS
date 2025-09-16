@@ -42,11 +42,11 @@ const ThemeSwitch = () => {
         <Switch.Root
           checked={false}
           className={
-            "w-10 h-6 bg-gray-300 dark:bg-gray-700 rounded-full relative transition-colors duration-300"
+            "w-12 h-6 bg-gray-300 dark:bg-gray-700 border-[1px] border-gray-400 dark:border-gray-500 rounded-full relative transition-colors duration-300 cursor-pointer"
           }
         >
           <Switch.Thumb
-            className={`absolute top-1 left-1 w-4 h-4 bg-white dark:bg-gray-800 rounded-full shadow-md transform transition-transform duration-300 translate-x-0`}
+            className={`absolute top-1/2 left-[1px] -translate-y-1/2 translate-x-1 size-4 bg-white dark:bg-gray-800 rounded-full shadow-md transform transition-transform duration-300 border border-gray-300 dark:border-gray-600`}
           />
         </Switch.Root>
       </div>
@@ -82,12 +82,12 @@ const ThemeSwitch = () => {
         onCheckedChange={toggleTheme}
         checked={currentTheme === "dark"}
         className={
-          "w-10 h-6 bg-gray-300 dark:bg-gray-700 rounded-full relative transition-colors duration-300 cursor-pointer"
+          "w-12 h-6 bg-gray-300 dark:bg-gray-700 border-[1px] border-gray-400 dark:border-gray-500 rounded-full relative transition-colors duration-300 cursor-pointer"
         }
       >
         <Switch.Thumb
-          className={`absolute top-1 left-1 w-4 h-4 bg-white dark:bg-gray-800 rounded-full shadow-md transform transition-transform duration-300
-          ${currentTheme === "dark" ? "translate-x-4" : "translate-x-0"}`}
+          className={`absolute top-1/2 left-[1px] -translate-y-1/2 size-4 bg-white dark:bg-gray-800 rounded-full shadow-md transform transition-transform duration-300 border border-gray-300 dark:border-gray-600
+          ${currentTheme === "dark" ? "translate-x-6" : "translate-x-1"}`}
         />
       </Switch.Root>
     </div>
