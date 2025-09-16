@@ -50,7 +50,12 @@ const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
         <div className="p-4">
           <div className="mb-2">
             <span className="text-sm text-gray-600 dark:text-gray-400">
-              Issued: {new Date(metadata.date).toLocaleDateString()}
+              Issued:{" "}
+              {new Date(metadata.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+              })}
             </span>
           </div>
           <div className="flex flex-wrap gap-2">
