@@ -22,7 +22,6 @@ const ExperienceData: TExperienceData[] = [
         "Digital Resource Management",
         "UI/UX Design",
       ],
-      workTags: ["IT Support", "Library Management", "Digital Resources"],
       project: {
         projectOutputLink: "https://e-cplgt.netlify.app/",
       },
@@ -44,7 +43,6 @@ const ExperienceData: TExperienceData[] = [
       description:
         "Evaluating structured description of a product page and identify its main description. To extract product information (e.g., description, product details, features, specification/dimensions, material/ingredients, etc...) accurately which will be used in the future assessments of the webpage.",
       skills: ["Data Annotation", "Web Evaluation", "Product Analysis"],
-      workTags: ["Data Annotation", "Remote Work", "Web Evaluation"],
     },
   },
 ];

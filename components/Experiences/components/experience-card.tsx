@@ -80,18 +80,6 @@ const ExperienceDescription = ({
   );
 };
 
-const ExperienceTags = ({ tags }: { tags: string[] }) => {
-  return (
-    <ul className="flex justify-between flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-500 underline underline-offset-6">
-      {tags.map((tag, index) => (
-        <li key={index} className="text-sm">
-          {tag}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
 const ExperienceSkills = ({ skills }: { skills: string[] }) => {
   return (
     <ul className="flex justify-start flex-wrap gap-y-2 gap-x-4 text-sm">
@@ -122,7 +110,6 @@ export type TExperienceData = {
   additionalInfo: {
     description?: string;
     skills?: string[];
-    workTags?: string[];
     project?: {
       projectOutputLink?: string;
     };
@@ -146,10 +133,6 @@ const ExperienceCard = ({
           location={experienceData.workInfo.location}
           imageData={experienceData.workInfo.imageData}
         />
-        {/* Tags */}
-        <div className="w-full">
-          <ExperienceTags tags={experienceData.additionalInfo.workTags || []} />
-        </div>
 
         {/* Description */}
         <div className="w-full text-sm text-gray-700 dark:text-gray-300">
