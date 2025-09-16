@@ -100,15 +100,13 @@ const HomeSection = () => {
               Hello! My name is{" "}
               <span ref={refSpanText} className="text-blue-500 relative" />
             </h1>
-            <p className="text-sm md:text-lg leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
-              An Information Technology graduate at Cavite State University -
-              Main Campus, aiming to become a full-stack developer. I possess a
-              solid technical foundation in cloud computing and comprehensive
-              web development skills, currently working with the PERN stack
-              (PostgreSQL, Express.js, React/Next.js, Node.js). With experience
-              as an IT Support intern and various web development projects, I
-              demonstrate a strong work ethic and focus on delivering successful
-              implementations.
+            <p className="text-md leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
+              I&apos;m a passionate IT graduate from Cavite State University
+              with a love for creating digital solutions. Currently specializing
+              in full-stack development using the PERN stack, I bring both
+              technical expertise in cloud computing and hands-on experience
+              from IT support roles. I thrive on turning ideas into functional
+              web applications and am always eager to tackle new challenges.
             </p>
           </div>
           <div className="relative flex-1 w-full max-w-[250px] order-1 md:order-2">
