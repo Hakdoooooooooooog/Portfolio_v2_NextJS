@@ -116,7 +116,7 @@ const HomeSection = () => {
               priority
               loading="eager"
               src="/images/profile.jpg"
-              alt="Profile Picture"
+              alt="A picture of Darenz Jasper A. Hicap"
               width={250}
               height={250}
               sizes="(max-width: 250px) 100vw, 250px"
