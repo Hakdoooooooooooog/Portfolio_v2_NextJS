@@ -101,7 +101,7 @@ const HomeSection = () => {
               <span ref={refSpanText} className="text-blue-500 relative" />
             </h1>
             <p className="text-sm md:text-lg leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
-              An Information Technology student at Cavite State University -
+              An Information Technology graduate at Cavite State University -
               Main Campus, aiming to become a full-stack developer. I possess a
               solid technical foundation in cloud computing and comprehensive
               web development skills, currently working with the PERN stack
