@@ -17,7 +17,7 @@ There is no test runner configured.
 
 ## Architecture
 
-Single-page personal portfolio built on **Next.js 16 (App Router, Turbopack) + React 19 + Tailwind CSS v4**. Deployed at `https://darenzhicap.netlify.app` (the URL is hard-coded in `app/layout.tsx` `metadata.metadataBase` and OpenGraph fields — update both if the domain changes).
+Single-page personal portfolio built on **Next.js 16 (App Router, Turbopack) + React 19 + Tailwind CSS v4**. Deployed at `https://darenzhicap.dev` (the URL is hard-coded in `app/layout.tsx` `metadata.metadataBase` and OpenGraph fields — update both if the domain changes).
 
 ### Routing model: one route group, dynamic section slug
 
