@@ -12,7 +12,7 @@ export const navLinks: TNavigationLink[] = [
   { label: "Experiences", href: "/experiences" },
 ];
 
-export const STACK: readonly string[] = [
+export const stack: readonly string[] = [
   "TypeScript",
   "React",
   "Next.js",
@@ -23,7 +23,7 @@ export const STACK: readonly string[] = [
   "Docker",
 ];
 
-export const SECTION_NUMBERS: Record<string, string> = {
+export const sectionNumbers: Record<string, string> = {
   about: "01",
   projects: "02",
   skills: "03",
