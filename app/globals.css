@@ -19,7 +19,7 @@
   --foreground: var(--c-navy);
   --surface: color-mix(in srgb, var(--c-lavender) 20%, var(--c-paper));
   --surface-foreground: var(--c-indigo);
-  --muted: color-mix(in srgb, var(--c-slate) 70%, transparent);
+  --muted: color-mix(in srgb, var(--c-navy) 70%, var(--c-paper));
   --accent: var(--c-slate);
   --accent-foreground: #ffffff;
   --border: color-mix(in srgb, var(--c-slate) 20%, transparent);
@@ -30,7 +30,7 @@
   --foreground: var(--c-ink);
   --surface: var(--c-indigo);
   --surface-foreground: var(--c-lavender);
-  --muted: color-mix(in srgb, var(--c-slate) 60%, transparent);
+  --muted: color-mix(in srgb, var(--c-ink) 75%, var(--c-slate));
   --accent: var(--c-lavender);
   --accent-foreground: var(--c-navy);
   --border: color-mix(in srgb, var(--c-slate) 25%, transparent);
@@ -53,30 +53,52 @@
 }
 
 @layer components {
-  /* Semantic typography scale. Matches the foundation spec; do not add new sizes here. */
+  /* Semantic typography scale. Individual properties — the `font:` shorthand
+     does not reliably accept `var()` for font-family in all browsers. */
   .text-display-xl {
-    font: 400 clamp(2.75rem, 6vw, 4.5rem) / 1.05 var(--font-display);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    line-height: 1.05;
     letter-spacing: -0.02em;
   }
   .text-display-lg {
-    font: 400 clamp(2rem, 4vw, 3rem) / 1.1 var(--font-display);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
     letter-spacing: -0.02em;
   }
   .text-heading {
-    font: 600 1.5rem / 1.25 var(--font-display);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.25;
     letter-spacing: -0.01em;
   }
   .text-body-lg {
-    font: 400 1.125rem / 1.6 var(--font-sans);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.6;
   }
   .text-body {
-    font: 400 1rem / 1.65 var(--font-sans);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.65;
   }
   .text-small {
-    font: 500 0.875rem / 1.5 var(--font-sans);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
   .text-eyebrow {
-    font: 400 0.75rem / 1 var(--font-mono);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }

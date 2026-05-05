@@ -39,7 +39,7 @@ export default function HomeSection() {
           </p>
         </div>
 
-        <div className="md:col-span-1 order-first md:order-last">
+        <div className="md:col-span-1 order-first md:order-last flex flex-col items-center md:items-start w-full">
           <div className="relative w-[250px] aspect-square">
             <div
               aria-hidden
@@ -57,7 +57,7 @@ export default function HomeSection() {
             />
           </div>
 
-          <ContactBlock className="mt-8" />
+          <ContactBlock className="mt-8 w-[250px] md:w-full" />
         </div>
       </div>
     </section>
