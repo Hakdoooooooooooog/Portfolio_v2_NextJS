@@ -13,58 +13,28 @@ export const navLinks: TNavigationLink[] = [
 ];
 
 export const skillsData: TSkillData[] = [
-  {
-    src: "/images/skills/react.png",
-    name: "React",
-    position: { x: 30, y: -20 },
-  },
-  {
-    src: "/images/skills/ts.png",
-    name: "TypeScript",
-    position: { x: 150, y: -20 },
-  },
-  {
-    src: "/images/skills/postgresql.png",
-    name: "PostgreSQL",
-    position: { x: 170, y: -150 },
-  },
-  {
-    src: "/images/skills/mysql.png",
-    name: "MySQL",
-    position: { x: -50, y: 60 },
-  },
-  { src: "/images/skills/git.png", name: "Git", position: { x: 90, y: 80 } },
-  {
-    src: "/images/skills/prisma.png",
-    name: "Prisma",
-    position: { x: -50, y: -100 },
-  },
-  {
-    src: "/images/skills/nodejs-express-js.png",
-    name: "Node.js",
-    position: { x: -150, y: -150 },
-  },
-  {
-    src: "/images/skills/tailwind-css.png",
-    name: "Tailwind",
-    position: { x: 60, y: -120 },
-  },
-  {
-    src: "/images/skills/zustand.png",
-    name: "Zustand",
-    position: { x: -20, y: 140 },
-  },
-  {
-    src: "/images/skills/aws-s3.png",
-    name: "AWS S3",
-    position: { x: -120, y: -20 },
-  },
-  {
-    src: "/images/skills/react-query.png",
-    name: "React Query",
-    position: { x: -150, y: 120 },
-  },
-  { src: "/images/skills/zod.png", name: "Zod", position: { x: 190, y: 120 } },
+  // Frontend
+  { src: "/images/skills/react.png", name: "React", position: { x: 60, y: -30 } },
+  { src: "/images/skills/next-js.png", name: "Next.js", position: { x: 170, y: -30 } },
+  { src: "/images/skills/ts.png", name: "TypeScript", position: { x: 110, y: 60 } },
+  { src: "/images/skills/tailwind-css.png", name: "Tailwind", position: { x: 200, y: 60 } },
+  { src: "/images/skills/zustand.png", name: "Zustand", position: { x: 20, y: 140 } },
+  { src: "/images/skills/react-query.png", name: "React Query", position: { x: 130, y: 150 } },
+  { src: "/images/skills/zod.png", name: "Zod", position: { x: 220, y: 150 } },
+
+  // Backend / data
+  { src: "/images/skills/nodejs-express-js.png", name: "Node.js", position: { x: -130, y: -150 } },
+  { src: "/images/skills/java.png", name: "Java", position: { x: -30, y: -150 } },
+  { src: "/images/skills/prisma.png", name: "Prisma", position: { x: -210, y: -50 } },
+  { src: "/images/skills/postgresql.png", name: "PostgreSQL", position: { x: -110, y: -50 } },
+  { src: "/images/skills/mysql.png", name: "MySQL", position: { x: -30, y: 50 } },
+  { src: "/images/skills/git.png", name: "Git", position: { x: -120, y: 50 } },
+
+  // Infra / cloud
+  { src: "/images/skills/aws.png", name: "AWS", position: { x: 60, y: -150 } },
+  { src: "/images/skills/aws-s3.png", name: "AWS S3", position: { x: 200, y: -150 } },
+  { src: "/images/skills/docker.png", name: "Docker", position: { x: -200, y: 140 } },
+  { src: "/images/skills/terraform.png", name: "Terraform", position: { x: -100, y: 150 } },
 ];
 
 export const CertificatesData: TCertificate[] = [
