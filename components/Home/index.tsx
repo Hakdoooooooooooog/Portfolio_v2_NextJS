@@ -16,12 +16,11 @@ export default function HomeSection() {
 
           <p className="text-body-lg text-muted mt-8">
             I&apos;m a Junior Full-Stack Developer at GP Synergia and a Cum
-            Laude BSIT graduate from Cavite State University. I build web
-            apps end-to-end — TypeScript, React, and Next.js on the front,
-            Node.js and Spring Boot on the back, with AWS, Terraform, and
-            Docker handling the rest. I care about shipping things that
-            hold up in production and stay easy for the next person to
-            work on.
+            Laude BSIT graduate from Cavite State University. I build web apps
+            end-to-end — TypeScript, React, and Next.js on the front, Node.js
+            and Spring Boot on the back, with AWS, Terraform, and Docker
+            handling the rest. I care about shipping things that hold up in
+            production and stay easy for the next person to work on.
           </p>
 
           <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-2 gap-y-1">
@@ -50,7 +49,7 @@ export default function HomeSection() {
               alt="A picture of Darenz Jasper A. Hicap, dressed in a white barong, smiling at the camera with arms crossed."
               fill
               sizes="250px"
-              className="rounded-md object-cover object-[50%_15%] shadow-sm dark:shadow-none"
+              className="rounded-md object-cover object-[50%_20%] shadow-sm dark:shadow-none"
             />
           </div>
 
