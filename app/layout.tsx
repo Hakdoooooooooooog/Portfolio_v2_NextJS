@@ -48,15 +48,6 @@ export const metadata: Metadata = {
       "Full Stack Developer working with React, Next.js, and TypeScript. See my projects, skills, and experience.",
     url: "https://darenzhicap.dev",
     siteName: "Hicap's Portfolio",
-    images: [
-      {
-        url: "https://darenzhicap.dev/images/site-thumbnail.webp",
-        width: 1200,
-        height: 720,
-        alt: "Hicap's Portfolio - Full Stack Developer Showcase",
-        type: "image/webp",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -65,7 +56,6 @@ export const metadata: Metadata = {
     title: "Hicap's Portfolio - Full Stack Developer",
     description:
       "Full Stack Developer working with React, Next.js, and TypeScript. See my projects, skills, and experience.",
-    images: ["https://darenzhicap.dev/images/site-thumbnail.webp"],
   },
   robots: {
     index: true,
