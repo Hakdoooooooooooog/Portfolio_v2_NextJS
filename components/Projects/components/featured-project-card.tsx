@@ -36,6 +36,7 @@ export default function FeaturedProjectCard({
           alt={imageAlt}
           width={1280}
           height={720}
+          priority
           sizes="(max-width: 768px) 100vw, 672px"
           className="relative w-full h-auto rounded-xl shadow-sm dark:shadow-none"
         />

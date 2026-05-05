@@ -8,11 +8,13 @@ import ThemeScript from "../components/theme-script";
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
   subsets: ["latin"],
+  display: "optional",
 });
 
 const notoSansMono = Noto_Sans_Mono({
   variable: "--font-noto-sans-mono",
   subsets: ["latin"],
+  display: "optional",
 });
 
 const fraunces = Fraunces({
@@ -20,7 +22,7 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   axes: ["opsz"],
   weight: "variable",
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
