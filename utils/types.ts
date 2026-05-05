@@ -1,14 +1,20 @@
 export type TCertificate = {
   id: number;
-  src: string;
+  src?: string;
   alt: string;
+  embed?: {
+    provider: "credly";
+    badgeId: string;
+    width?: number;
+    height?: number;
+  };
   metadata?: {
     title: string;
     description: string;
     date: string;
     issuer: string;
     tags: string[];
-    image: string;
+    image?: string;
   };
   link: {
     href: string;
@@ -39,4 +45,26 @@ export type TProjectData = {
     imageAlt: string;
     demoLink: string;
   }>;
+};
+
+export type TExperienceData = {
+  workInfo: {
+    title: string;
+    subtitle: string;
+    location: string;
+    startDate?: string;
+    endDate?: string;
+    imageData?: {
+      src: string;
+      alt: string;
+    };
+  };
+  additionalInfo: {
+    description?: string;
+    bullets?: string[];
+    skills?: string[];
+    project?: {
+      projectOutputLink?: string;
+    };
+  };
 };
