@@ -230,19 +230,16 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 9,
-    alt: "AWS Cloud Practitioner Cloud Quest Badge",
-    embed: {
-      provider: "credly",
-      badgeId: "713669d7-6115-4916-88c0-4fe38f28a964",
-      width: 150,
-      height: 270,
-    },
+    src: "/images/certificates/aws-cloud-quest-cloud-practitioner-training-badge.png",
+    alt: "AWS Cloud Quest Cloud Practitioner Training Badge",
     metadata: {
       title: "AWS Cloud Practitioner (Cloud Quest)",
-      description: "AWS Cloud Quest Cloud Practitioner badge.",
+      description: "AWS Cloud Quest Cloud Practitioner training badge.",
       date: "2025-12-07",
       issuer: "Amazon Web Services",
       tags: ["AWS", "Cloud", "Cloud Quest", "Cloud Practitioner"],
+      image:
+        "/images/certificates/aws-cloud-quest-cloud-practitioner-training-badge.png",
     },
     link: {
       href: "https://www.credly.com/badges/713669d7-6115-4916-88c0-4fe38f28a964",

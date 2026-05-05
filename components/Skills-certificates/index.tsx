@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Script from "next/script";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CertificatesData, skillsData } from "../../utils/constants";
@@ -66,10 +65,6 @@ const SkillsAndCertificatesSection = () => {
 
   return (
     <>
-      <Script
-        src="https://cdn.credly.com/assets/utilities/embed.js"
-        strategy="lazyOnload"
-      />
       <section className="w-full max-w-5xl m-auto min-h-screen flex flex-wrap gap-8 items-center justify-center py-20 md:py-0">
         <h2
           className={`w-full md:w-auto md:flex-1 text-2xl font-bold text-center transition-opacity duration-500 text-gray-700 dark:text-gray-300 ${
