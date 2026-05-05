@@ -50,7 +50,7 @@ export default function HomeSection() {
               alt="A picture of Darenz Jasper A. Hicap, dressed in a white barong, smiling at the camera with arms crossed."
               fill
               sizes="250px"
-              className="rounded-md object-cover shadow-sm dark:shadow-none"
+              className="rounded-md object-cover object-top shadow-sm dark:shadow-none"
             />
           </div>
 
