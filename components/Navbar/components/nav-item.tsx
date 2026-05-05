@@ -14,15 +14,14 @@ const NavItems = ({ items }: { items: TNavigationLink[] }) => {
       <NavigationMenu.Item key={item.label} className="group">
         <NavigationMenu.Link
           href={item.href}
-          className={`text-md font-semibold no-underline transition-all duration-200 relative ${
-            isActive
-              ? "text-blue-500 dark:text-blue-400"
-              : "text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400"
+          className={`text-small font-medium no-underline transition-colors duration-200 relative ${
+            isActive ? "text-foreground" : "text-muted hover:text-foreground"
           }`}
         >
           {item.label}
           <span
-            className={`absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 dark:bg-blue-400 transition-transform duration-200 ${
+            aria-hidden
+            className={`absolute -bottom-1 left-0 w-full h-0.5 bg-accent transition-transform duration-200 origin-left ${
               isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
             }`}
           />
