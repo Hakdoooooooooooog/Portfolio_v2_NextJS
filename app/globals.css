@@ -110,14 +110,10 @@
 
   /* Single canonical content container. Replaces ad-hoc widths in spec 2. */
   .container-page {
+    height: 100%;
     max-width: 72rem;
-    margin-inline: auto;
-    padding-inline: 1.5rem;
-  }
-  @media (min-width: 768px) {
-    .container-page {
-      padding-inline: 2.5rem;
-    }
+    padding-top: 4rem;
+    margin: auto auto;
   }
 
   .bg-grid-pattern {

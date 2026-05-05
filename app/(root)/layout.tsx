@@ -4,7 +4,7 @@ export default function HomeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="relative flex min-h-dvh flex-col bg-grid-pattern pt-20">
+    <main className="relative flex min-h-[calc(100vh-56px)] flex-col bg-grid-pattern p-8">
       {children}
     </main>
   );
