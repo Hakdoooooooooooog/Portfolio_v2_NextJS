@@ -60,10 +60,6 @@ export type TExperienceData = {
     location: string;
     startDate?: string;
     endDate?: string;
-    imageData?: {
-      src: string;
-      alt: string;
-    };
   };
   additionalInfo: {
     description?: string;

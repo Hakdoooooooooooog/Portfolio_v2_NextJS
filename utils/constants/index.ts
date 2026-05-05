@@ -31,6 +31,9 @@ export const sectionNumbers: Record<string, string> = {
   experiences: "04",
 };
 
+export const RESUME_URL =
+  "https://drive.google.com/file/d/1AkTlqKIMGDQVnbBBLfmYqtrznzSysXEQ/view";
+
 export const skillCategories: TSkillCategory[] = [
   {
     label: "Frontend",
