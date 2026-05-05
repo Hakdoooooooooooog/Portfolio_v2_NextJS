@@ -94,34 +94,22 @@
   }
 
   .bg-grid-pattern {
-    background-size: 50px 50px;
-
-    /* Default/Light theme styles */
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.1) 1px,
-        transparent 1px
-      ),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-color: var(--background);
-
-    @variant light {
-      background-color: hsl(216 46% 91%);
-      background-image: linear-gradient(
-          rgba(255, 255, 255, 0.1) 1px,
-          transparent 1px
-        ),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    }
-
-    @variant dark {
-      background-color: hsl(224 74% 2%);
-      background-image: linear-gradient(
-          rgba(255, 255, 255, 0.05) 1px,
-          transparent 1px
-        ),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    }
+    background-size: 64px 64px;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 90%);
+    mask-image: radial-gradient(ellipse at center, #000 40%, transparent 90%);
   }
+}
+
+:root[data-theme="light"] {
+  --grid-line: rgba(79, 86, 137, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --grid-line: rgba(237, 237, 246, 0.035);
 }
 
 body {
