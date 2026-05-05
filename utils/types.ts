@@ -40,10 +40,12 @@ export type TProjectData = {
   tags?: string[];
   description: string;
   link?: string;
+  featured?: boolean;
   metadata?: Partial<{
     imageSrc: string;
     imageAlt: string;
     demoLink: string;
+    serverLink: string;
   }>;
 };
 
