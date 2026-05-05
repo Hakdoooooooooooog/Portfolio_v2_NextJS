@@ -1,5 +1,6 @@
 import {
   TCertificate,
+  TExperienceData,
   TNavigationLink,
   TProjectData,
   TSkillCategory,
@@ -314,5 +315,74 @@ export const ProjectsData: TProjectData[] = [
     description:
       "A RESTful API for managing events, built with Node.js and Express. It provides endpoints for creating, updating, and retrieving event data, utilizing Prisma for database interactions with PostgreSQL. The API is designed to be scalable and secure, supporting various event management functionalities.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
+  },
+];
+
+export const experiencesData: TExperienceData[] = [
+  {
+    workInfo: {
+      title: "Junior Full Stack Developer",
+      subtitle: "GP Synergia",
+      location: "Philippines",
+      startDate: "Dec 2025",
+    },
+    additionalInfo: {
+      bullets: [
+        "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments and enhance security.",
+        "Orchestrated containerized application deployments via Docker and provisioned AWS cloud infrastructure using Terraform.",
+      ],
+      skills: ["GitLab CI/CD", "Docker", "Terraform", "AWS"],
+    },
+  },
+  {
+    workInfo: {
+      title: "IT Help Desk and End User Support",
+      subtitle: "GP Synergia",
+      location: "Philippines",
+      startDate: "Nov 2025",
+      endDate: "Dec 2025",
+    },
+    additionalInfo: {
+      bullets: [
+        "Delivered technical support, managed Microsoft Entra users, and enhanced the support ticket automation pipeline for faster resolution.",
+      ],
+      skills: ["Microsoft Entra", "Technical Support", "Automation"],
+    },
+  },
+  {
+    workInfo: {
+      title: "IT Support Internship",
+      subtitle: "ICT E-Library — City Public Library of General Trias",
+      location: "Brgy. Bagumbayan, General Trias, Cavite",
+      startDate: "Mar 2025",
+      endDate: "Jun 2025",
+    },
+    additionalInfo: {
+      description:
+        "Provided IT support and technical assistance to library users while managing ICT E-Library resources and maintaining computer systems. Developed and shipped a centralized digital platform that streamlined access to library resources and improved accessibility for community members.",
+      skills: [
+        "Technical Support",
+        "Web Development",
+        "Digital Resource Management",
+        "UI/UX Design",
+      ],
+      project: {
+        projectOutputLink: "https://e-cplgt.netlify.app/",
+      },
+    },
+  },
+  {
+    workInfo: {
+      title: "Crawling Structured Description",
+      subtitle: "Telus International AI",
+      location: "Tampere, Finland",
+      startDate: "Aug 2023",
+      endDate: "Dec 2023",
+    },
+    additionalInfo: {
+      description:
+        "Evaluated structured descriptions of product pages and identified the main description copy. Extracted product info (description, details, features, specifications, materials/ingredients, etc.) used as ground-truth for downstream webpage assessments.",
+      skills: ["Data Annotation", "Web Evaluation", "Product Analysis"],
+    },
   },
 ];
