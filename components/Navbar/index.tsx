@@ -1,4 +1,4 @@
-import { navLinks } from "@/portfolio/utils/constants";
+import { navLinks, RESUME_URL } from "@/portfolio/utils/constants";
 import { NavigationMenu } from "@base-ui-components/react";
 import { Button } from "../button";
 import ThemeSwitch from "../switch";
@@ -8,23 +8,16 @@ import NavItems from "./components/nav-item";
 const Navbar = () => {
   return (
     <header>
-      <NavigationMenu.Root
-        className={
-          "fixed z-999 w-full bg-gray-300/20 dark:bg-gray-800/20 backdrop-blur-md shadow-lg"
-        }
-      >
+      <NavigationMenu.Root className="fixed z-999 w-full bg-background/80 backdrop-blur-md border-b border-border">
         <NavigationMenu.List className="flex items-center justify-end md:justify-center p-4">
-          <NavigationMenu.List className="hidden w-full sm:flex items-center justify-center space-x-4">
+          <NavigationMenu.List className="hidden w-full sm:flex items-center justify-center gap-4">
             <NavItems items={navLinks} />
             <NavigationMenu.Item>
-              <Button
-                variant="ghost"
-                size="md"
-                className="text-md font-bold no-underline cursor-pointer"
-              >
+              <Button variant="outline" size="md">
                 <NavigationMenu.Link
-                  href="https://drive.google.com/file/d/1AkTlqKIMGDQVnbBBLfmYqtrznzSysXEQ/view"
+                  href={RESUME_URL}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="size-full block"
                 >
                   My Resume
