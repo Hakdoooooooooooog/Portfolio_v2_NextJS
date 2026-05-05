@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useReveal } from "./use-reveal";
+import { useReveal } from "@/portfolio/components/use-reveal";
 import CertificateThumbnail from "./certificate-thumbnail";
 
 type CompactCertificateRowProps = {

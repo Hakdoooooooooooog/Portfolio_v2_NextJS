@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { TSkillData } from "@/portfolio/utils/types";
-import { useReveal } from "./use-reveal";
+import { useReveal } from "@/portfolio/components/use-reveal";
 
 type SkillCategoryProps = {
   label: string;
