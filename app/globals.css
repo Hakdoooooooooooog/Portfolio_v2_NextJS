@@ -1,29 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: hsl(216 46% 91%);
-  --foreground: hsl(221 83% 6%);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: hsl(221 83% 6%);
-    --foreground: hsl(216 100% 97%);
-  }
-}
-
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @custom-variant light (&:where([data-theme=light], [data-theme=light] *));
 
-/* * * * * {
-  outline: 1px solid red;
-} */
+/* Layer 1 — raw palette. Frozen. Never used directly in components. */
+:root {
+  --c-navy: #0A0F2C;
+  --c-indigo: #1A1E4D;
+  --c-slate: #4F5689;
+  --c-lavender: #9494BC;
+  --c-ink: #EDEDF6;
+  --c-paper: #F7F7FB;
+}
 
+/* Layer 2 — semantic tokens, mode-aware. Driven by data-theme on <html>. */
+:root[data-theme="light"] {
+  --background: var(--c-paper);
+  --foreground: var(--c-navy);
+  --surface: color-mix(in srgb, var(--c-lavender) 20%, var(--c-paper));
+  --surface-foreground: var(--c-indigo);
+  --muted: color-mix(in srgb, var(--c-slate) 70%, transparent);
+  --accent: var(--c-slate);
+  --accent-foreground: #ffffff;
+  --border: color-mix(in srgb, var(--c-slate) 20%, transparent);
+}
+
+:root[data-theme="dark"] {
+  --background: var(--c-navy);
+  --foreground: var(--c-ink);
+  --surface: var(--c-indigo);
+  --surface-foreground: var(--c-lavender);
+  --muted: color-mix(in srgb, var(--c-slate) 60%, transparent);
+  --accent: var(--c-lavender);
+  --accent-foreground: var(--c-navy);
+  --border: color-mix(in srgb, var(--c-slate) 25%, transparent);
+}
+
+/* Layer 3 — expose semantic tokens as Tailwind utilities. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-noto-sans: var(--font-noto-sans);
-  --font-noto-sans-mono: var(--font-noto-sans-mono);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-noto-sans);
+  --font-mono: var(--font-noto-sans-mono);
 }
 
 @layer components {
