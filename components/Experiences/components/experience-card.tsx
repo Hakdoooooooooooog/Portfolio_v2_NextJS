@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import type { TExperienceData } from "@/portfolio/utils/types";
 
 const ExperienceHero = ({
   title,
@@ -95,26 +96,6 @@ const ExperienceSkills = ({ skills }: { skills: string[] }) => {
   );
 };
 
-export type TExperienceData = {
-  workInfo: {
-    title: string;
-    subtitle: string;
-    location: string;
-    startDate?: string;
-    endDate?: string;
-    imageData?: {
-      src: string;
-      alt: string;
-    };
-  };
-  additionalInfo: {
-    description?: string;
-    skills?: string[];
-    project?: {
-      projectOutputLink?: string;
-    };
-  };
-};
 
 const ExperienceCard = ({
   experienceData,

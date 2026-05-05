@@ -1,4 +1,5 @@
-import ExperienceCard, { TExperienceData } from "./components/experience-card";
+import ExperienceCard from "./components/experience-card";
+import type { TExperienceData } from "@/portfolio/utils/types";
 
 const ExperienceData: TExperienceData[] = [
   {
