@@ -207,9 +207,47 @@ export const CertificatesData: TCertificate[] = [
       rel: "noopener noreferrer",
     },
   },
+  {
+    id: 8,
+    src: "/images/certificates/Hicap_Tesda_NCIII_Java_Programming_page-0001.jpg",
+    alt: "TESDA Programming (Java) NC III Certificate",
+    metadata: {
+      title: "Programming (Java) NC III",
+      description:
+        "TESDA National Certificate III in Java Programming, completed under the Training for Work Scholarship Program (TWSP).",
+      date: "2025-11-29",
+      issuer:
+        "Technical Education and Skills Development Authority (TESDA)",
+      tags: ["Java", "Programming", "TESDA", "NCIII"],
+      image:
+        "/images/certificates/Hicap_Tesda_NCIII_Java_Programming_page-0001.jpg",
+    },
+    link: {
+      href: "#",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+  },
 ];
 
 export const ProjectsData: TProjectData[] = [
+  {
+    title: "Redbiomed",
+    tags: [
+      "Next.js",
+      "NestJS",
+      "TypeScript",
+      "PostgreSQL",
+      "AWS",
+      "Terraform",
+      "Docker",
+    ],
+    description:
+      "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend (Next.js) and backend (NestJS + Prisma + PostgreSQL) with a focus on scalable architecture, AWS infrastructure provisioned via Terraform, and containerized deployments.",
+    metadata: {
+      demoLink: "https://redbiomed.com",
+    },
+  },
   {
     title: "TOPCIT LCMS",
     tags: [
