@@ -12,6 +12,24 @@ export const navLinks: TNavigationLink[] = [
   { label: "Experiences", href: "/experiences" },
 ];
 
+export const STACK: readonly string[] = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Spring Boot",
+  "AWS",
+  "Terraform",
+  "Docker",
+];
+
+export const SECTION_NUMBERS: Record<string, string> = {
+  about: "01",
+  projects: "02",
+  skills: "03",
+  experiences: "04",
+};
+
 // 4-row × 5-column grid: x ∈ {-200, -100, 0, 100, 200}, y ∈ {-150, -50, 50, 150}.
 // 100px spacing on both axes (75px icons + 25px gutter).
 export const skillsData: TSkillData[] = [
