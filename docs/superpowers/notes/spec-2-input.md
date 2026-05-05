@@ -21,15 +21,10 @@
 - components/switch.tsx:87 — bg-gray-300 dark:bg-gray-700 border-gray-400 dark:border-gray-500
 - components/switch.tsx:91 — bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600
 - components/separator.tsx:5 — border-gray-300 dark:border-gray-700
-- components/modal-image.tsx:65 — bg-black/40
-- components/modal-image.tsx:89 — bg-black/60
-- components/modal-image.tsx:99 — border-gray-300 dark:border-gray-600
 - components/footer.tsx:7 — bg-gray-100 dark:bg-gray-800
 - components/footer.tsx:8 — text-gray-600 dark:text-gray-300
 - components/button.tsx:18 — bg-blue-500 text-white dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700
 - components/button.tsx:20 — bg-gray-500 text-white dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700
-- components/Skills-certificates\index.tsx:70 — text-gray-700 dark:text-gray-300
-- components/Skills-certificates\index.tsx:92 — text-gray-700 dark:text-gray-300
 - components/Experiences\index.tsx:99 — border-gray-300/60 dark:border-gray-700/60 bg-gray-200/40 dark:bg-gray-900/30
 - components/Experiences\index.tsx:104 — border-gray-400/40 bg-gray-500/10 text-gray-600 dark:text-gray-300
 - components/Experiences\index.tsx:107 — text-gray-500 dark:text-gray-400
@@ -43,10 +38,6 @@
 - components/Experiences\components\experience-card.tsx:127 — border-gray-200 dark:border-gray-700 bg-gray-300/75 dark:bg-gray-800/75
 - components/Experiences\components\experience-card.tsx:140 — text-gray-700 dark:text-gray-300
 - components/Navbar\index.tsx:13 — bg-gray-300/20 dark:bg-gray-800/20
-- components/Skills-certificates\components\image-collage.tsx:32 — bg-gray-300/75 dark:bg-gray-800/75
-- components/Skills-certificates\components\certificates.tsx:41 — bg-gray-300/80 dark:bg-gray-800/80
-- components/Skills-certificates\components\certificates.tsx:61 — bg-black/80
-- components/Skills-certificates\components\certificates.tsx:94 — text-gray-600 dark:text-gray-400
 - components/Navbar\components\nav-item.tsx:20 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
 - components/Navbar\components\nav-drawer.tsx:45 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
 - components/Navbar\components\nav-drawer.tsx:69 — bg-white dark:bg-gray-800 shadow-lg border-gray-200 dark:border-gray-700
@@ -59,8 +50,6 @@
 - components/Experiences\index.tsx:102 — px-5 py-4 gap-3
 - components/Experiences\index.tsx:104 — px-3 py-1
 - components/Experiences\index.tsx:132 — px-5 pb-5 gap-6
-- components/Skills-certificates\index.tsx:92 — pb-12
-- components/Skills-certificates\index.tsx:97 — gap-6
 - components/Experiences\components\experience-card.tsx:49 — px-3 py-1
 - components/Experiences\components\experience-card.tsx:95 — gap-2
 - components/Experiences\components\experience-card.tsx:127 — gap-4 p-6
@@ -76,6 +65,15 @@
 - `components/Projects/components/compact-project-row.tsx` — created in spec 2b; uses tokens from inception.
 - `components/Projects/components/project-card.tsx` — deleted in spec 2b.
 - `components/Projects/components/project-cta.tsx` — deleted in spec 2b.
+- `components/Skills-certificates/index.tsx` — rewritten in spec 2c (Skills & Certificates redesign).
+- `components/Skills-certificates/components/skill-category.tsx` — created in spec 2c; uses tokens from inception.
+- `components/Skills-certificates/components/compact-certificate-row.tsx` — created in spec 2c; uses tokens from inception.
+- `components/Skills-certificates/components/use-reveal.ts` — created in spec 2c; CSS-only reveal hook.
+- `components/Skills-certificates/components/image-collage.tsx` — deleted in spec 2c.
+- `components/Skills-certificates/components/certificates.tsx` — deleted in spec 2c.
+- `components/Skills-certificates/components/tags.tsx` — deleted in spec 2c.
+- `utils/hooks/useIsSmallDevice.ts` — deleted in spec 2c (no remaining consumers).
+- `components/modal-image.tsx` — deleted in spec 2c (no remaining consumers).
 
 ## Notes
 
