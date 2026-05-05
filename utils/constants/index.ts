@@ -7,8 +7,8 @@ import {
 
 export const navLinks: TNavigationLink[] = [
   { label: "About Me", href: "/" },
-  { label: "Skills & certificates", href: "/skills-and-certificates" },
   { label: "Projects", href: "/projects" },
+  { label: "Skills & certificates", href: "/skills-and-certificates" },
   { label: "Experiences", href: "/experiences" },
 ];
 
