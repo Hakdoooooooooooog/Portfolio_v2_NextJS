@@ -34,15 +34,6 @@
 - components/Experiences\index.tsx:104 — border-gray-400/40 bg-gray-500/10 text-gray-600 dark:text-gray-300
 - components/Experiences\index.tsx:107 — text-gray-500 dark:text-gray-400
 - components/Experiences\index.tsx:117 — text-gray-500 dark:text-gray-400
-- components/Home\index.tsx:99 — dark:text-white text-gray-900
-- components/Home\index.tsx:103 — dark:text-gray-300 text-gray-700
-- components/Home\index.tsx:123 — border-gray-500
-- components/Home\index.tsx:129 — bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700
-- components/Home\index.tsx:133 — bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white
-- components/Home\index.tsx:157 — bg-gray-200 dark:bg-gray-800/50 hover:bg-blue-100 dark:hover:bg-gray-700
-- components/Home\index.tsx:174 — bg-gray-200 dark:bg-gray-800/50 hover:bg-blue-100 dark:hover:bg-gray-700
-- components/Home\index.tsx:189 — bg-gray-200 dark:bg-gray-800/50 hover:bg-blue-100 dark:hover:bg-gray-700
-- components/Home\index.tsx:206 — bg-gray-200 dark:bg-gray-800/50 hover:bg-blue-100 dark:hover:bg-gray-700
 - components/Experiences\components\experience-card.tsx:40 — text-gray-900 dark:text-white
 - components/Experiences\components\experience-card.tsx:43 — text-gray-600 dark:text-gray-500
 - components/Experiences\components\experience-card.tsx:56 — text-gray-500 dark:text-gray-600
@@ -74,7 +65,6 @@
 - components/Experiences\index.tsx:132 — px-5 pb-5 gap-6
 - components/Skills-certificates\index.tsx:92 — pb-12
 - components/Skills-certificates\index.tsx:97 — gap-6
-- components/Home\index.tsx:129 — gap-3 p-4
 - components/Projects\components\project-card.tsx:20 — gap-12 p-4
 - components/Projects\components\project-card.tsx:25 — gap-2 mb-12
 - components/Experiences\components\experience-card.tsx:49 — px-3 py-1
@@ -82,6 +72,11 @@
 - components/Experiences\components\experience-card.tsx:127 — gap-4 p-6
 - components/Experiences\components\experience-card.tsx:161 — p-3 mt-auto
 - components/Navbar\components\nav-drawer.tsx:122 — pt-6
+
+## Migrated to the new tokens (out of scope for spec 2 onward)
+
+- `components/Home/index.tsx` — migrated in spec 2a (Home redesign).
+- `components/Home/components/contact-block.tsx` — created in spec 2a; uses tokens from inception.
 
 ## Notes
 
