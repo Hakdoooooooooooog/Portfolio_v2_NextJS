@@ -315,15 +315,4 @@ export const ProjectsData: TProjectData[] = [
       "A RESTful API for managing events, built with Node.js and Express. It provides endpoints for creating, updating, and retrieving event data, utilizing Prisma for database interactions with PostgreSQL. The API is designed to be scalable and secure, supporting various event management functionalities.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
-  {
-    title: "Portfolio",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP"],
-    description:
-      "A personal portfolio website showcasing my skills, projects, and experiences. Built with Next.js and TypeScript, it features a modern design with smooth animations powered by GSAP. The site is fully responsive and optimized for performance.",
-    link: "https://github.com/Hakdoooooooooooog/Portfolio_v2_NextJS",
-    metadata: {
-      imageSrc: "/images/projects/portfolio-v2-thumbnail.png",
-      imageAlt: "Portfolio Website",
-    },
-  },
 ];

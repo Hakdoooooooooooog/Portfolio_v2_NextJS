@@ -1,4 +1,7 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import ProjectThumbnail from "./project-thumbnail";
 
 const MAX_VISIBLE_TAGS = 4;
 
@@ -25,12 +28,9 @@ export default function CompactProjectRow({
   sourceUrl,
   serverSourceUrl,
 }: CompactProjectRowProps) {
-  const visibleTags = tags.slice(0, MAX_VISIBLE_TAGS);
-  const overflow = tags.length - visibleTags.length;
-  const tagText =
-    overflow > 0
-      ? `${visibleTags.join(" · ")} · +${overflow}`
-      : visibleTags.join(" · ");
+  const [expanded, setExpanded] = useState(false);
+  const visibleTags = expanded ? tags : tags.slice(0, MAX_VISIBLE_TAGS);
+  const overflow = tags.length - MAX_VISIBLE_TAGS;
 
   const paddedIndex = String(index).padStart(2, "0");
   const kind = tags.includes("API") ? "API" : "WEB";
@@ -41,13 +41,7 @@ export default function CompactProjectRow({
     <article className="flex gap-4 py-4 border-b border-border last:border-b-0">
       <div className="relative w-24 h-24 shrink-0 rounded-md overflow-hidden border border-border">
         {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={imageAlt ?? ""}
-            fill
-            sizes="96px"
-            className="object-cover"
-          />
+          <ProjectThumbnail src={imageSrc} alt={imageAlt ?? title} />
         ) : (
           <div className="grid place-items-center size-full bg-surface text-surface-foreground">
             <div className="text-center">
@@ -61,8 +55,27 @@ export default function CompactProjectRow({
       <div className="flex-1 min-w-0">
         <h3 className="text-heading-row text-foreground">{title}</h3>
 
-        <p className="text-small font-mono text-muted mt-2 truncate">
-          {tagText}
+        <p className="text-small font-mono text-muted mt-2 flex flex-wrap gap-x-2 gap-y-1">
+          {visibleTags.map((tag, i) => (
+            <span key={tag}>
+              {tag}
+              {i < visibleTags.length - 1 || overflow > 0 ? (
+                <span className="ml-2 text-muted/60" aria-hidden>
+                  ·
+                </span>
+              ) : null}
+            </span>
+          ))}
+          {overflow > 0 ? (
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              className="text-foreground transition-colors hover:text-accent underline-offset-4 hover:underline decoration-accent cursor-pointer"
+            >
+              {expanded ? "show less" : `+${overflow} more`}
+            </button>
+          ) : null}
         </p>
 
         <p className="text-small text-muted mt-2">{description}</p>
