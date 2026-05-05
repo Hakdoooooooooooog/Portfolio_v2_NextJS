@@ -319,6 +319,16 @@ export const ProjectsData: TProjectData[] = [
       "A REST API for managing events — create, update, and read endpoints backed by Node.js, Express, Prisma, and PostgreSQL.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
+  {
+    title: "Portfolio",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    description:
+      "My personal portfolio website showcasing projects, skills, and experiences. Built with Next.js, TypeScript, and Tailwind CSS with smooth animations using GSAP.",
+    metadata: {
+      imageSrc: "/images/projects/portfolio-thumbnail.webp",
+      imageAlt: "Portfolio Website",
+    },
+  },
 ];
 
 export const experiencesData: TExperienceData[] = [
