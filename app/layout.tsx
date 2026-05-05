@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
+import { Fraunces, Noto_Sans, Noto_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
@@ -13,6 +13,14 @@ const notoSans = Noto_Sans({
 const notoSansMono = Noto_Sans_Mono({
   variable: "--font-noto-sans-mono",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
+  weight: "variable",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -95,7 +103,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${notoSans.variable} ${notoSansMono.variable} antialiased`}
+        className={`${notoSans.variable} ${notoSansMono.variable} ${fraunces.variable} antialiased`}
       >
         <Navbar />
         {children}
