@@ -1,31 +1,33 @@
+type ButtonVariant = "primary" | "outline";
+type ButtonSize = "sm" | "md" | "lg";
+
+type ButtonProps = {
+  children: React.ReactNode;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
 export const Button = ({
   children,
   variant = "primary",
   size = "md",
   className = "",
   ...buttonProps
-}: {
-  children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
-  size?: "sm" | "md" | "lg";
-  className?: string;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: ButtonProps) => {
   const baseStyles =
-    "px-4 py-2 rounded focus:outline-none focus:ring-2 flex items-center justify-center transition-colors duration-200 [&>svg]:mx-1";
+    "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent [&>svg]:size-4";
 
-  const variantStyles = {
-    primary:
-      "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700",
-    secondary:
-      "bg-gray-500 text-white hover:bg-gray-600 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700",
-    ghost:
-      "bg-transparent text-blue-500 hover:bg-blue-100 border border-blue-500 hover:text-blue-600 transition-colors duration-200 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900 dark:hover:text-blue-300",
+  const variantStyles: Record<ButtonVariant, string> = {
+    primary: "bg-accent text-accent-foreground hover:bg-accent/90",
+    outline:
+      "border border-border text-foreground hover:border-accent hover:text-accent",
   };
 
-  const sizeStyles = {
-    sm: "text-sm",
-    md: "text-base",
-    lg: "text-lg",
+  const sizeStyles: Record<ButtonSize, string> = {
+    sm: "px-3 py-1 text-small",
+    md: "px-4 py-2 text-small",
+    lg: "px-4 py-2 text-body",
   };
 
   return (
