@@ -81,6 +81,11 @@
     letter-spacing: 0.08em;
   }
 
+  .name-underline {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.1em;
+  }
+
   /* Single canonical content container. Replaces ad-hoc widths in spec 2. */
   .container-page {
     max-width: 72rem;
