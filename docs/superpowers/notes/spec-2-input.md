@@ -13,27 +13,11 @@
 
 ## Off-palette Tailwind defaults (gray / white / black, incl. dark:/light: variants)
 
-- components/switch.tsx:41 — bg-gray-300 dark:bg-gray-600
-- components/switch.tsx:45 — bg-gray-300 dark:bg-gray-700 border-gray-400 dark:border-gray-500
-- components/switch.tsx:49 — bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600
-- components/switch.tsx:61 — text-gray-800 dark:text-gray-300
-- components/switch.tsx:74 — text-gray-300 dark:text-gray-800
-- components/switch.tsx:87 — bg-gray-300 dark:bg-gray-700 border-gray-400 dark:border-gray-500
-- components/switch.tsx:91 — bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600
-- components/separator.tsx:5 — border-gray-300 dark:border-gray-700
-- components/footer.tsx:7 — bg-gray-100 dark:bg-gray-800
-- components/footer.tsx:8 — text-gray-600 dark:text-gray-300
-- components/button.tsx:18 — bg-blue-500 text-white dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700
-- components/button.tsx:20 — bg-gray-500 text-white dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700
-- components/Navbar\index.tsx:13 — bg-gray-300/20 dark:bg-gray-800/20
-- components/Navbar\components\nav-item.tsx:20 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
-- components/Navbar\components\nav-drawer.tsx:45 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
-- components/Navbar\components\nav-drawer.tsx:69 — bg-white dark:bg-gray-800 shadow-lg border-gray-200 dark:border-gray-700
-- components/Navbar\components\nav-drawer.tsx:82 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
+(none)
 
 ## Off-rhythm spacing utilities
 
-- components/Navbar\components\nav-drawer.tsx:122 — pt-6
+(none)
 
 ## Migrated to the new tokens (out of scope for spec 2 onward)
 
@@ -58,6 +42,17 @@
 - `components/Experiences/components/experience-card.tsx` — deleted in spec 2d.
 - `components/use-reveal.ts` — created in spec 2d (lifted from Skills-certificates/components/use-reveal.ts to shared root).
 - `components/Skills-certificates/components/use-reveal.ts` — moved in spec 2d to `components/use-reveal.ts`.
+- `components/Navbar/index.tsx` — rewritten in spec 2e (chrome migration).
+- `components/Navbar/components/nav-item.tsx` — rewritten in spec 2e.
+- `components/Navbar/components/nav-drawer.tsx` — rewritten in spec 2e.
+- `components/footer.tsx` — rewritten in spec 2e.
+- `components/button.tsx` — rewritten in spec 2e (reduced to primary + outline variants).
+- `components/switch.tsx` — rewritten in spec 2e (icons use currentColor; cachedTheme state removed).
+- `components/separator.tsx` — deleted in spec 2e (no consumers).
+- `public/images/experiences/internship-gentri.webp` — deleted in spec 2e (orphaned after 2d).
+- `public/images/experiences/telus-official-logo.png` — deleted in spec 2e (orphaned after 2d).
+- `RESUME_URL` constant added to `utils/constants/index.ts`; consumers updated in Navbar + Drawer.
+- `imageData` field removed from `TExperienceData.workInfo` in `utils/types.ts` (no consumers after 2d).
 
 ## Notes
 
