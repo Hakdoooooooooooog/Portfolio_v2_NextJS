@@ -65,7 +65,7 @@ export default function CompactProjectRow({
           {tagText}
         </p>
 
-        <p className="text-small text-muted mt-2 line-clamp-1">{description}</p>
+        <p className="text-small text-muted mt-2">{description}</p>
 
         <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-4 gap-y-1">
           {liveUrl ? (
