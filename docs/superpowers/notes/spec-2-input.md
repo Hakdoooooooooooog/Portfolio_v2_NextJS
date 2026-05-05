@@ -25,18 +25,6 @@
 - components/footer.tsx:8 — text-gray-600 dark:text-gray-300
 - components/button.tsx:18 — bg-blue-500 text-white dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700
 - components/button.tsx:20 — bg-gray-500 text-white dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700
-- components/Experiences\index.tsx:99 — border-gray-300/60 dark:border-gray-700/60 bg-gray-200/40 dark:bg-gray-900/30
-- components/Experiences\index.tsx:104 — border-gray-400/40 bg-gray-500/10 text-gray-600 dark:text-gray-300
-- components/Experiences\index.tsx:107 — text-gray-500 dark:text-gray-400
-- components/Experiences\index.tsx:117 — text-gray-500 dark:text-gray-400
-- components/Experiences\components\experience-card.tsx:40 — text-gray-900 dark:text-white
-- components/Experiences\components\experience-card.tsx:43 — text-gray-600 dark:text-gray-500
-- components/Experiences\components\experience-card.tsx:56 — text-gray-500 dark:text-gray-600
-- components/Experiences\components\experience-card.tsx:88 — text-gray-700 dark:text-gray-300
-- components/Experiences\components\experience-card.tsx:95 — text-gray-700 dark:text-gray-300
-- components/Experiences\components\experience-card.tsx:109 — bg-blue-300 dark:bg-blue-700/50 text-blue-900 dark:text-gray-300 dark:hover:bg-gray-700
-- components/Experiences\components\experience-card.tsx:127 — border-gray-200 dark:border-gray-700 bg-gray-300/75 dark:bg-gray-800/75
-- components/Experiences\components\experience-card.tsx:140 — text-gray-700 dark:text-gray-300
 - components/Navbar\index.tsx:13 — bg-gray-300/20 dark:bg-gray-800/20
 - components/Navbar\components\nav-item.tsx:20 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
 - components/Navbar\components\nav-drawer.tsx:45 — text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400
@@ -45,15 +33,6 @@
 
 ## Off-rhythm spacing utilities
 
-- components/Experiences\index.tsx:91 — py-24 px-4 gap-12
-- components/Experiences\index.tsx:92 — gap-6
-- components/Experiences\index.tsx:102 — px-5 py-4 gap-3
-- components/Experiences\index.tsx:104 — px-3 py-1
-- components/Experiences\index.tsx:132 — px-5 pb-5 gap-6
-- components/Experiences\components\experience-card.tsx:49 — px-3 py-1
-- components/Experiences\components\experience-card.tsx:95 — gap-2
-- components/Experiences\components\experience-card.tsx:127 — gap-4 p-6
-- components/Experiences\components\experience-card.tsx:161 — p-3 mt-auto
 - components/Navbar\components\nav-drawer.tsx:122 — pt-6
 
 ## Migrated to the new tokens (out of scope for spec 2 onward)
@@ -74,6 +53,11 @@
 - `components/Skills-certificates/components/tags.tsx` — deleted in spec 2c.
 - `utils/hooks/useIsSmallDevice.ts` — deleted in spec 2c (no remaining consumers).
 - `components/modal-image.tsx` — deleted in spec 2c (no remaining consumers).
+- `components/Experiences/index.tsx` — rewritten in spec 2d (Experiences redesign).
+- `components/Experiences/components/timeline-entry.tsx` — created in spec 2d; uses tokens from inception.
+- `components/Experiences/components/experience-card.tsx` — deleted in spec 2d.
+- `components/use-reveal.ts` — created in spec 2d (lifted from Skills-certificates/components/use-reveal.ts to shared root).
+- `components/Skills-certificates/components/use-reveal.ts` — moved in spec 2d to `components/use-reveal.ts`.
 
 ## Notes
 
