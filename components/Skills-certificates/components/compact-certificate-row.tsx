@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import type { CSSProperties } from "react";
 import { useReveal } from "./use-reveal";
+import CertificateThumbnail from "./certificate-thumbnail";
 
 type CompactCertificateRowProps = {
   title: string;
@@ -56,17 +56,11 @@ export default function CompactCertificateRow({
       className="reveal flex gap-4 py-4 border-b border-border last:border-b-0"
       style={{ "--reveal-delay": `${delayMs}ms` } as CSSProperties}
     >
-      <div className="relative w-24 h-24 shrink-0 rounded-md overflow-hidden border border-border bg-surface">
+      <div className="relative w-32 h-24 shrink-0 rounded-md overflow-hidden border border-border bg-surface">
         {embed ? (
           <CredlyBadge badgeId={embed.badgeId} alt={alt} />
         ) : imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={alt}
-            fill
-            sizes="96px"
-            className="object-cover"
-          />
+          <CertificateThumbnail src={imageSrc} alt={alt} />
         ) : null}
       </div>
 
