@@ -1,0 +1,51 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('bun.lock') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('bun.lock') }}-
+
+      - run: bun install --frozen-lockfile
+
+      - run: bun run lint
+
+      - name: Deploy to Netlify
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            bunx netlify-cli deploy --build \
+              --alias "deploy-preview-${{ github.event.pull_request.number }}" \
+              --message "PR #${{ github.event.pull_request.number }} from ${{ github.actor }}"
+          else
+            bunx netlify-cli deploy --build --prod \
+              --message "${{ github.sha }} from ${{ github.actor }}"
+          fi
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
