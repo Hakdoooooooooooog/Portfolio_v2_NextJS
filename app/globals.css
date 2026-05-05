@@ -104,8 +104,26 @@
   }
 
   .name-underline {
-    border-bottom: 2px solid var(--accent);
+    position: relative;
     padding-bottom: 0.1em;
+  }
+  .name-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: name-underline-draw 0.6s ease-out 0.2s forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .name-underline::after {
+      transform: scaleX(1);
+      animation: none;
+    }
   }
 
   .text-heading-row {
@@ -162,6 +180,12 @@
       linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 90%);
     mask-image: radial-gradient(ellipse at center, #000 40%, transparent 90%);
+  }
+}
+
+@keyframes name-underline-draw {
+  to {
+    transform: scaleX(1);
   }
 }
 
