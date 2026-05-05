@@ -26,7 +26,11 @@ export type TCertificate = {
 export type TSkillData = {
   src: string;
   name: string;
-  position: { x: number; y: number };
+};
+
+export type TSkillCategory = {
+  label: string;
+  skills: TSkillData[];
 };
 
 export type TNavigationLink = {
