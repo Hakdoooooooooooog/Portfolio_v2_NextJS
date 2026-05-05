@@ -48,9 +48,11 @@ export const skillCategories: TSkillCategory[] = [
     skills: [
       { src: "/images/skills/java.png", name: "Java" },
       { src: "/images/skills/nodejs-express-js.png", name: "Node.js" },
+      { src: "/images/skills/nest-js.png", name: "NestJS" },
       { src: "/images/skills/prisma.png", name: "Prisma" },
       { src: "/images/skills/postgresql.png", name: "PostgreSQL" },
       { src: "/images/skills/mysql.png", name: "MySQL" },
+      { src: "/images/skills/redis.png", name: "Redis" },
     ],
   },
   {
@@ -256,12 +258,13 @@ export const ProjectsData: TProjectData[] = [
       "NestJS",
       "TypeScript",
       "PostgreSQL",
+      "Redis",
       "AWS",
       "Terraform",
       "Docker",
     ],
     description:
-      "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend (Next.js) and backend (NestJS + Prisma + PostgreSQL) with a focus on scalable architecture, AWS infrastructure provisioned via Terraform, and containerized deployments.",
+      "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend (Next.js) and backend (NestJS + Prisma + PostgreSQL) with Redis-backed caching for hot reads, all on a scalable AWS infrastructure provisioned via Terraform and shipped through containerized deployments.",
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.png",
       imageAlt:
