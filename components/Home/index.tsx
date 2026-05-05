@@ -15,12 +15,12 @@ export default function HomeSection() {
           </h1>
 
           <p className="text-body-lg text-muted mt-8">
-            I&apos;m a Junior Full-Stack Developer at GP Synergia and a Cum
-            Laude BSIT graduate from Cavite State University. I build web apps
-            end-to-end — TypeScript, React, and Next.js on the front, Node.js
-            and Spring Boot on the back, with AWS, Terraform, and Docker
-            handling the rest. I care about shipping things that hold up in
-            production and stay easy for the next person to work on.
+            I&apos;m a full-stack developer who builds web apps end-to-end,
+            from the interface down to the infrastructure. I work across the
+            stack — modern frontend frameworks, server-side APIs, and the
+            cloud and tooling that ties it all together. I care about
+            shipping things that hold up in production and stay easy for the
+            next person to work on.
           </p>
 
           <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-2 gap-y-1">

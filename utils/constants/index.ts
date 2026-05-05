@@ -14,14 +14,10 @@ export const navLinks: TNavigationLink[] = [
 ];
 
 export const stack: readonly string[] = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Spring Boot",
-  "AWS",
-  "Terraform",
-  "Docker",
+  "Frontend",
+  "Backend",
+  "Cloud",
+  "DevOps",
 ];
 
 export const sectionNumbers: Record<string, string> = {
