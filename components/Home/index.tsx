@@ -15,12 +15,13 @@ export default function HomeSection() {
           </h1>
 
           <p className="text-body-lg text-muted mt-8">
-            Junior Full-Stack Developer at GP Synergia and Cum Laude BSIT
-            graduate of Cavite State University. I engineer, automate, and
-            deploy production-ready web applications — combining TypeScript,
-            React, and Next.js on the frontend with Node.js and Spring Boot
-            services, AWS infrastructure provisioned via Terraform, and
-            containerized deployments through Docker and GitLab CI/CD.
+            I&apos;m a Junior Full-Stack Developer at GP Synergia and a Cum
+            Laude BSIT graduate from Cavite State University. I build web
+            apps end-to-end — TypeScript, React, and Next.js on the front,
+            Node.js and Spring Boot on the back, with AWS, Terraform, and
+            Docker handling the rest. I care about shipping things that
+            hold up in production and stay easy for the next person to
+            work on.
           </p>
 
           <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-2 gap-y-1">

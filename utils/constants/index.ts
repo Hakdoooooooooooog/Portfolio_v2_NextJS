@@ -268,7 +268,7 @@ export const ProjectsData: TProjectData[] = [
       "Docker",
     ],
     description:
-      "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend (Next.js) and backend (NestJS + Prisma + PostgreSQL) with Redis-backed caching for hot reads, all on a scalable AWS infrastructure provisioned via Terraform and shipped through containerized deployments.",
+      "A B2B e-commerce platform for the Southeast Asian peptide industry. I built core features across the Next.js frontend and a NestJS + Prisma + PostgreSQL backend, with Redis caching for hot reads. Infrastructure runs on AWS, provisioned with Terraform and shipped as Docker containers.",
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.png",
       imageAlt:
@@ -292,7 +292,7 @@ export const ProjectsData: TProjectData[] = [
       "Amazon S3",
     ],
     description:
-      "A comprehensive web-based Learning Content Management System for IT students at Cavite State University, with a Node.js + Express + Prisma API backed by PostgreSQL and Amazon S3. The frontend uses Zustand for state and Zod for type-safe form validation; the backend uses Zod for request validation and Prisma for typed DB access.",
+      "A web-based learning platform for IT students at Cavite State University. Node.js + Express + Prisma API on PostgreSQL with Amazon S3 for assets. The frontend uses Zustand for state and Zod for form validation; the backend uses Zod for request validation.",
     link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     metadata: {
       imageSrc: "/images/projects/topcit-thumbnail.png",
@@ -304,7 +304,7 @@ export const ProjectsData: TProjectData[] = [
     title: "E-CPLGT",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     description:
-      "An E-Library platform for the City Public Library of General Trias, Cavite. This application allows users to browse and manage library resources, including books and other media. Built with Next.js and TypeScript, it features a modern design with animations powered by Framer Motion.",
+      "An e-library for the City Public Library of General Trias, Cavite. Lets the community browse and manage library resources online. Built with Next.js and TypeScript, with light animations via Framer Motion.",
     link: "https://github.com/Hakdoooooooooooog/e-library",
     metadata: {
       imageSrc: "/images/projects/ecplgt-thumbnail.png",
@@ -316,7 +316,7 @@ export const ProjectsData: TProjectData[] = [
     title: "Event Management System API",
     tags: ["API", "Node.js", "Express", "Prisma", "PostgreSQL"],
     description:
-      "A RESTful API for managing events, built with Node.js and Express. It provides endpoints for creating, updating, and retrieving event data, utilizing Prisma for database interactions with PostgreSQL. The API is designed to be scalable and secure, supporting various event management functionalities.",
+      "A REST API for managing events — create, update, and read endpoints backed by Node.js, Express, Prisma, and PostgreSQL.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
 ];
@@ -331,8 +331,8 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       bullets: [
-        "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments and enhance security.",
-        "Orchestrated containerized application deployments via Docker and provisioned AWS cloud infrastructure using Terraform.",
+        "Set up a self-hosted GitLab and wired up CI/CD so the team could ship faster and with fewer manual steps.",
+        "Containerized our apps with Docker and managed AWS infrastructure as code with Terraform.",
       ],
       skills: ["GitLab CI/CD", "Docker", "Terraform", "AWS"],
     },
@@ -347,7 +347,7 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       bullets: [
-        "Delivered technical support, managed Microsoft Entra users, and enhanced the support ticket automation pipeline for faster resolution.",
+        "Handled day-to-day technical support, managed users in Microsoft Entra, and improved the ticket automation flow so issues got resolved faster.",
       ],
       skills: ["Microsoft Entra", "Technical Support", "Automation"],
     },
@@ -362,7 +362,7 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       description:
-        "Provided IT support and technical assistance to library users while managing ICT E-Library resources and maintaining computer systems. Developed and shipped a centralized digital platform that streamlined access to library resources and improved accessibility for community members.",
+        "Supported library staff and visitors with day-to-day IT issues and kept the public computers running. Built and shipped a digital library platform that made resources easier to find for the community.",
       skills: [
         "Technical Support",
         "Web Development",
@@ -384,7 +384,7 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       description:
-        "Evaluated structured descriptions of product pages and identified the main description copy. Extracted product info (description, details, features, specifications, materials/ingredients, etc.) used as ground-truth for downstream webpage assessments.",
+        "Reviewed product pages and pulled out the main description copy along with details, features, specs, and materials. The extracted data was used as ground truth for downstream webpage evaluation tasks.",
       skills: ["Data Annotation", "Web Evaluation", "Product Analysis"],
     },
   },

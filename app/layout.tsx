@@ -26,7 +26,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Hicap's Portfolio",
   description:
-    "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer.",
+    "Personal portfolio of Darenz Jasper Hicap — Full Stack Developer. Projects, skills, and experience.",
   authors: [{ name: "Darenz Hicap" }],
   keywords: [
     "Portfolio",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hicap's Portfolio - Full Stack Developer",
     description:
-      "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer specializing in React, Next.js, and TypeScript.",
+      "Full Stack Developer working with React, Next.js, and TypeScript. See my projects, skills, and experience.",
     url: "https://darenzhicap.dev",
     siteName: "Hicap's Portfolio",
     images: [
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hicap's Portfolio - Full Stack Developer",
     description:
-      "Welcome to my portfolio! Explore my projects, skills, and experiences as a Full Stack Developer.",
+      "Full Stack Developer working with React, Next.js, and TypeScript. See my projects, skills, and experience.",
     images: ["https://darenzhicap.dev/images/site-thumbnail.png"],
   },
   robots: {
