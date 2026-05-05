@@ -26,12 +26,14 @@ export default function TimelineEntry({
     ? `${startDate} — ${endDate ?? "Present"}`
     : null;
 
-  const dotClass = isActive ? "before:bg-accent" : "before:bg-border";
+  const dotClasses = isActive
+    ? "before:bg-accent dot-pulse"
+    : "before:bg-border";
 
   return (
     <li
       ref={ref}
-      className={`reveal relative ${dotClass} before:absolute before:-left-[33px] before:top-1 before:size-2.5 before:rounded-full ${className ?? ""}`}
+      className={`reveal relative ${dotClasses} before:absolute before:-left-[33px] before:top-1 before:size-2.5 before:rounded-full ${className ?? ""}`}
       style={{ "--reveal-delay": `${delayMs}ms` } as CSSProperties}
     >
       {dateLabel ? (
