@@ -140,9 +140,9 @@ New entry, no repo link, demo-only, no thumbnail:
 ```ts
 {
   title: "Redbiomed",
-  tags: ["AWS", "Terraform", "Docker", "B2B E-Commerce"],
+  tags: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "AWS", "Terraform", "Docker"],
   description:
-    "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend and backend with a focus on scalable architecture, AWS infrastructure provisioned via Terraform, and containerized deployments.",
+    "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend (Next.js) and backend (NestJS + Prisma + PostgreSQL) with a focus on scalable architecture, AWS infrastructure provisioned via Terraform, and containerized deployments.",
   metadata: { demoLink: "https://redbiomed.com" },
 }
 ```
@@ -238,4 +238,4 @@ Bounded to the components touched above. Anything not in this list is out of sco
 - AWS Cloud Quest issuance date (read from Credly badge page).
 - Final coordinates for the skills scatter (tune during dev).
 - User must drop the four skills PNGs into `public/images/skills/` before step 6.
-- Confirm Redbiomed's frontend framework with the user before adding framework-specific tags (resume doesn't specify; current spec uses infrastructure-only tags).
+- Redbiomed stack confirmed by inspecting the local Renovome repo (renamed to Redbiomed): Next.js + NestJS + Prisma + PostgreSQL on AWS via Terraform/Docker. Tags reflect this.
