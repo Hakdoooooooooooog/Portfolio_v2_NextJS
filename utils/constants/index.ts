@@ -244,6 +244,7 @@ export const CertificatesData: TCertificate[] = [
 export const ProjectsData: TProjectData[] = [
   {
     title: "Redbiomed",
+    featured: true,
     tags: [
       "Next.js",
       "NestJS",
@@ -256,6 +257,9 @@ export const ProjectsData: TProjectData[] = [
     description:
       "A B2B e-commerce management system for the Southeast Asian peptide industry. Built core platform features across the frontend (Next.js) and backend (NestJS + Prisma + PostgreSQL) with a focus on scalable architecture, AWS infrastructure provisioned via Terraform, and containerized deployments.",
     metadata: {
+      imageSrc: "/images/projects/redbiomed-thumbnail.png",
+      imageAlt:
+        "RED BioMed — Manufacturer & Institutional Partnerships landing page",
       demoLink: "https://redbiomed.com",
     },
   },
@@ -268,29 +272,20 @@ export const ProjectsData: TProjectData[] = [
       "Material UI",
       "Zustand",
       "Zod",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "Amazon S3",
     ],
-    link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     description:
-      "A comprehensive web-based Learning Content Management System designed specifically for IT students at Cavite State University. This application serves as a centralized platform for managing educational resources, tracking progress, and preparing students for practical competency assessments. Built with modern React architecture, it features robust state management through Zustand, type-safe form validation using Zod, and a responsive design system combining Tailwind CSS with Material UI components for an optimal user experience.",
+      "A comprehensive web-based Learning Content Management System for IT students at Cavite State University, with a Node.js + Express + Prisma API backed by PostgreSQL and Amazon S3. The frontend uses Zustand for state and Zod for type-safe form validation; the backend uses Zod for request validation and Prisma for typed DB access.",
+    link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     metadata: {
       imageSrc: "/images/projects/topcit-thumbnail.png",
       imageAlt: "TOPCIT Learners Content Management System",
+      serverLink: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
     },
-  },
-  {
-    title: "TOPCIT LCMS API",
-    tags: [
-      "API",
-      "Node.js",
-      "Express",
-      "Amazon S3",
-      "Prisma",
-      "Zod",
-      "PostgreSQL",
-    ],
-    description:
-      "The backend API for the TOPCIT LCMS, built with Node.js and Express. It provides a RESTful interface for managing educational content, user data, and progress tracking. The API integrates with Amazon S3 for file storage, uses Prisma for database interactions with PostgreSQL, and employs Zod for type-safe request validation.",
-    link: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
   },
   {
     title: "E-CPLGT",
@@ -321,19 +316,5 @@ export const ProjectsData: TProjectData[] = [
       imageSrc: "/images/projects/portfolio-v2-thumbnail.png",
       imageAlt: "Portfolio Website",
     },
-  },
-  {
-    title: "Ordering System",
-    tags: ["Java", "Object-Oriented Programming", "CMD"],
-    description:
-      "A simple cmd-based ordering system built with Java. This application allows users to place orders, manage inventory, and process transactions through a command-line interface.",
-    link: "https://github.com/Hakdoooooooooooog/Ordering-System",
-  },
-  {
-    title: "Rock Paper Scissor and Text-based RPG Game",
-    tags: ["Java", "Object-Oriented Programming", "CMD"],
-    description:
-      "A simple cmd-based game that includes both Rock Paper Scissor and a text-based RPG game, built with Java. This application provides an interactive gaming experience through a command-line interface.",
-    link: "https://github.com/Hakdoooooooooooog/Game-Project-Java",
   },
 ];
