@@ -124,7 +124,7 @@ const ExperienceCard = ({
   const { description, bullets, skills, project } = experienceData.additionalInfo;
 
   return (
-    <div className="flex flex-col justify-center gap-4 p-6 max-w-lg h-fit border rounded-md border-gray-200 dark:border-gray-700 bg-gray-300/75 dark:bg-gray-800/75 shadow-lg">
+    <div className="flex flex-col justify-center gap-4 p-6 w-full border rounded-md border-gray-200 dark:border-gray-700 bg-gray-300/75 dark:bg-gray-800/75 shadow-lg">
       <ExperienceHero
         title={experienceData.workInfo.title}
         subtitle={experienceData.workInfo.subtitle}

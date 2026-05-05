@@ -88,8 +88,8 @@ const Experiences = () => {
   const [earlierOpen, setEarlierOpen] = useState(false);
 
   return (
-    <section className="max-w-7xl m-auto py-24 px-4 flex flex-col gap-12">
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(500px,1fr))] gap-y-8 gap-x-4 items-start justify-items-center">
+    <section className="max-w-3xl m-auto py-24 px-4 flex flex-col gap-12">
+      <div className="flex flex-col gap-6">
         {PrimaryExperiences.map((experience, index) => (
           <ExperienceCard key={index} experienceData={experience} />
         ))}
@@ -129,7 +129,7 @@ const Experiences = () => {
           </svg>
         </summary>
 
-        <div className="px-5 pb-5 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(500px,1fr))] gap-y-8 gap-x-4 items-start justify-items-center">
+        <div className="px-5 pb-5 flex flex-col gap-6">
           {EarlierExperiences.map((experience, index) => (
             <ExperienceCard key={index} experienceData={experience} />
           ))}
