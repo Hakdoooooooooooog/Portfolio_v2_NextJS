@@ -212,10 +212,10 @@ No changes to the theme system itself:
 
 | File | Change |
 |---|---|
-| `app/globals.css` | Rewrite: three-layer token system, type scale, container, refined `.bg-grid-pattern`, light/dark `--grid-line` |
+| `app/globals.css` | Rewrite: three-layer token system, type scale, container, refined `.bg-grid-pattern`, light/dark `--grid-line`. Removes the stale `@media (prefers-color-scheme: dark)` block at `:root` (lines 8–13) — `data-theme` is the single source of truth. Removes the `body { font-family: Arial, ...; }` rule (line 64) that currently overrides the `next/font` Noto Sans variables. |
 | `app/layout.tsx` | Import `Fraunces` from `next/font/google`, expose `--font-fraunces`, add to `<body>` className |
-| `components/theme-script.tsx` | Verify only — likely zero edits |
-| `tailwind.config.ts` | Delete — empty under v4, `@theme inline` replaces it |
+| `components/theme-script.tsx` | Verify only — script reads `theme-storage` localStorage and sets `data-theme`; has no token-name dependencies. Zero edits expected. |
+| `tailwind.config.ts` | Delete. Currently declares `content` paths and a `fontFamily` extension (`font-noto-sans`, `font-noto-sans-mono`). Tailwind v4 auto-detects content, and `@theme inline` replaces the fontFamily block. The two declared utilities are unused across the codebase (verified via grep), so deletion is safe. |
 
 No other files are modified in this spec.
 
@@ -224,9 +224,13 @@ No other files are modified in this spec.
 1. `bun run build` and `bun dev` complete with no new warnings.
 2. Theme toggle works; no FOUC; no hydration warnings in the console.
 3. All four palette colors are visible somewhere on the rendered pages (components may look mismatched against the new tokens — expected, addressed in spec 2).
-4. Grepping `components/**` for `bg-\[#`, `text-\[#`, raw hex literals, and `gap-3|gap-5|gap-6|gap-12` produces a list captured in the spec-2 input notes — **not fixed in this spec**.
+4. Grepping `components/**` for off-palette and off-rhythm usage produces a list captured in the spec-2 input notes — **not fixed in this spec**. The grep must cover, at minimum:
+   - Raw hex: `bg-\[#`, `text-\[#`, `border-\[#`, and bare hex literals.
+   - Off-palette Tailwind defaults: `bg-(white|black|gray-)`, `text-(white|black|gray-)`, `border-(white|black|gray-)`, including `dark:` / `light:` variants of each (currently used in `Home/index.tsx`, `project-card.tsx`, and others).
+   - Off-rhythm spacing: `gap-3`, `gap-5`, `gap-6`, `gap-12`, plus equivalent `p-`, `px-`, `py-`, `m-`, `mx-`, `my-` values.
 5. No new dependencies added beyond what `next/font/google` pulls for `Fraunces`.
-6. Light-mode grid lines are visible (regression-fix verification).
+6. Light-mode grid lines are visible (regression-fix verification — current `bg-grid-pattern` light-mode lines are white-on-near-white and effectively invisible).
+7. Body text renders in Noto Sans, not Arial (regression-fix verification — the current `body { font-family: Arial, ...; }` rule in `globals.css` is being removed; `<body>` should inherit the `--font-noto-sans` variable through the new tokens).
 
 ## Lean guardrails
 
