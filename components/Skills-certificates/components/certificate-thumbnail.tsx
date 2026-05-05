@@ -39,7 +39,7 @@ export default function CertificateThumbnail({
         onClick={(e) => {
           if (e.target === dialogRef.current) close();
         }}
-        className="bg-transparent text-foreground p-0 max-w-[90vw] max-h-[90vh] backdrop:bg-background/80 backdrop:backdrop-blur-sm"
+        className="bg-transparent text-foreground p-0  backdrop:bg-background/80 backdrop:backdrop-blur-sm m-auto"
       >
         <div className="relative bg-surface rounded-xl overflow-hidden border border-border">
           <button
