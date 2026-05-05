@@ -1,9 +1,14 @@
 "use client";
 
 import { Switch } from "@base-ui-components/react";
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { useThemeStore } from "../utils/store/theme-store";
 import { useShallow } from "zustand/shallow";
+
+const subscribeHydration = (cb: () => void) =>
+  useThemeStore.persist.onFinishHydration(cb);
+const getHydrated = () => useThemeStore.persist.hasHydrated();
+const getHydratedServer = () => false;
 
 const SunIcon = () => (
   <svg className="size-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
@@ -22,26 +27,24 @@ const MoonIcon = () => (
 );
 
 const ThemeSwitch = () => {
-  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useThemeStore(
     useShallow((state) => ({
       theme: state.theme,
       setTheme: state.setTheme,
     }))
   );
+  const hydrated = useSyncExternalStore(
+    subscribeHydration,
+    getHydrated,
+    getHydratedServer
+  );
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- SSR hydration guard
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      document.documentElement.setAttribute("data-theme", theme);
-    }
-  }, [theme, mounted]);
+    if (!hydrated) return;
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme, hydrated]);
 
   const isDark = theme === "dark";
 
