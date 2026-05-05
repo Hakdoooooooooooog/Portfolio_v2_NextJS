@@ -2,7 +2,7 @@ import {
   TCertificate,
   TNavigationLink,
   TProjectData,
-  TSkillData,
+  TSkillCategory,
 } from "../types";
 
 export const navLinks: TNavigationLink[] = [
@@ -30,33 +30,39 @@ export const sectionNumbers: Record<string, string> = {
   experiences: "04",
 };
 
-// 4-row × 5-column grid: x ∈ {-200, -100, 0, 100, 200}, y ∈ {-150, -50, 50, 150}.
-// 100px spacing on both axes (75px icons + 25px gutter).
-export const skillsData: TSkillData[] = [
-  // Row 1 (y=-150): Infra / cloud
-  { src: "/images/skills/aws.png", name: "AWS", position: { x: -200, y: -150 } },
-  { src: "/images/skills/docker.png", name: "Docker", position: { x: -100, y: -150 } },
-  { src: "/images/skills/terraform.png", name: "Terraform", position: { x: 0, y: -150 } },
-  { src: "/images/skills/aws-s3.png", name: "AWS S3", position: { x: 100, y: -150 } },
-
-  // Row 2 (y=-50): Backend / data
-  { src: "/images/skills/java.png", name: "Java", position: { x: -200, y: -50 } },
-  { src: "/images/skills/nodejs-express-js.png", name: "Node.js", position: { x: -100, y: -50 } },
-  { src: "/images/skills/prisma.png", name: "Prisma", position: { x: 0, y: -50 } },
-  { src: "/images/skills/postgresql.png", name: "PostgreSQL", position: { x: 100, y: -50 } },
-  { src: "/images/skills/mysql.png", name: "MySQL", position: { x: 200, y: -50 } },
-
-  // Row 3 (y=50): Tooling + frontend core
-  { src: "/images/skills/git.png", name: "Git", position: { x: -200, y: 50 } },
-  { src: "/images/skills/ts.png", name: "TypeScript", position: { x: -100, y: 50 } },
-  { src: "/images/skills/react.png", name: "React", position: { x: 0, y: 50 } },
-  { src: "/images/skills/next-js.png", name: "Next.js", position: { x: 100, y: 50 } },
-  { src: "/images/skills/tailwind-css.png", name: "Tailwind", position: { x: 200, y: 50 } },
-
-  // Row 4 (y=150): Frontend ecosystem
-  { src: "/images/skills/zustand.png", name: "Zustand", position: { x: -100, y: 150 } },
-  { src: "/images/skills/react-query.png", name: "React Query", position: { x: 0, y: 150 } },
-  { src: "/images/skills/zod.png", name: "Zod", position: { x: 100, y: 150 } },
+export const skillCategories: TSkillCategory[] = [
+  {
+    label: "Frontend",
+    skills: [
+      { src: "/images/skills/ts.png", name: "TypeScript" },
+      { src: "/images/skills/react.png", name: "React" },
+      { src: "/images/skills/next-js.png", name: "Next.js" },
+      { src: "/images/skills/tailwind-css.png", name: "Tailwind CSS" },
+      { src: "/images/skills/zustand.png", name: "Zustand" },
+      { src: "/images/skills/react-query.png", name: "React Query" },
+      { src: "/images/skills/zod.png", name: "Zod" },
+    ],
+  },
+  {
+    label: "Backend",
+    skills: [
+      { src: "/images/skills/java.png", name: "Java" },
+      { src: "/images/skills/nodejs-express-js.png", name: "Node.js" },
+      { src: "/images/skills/prisma.png", name: "Prisma" },
+      { src: "/images/skills/postgresql.png", name: "PostgreSQL" },
+      { src: "/images/skills/mysql.png", name: "MySQL" },
+    ],
+  },
+  {
+    label: "Platform",
+    skills: [
+      { src: "/images/skills/aws.png", name: "AWS" },
+      { src: "/images/skills/aws-s3.png", name: "AWS S3" },
+      { src: "/images/skills/docker.png", name: "Docker" },
+      { src: "/images/skills/terraform.png", name: "Terraform" },
+      { src: "/images/skills/git.png", name: "Git" },
+    ],
+  },
 ];
 
 export const CertificatesData: TCertificate[] = [
