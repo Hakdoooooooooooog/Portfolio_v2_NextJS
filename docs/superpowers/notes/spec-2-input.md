@@ -43,10 +43,6 @@
 - components/Experiences\components\experience-card.tsx:127 — border-gray-200 dark:border-gray-700 bg-gray-300/75 dark:bg-gray-800/75
 - components/Experiences\components\experience-card.tsx:140 — text-gray-700 dark:text-gray-300
 - components/Navbar\index.tsx:13 — bg-gray-300/20 dark:bg-gray-800/20
-- components/Projects\components\project-card.tsx:20 — bg-gray-400/75 dark:bg-gray-800/75
-- components/Projects\components\project-card.tsx:22 — text-gray-800 dark:text-gray-200
-- components/Projects\components\project-card.tsx:37 — text-gray-600 dark:text-gray-400
-- components/Projects\components\project-card.tsx:62 — bg-black/80
 - components/Skills-certificates\components\image-collage.tsx:32 — bg-gray-300/75 dark:bg-gray-800/75
 - components/Skills-certificates\components\certificates.tsx:41 — bg-gray-300/80 dark:bg-gray-800/80
 - components/Skills-certificates\components\certificates.tsx:61 — bg-black/80
@@ -65,8 +61,6 @@
 - components/Experiences\index.tsx:132 — px-5 pb-5 gap-6
 - components/Skills-certificates\index.tsx:92 — pb-12
 - components/Skills-certificates\index.tsx:97 — gap-6
-- components/Projects\components\project-card.tsx:20 — gap-12 p-4
-- components/Projects\components\project-card.tsx:25 — gap-2 mb-12
 - components/Experiences\components\experience-card.tsx:49 — px-3 py-1
 - components/Experiences\components\experience-card.tsx:95 — gap-2
 - components/Experiences\components\experience-card.tsx:127 — gap-4 p-6
@@ -77,6 +71,11 @@
 
 - `components/Home/index.tsx` — migrated in spec 2a (Home redesign).
 - `components/Home/components/contact-block.tsx` — created in spec 2a; uses tokens from inception.
+- `components/Projects/index.tsx` — rewritten in spec 2b (Projects redesign).
+- `components/Projects/components/featured-project-card.tsx` — created in spec 2b; uses tokens from inception.
+- `components/Projects/components/compact-project-row.tsx` — created in spec 2b; uses tokens from inception.
+- `components/Projects/components/project-card.tsx` — deleted in spec 2b.
+- `components/Projects/components/project-cta.tsx` — deleted in spec 2b.
 
 ## Notes
 
