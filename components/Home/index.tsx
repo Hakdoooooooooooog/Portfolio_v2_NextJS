@@ -47,7 +47,7 @@ export default function HomeSection() {
             <Image
               priority
               loading="eager"
-              src="/images/profile.jpg"
+              src="/images/profile.webp"
               alt="A picture of Darenz Jasper A. Hicap, dressed in a white barong, smiling at the camera with arms crossed."
               width={250}
               height={250}

@@ -38,35 +38,35 @@ export const skillCategories: TSkillCategory[] = [
   {
     label: "Frontend",
     skills: [
-      { src: "/images/skills/ts.png", name: "TypeScript" },
-      { src: "/images/skills/react.png", name: "React" },
-      { src: "/images/skills/next-js.png", name: "Next.js" },
-      { src: "/images/skills/tailwind-css.png", name: "Tailwind CSS" },
-      { src: "/images/skills/zustand.png", name: "Zustand" },
-      { src: "/images/skills/react-query.png", name: "React Query" },
-      { src: "/images/skills/zod.png", name: "Zod" },
+      { src: "/images/skills/ts.webp", name: "TypeScript" },
+      { src: "/images/skills/react.webp", name: "React" },
+      { src: "/images/skills/next-js.webp", name: "Next.js" },
+      { src: "/images/skills/tailwind-css.webp", name: "Tailwind CSS" },
+      { src: "/images/skills/zustand.webp", name: "Zustand" },
+      { src: "/images/skills/react-query.webp", name: "React Query" },
+      { src: "/images/skills/zod.webp", name: "Zod" },
     ],
   },
   {
     label: "Backend",
     skills: [
-      { src: "/images/skills/java.png", name: "Java" },
-      { src: "/images/skills/nodejs-express-js.png", name: "Node.js" },
-      { src: "/images/skills/nest-js.png", name: "NestJS" },
-      { src: "/images/skills/prisma.png", name: "Prisma" },
-      { src: "/images/skills/postgresql.png", name: "PostgreSQL" },
-      { src: "/images/skills/mysql.png", name: "MySQL" },
-      { src: "/images/skills/redis.png", name: "Redis" },
+      { src: "/images/skills/java.webp", name: "Java" },
+      { src: "/images/skills/nodejs-express-js.webp", name: "Node.js" },
+      { src: "/images/skills/nest-js.webp", name: "NestJS" },
+      { src: "/images/skills/prisma.webp", name: "Prisma" },
+      { src: "/images/skills/postgresql.webp", name: "PostgreSQL" },
+      { src: "/images/skills/mysql.webp", name: "MySQL" },
+      { src: "/images/skills/redis.webp", name: "Redis" },
     ],
   },
   {
     label: "Platform",
     skills: [
-      { src: "/images/skills/aws.png", name: "AWS" },
-      { src: "/images/skills/aws-s3.png", name: "AWS S3" },
-      { src: "/images/skills/docker.png", name: "Docker" },
-      { src: "/images/skills/terraform.png", name: "Terraform" },
-      { src: "/images/skills/git.png", name: "Git" },
+      { src: "/images/skills/aws.webp", name: "AWS" },
+      { src: "/images/skills/aws-s3.webp", name: "AWS S3" },
+      { src: "/images/skills/docker.webp", name: "Docker" },
+      { src: "/images/skills/terraform.webp", name: "Terraform" },
+      { src: "/images/skills/git.webp", name: "Git" },
     ],
   },
 ];
@@ -74,7 +74,7 @@ export const skillCategories: TSkillCategory[] = [
 export const CertificatesData: TCertificate[] = [
   {
     id: 1,
-    src: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.png",
+    src: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.webp",
     alt: "DICT Basic Level of Cloud Computing Certificate",
     metadata: {
       title: "DICT Basic Level of Cloud Computing",
@@ -83,7 +83,7 @@ export const CertificatesData: TCertificate[] = [
       date: "2024-12-26",
       issuer: "Department of Information and Communications Technology (DICT)",
       tags: ["Cloud", "Cloud Computing", "Basic Concepts", "DICT"],
-      image: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.png", // Example image, replace with actual
+      image: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -93,7 +93,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 2,
-    src: "/images/certificates/DICT_Intermediate-Level-of-Cloud-Computing.png",
+    src: "/images/certificates/DICT_Intermediate-Level-of-Cloud-Computing.webp",
     alt: "DICT Intermediate Level of Cloud Computing Certificate",
     metadata: {
       title: "DICT Intermediate Level of Cloud Computing",
@@ -103,7 +103,7 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Department of Information and Communications Technology (DICT)",
       tags: ["Cloud", "Cloud Computing", "Intermediate Concepts", "DICT"],
       image:
-        "/images/certificates/DICT_Intermediate-Level-of-Cloud-Computing.png", // Example image, replace with actual
+        "/images/certificates/DICT_Intermediate-Level-of-Cloud-Computing.webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -113,7 +113,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 3,
-    src: "/images/certificates/DICT_Web-Development-Principles-and-Introduction-to-HTML.png",
+    src: "/images/certificates/DICT_Web-Development-Principles-and-Introduction-to-HTML.webp",
     alt: "DICT Web Development Principles and Introduction to HTML Certificate",
     metadata: {
       title: "DICT Web Development Principles and Introduction to HTML",
@@ -123,7 +123,7 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Department of Information and Communications Technology (DICT)",
       tags: ["Web", "Web Development", "HTML", "DICT"],
       image:
-        "/images/certificates/DICT_Web-Development-Principles-and-Introduction-to-HTML.png", // Example image, replace with actual
+        "/images/certificates/DICT_Web-Development-Principles-and-Introduction-to-HTML.webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -133,7 +133,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 4,
-    src: "/images/certificates/Flexisource-Mastering-React-from-Essentials-to-Advanced-Optimization.png",
+    src: "/images/certificates/Flexisource-Mastering-React-from-Essentials-to-Advanced-Optimization.webp",
     alt: "Flexisource Mastering React from Essentials to Advanced Optimization Certificate",
     metadata: {
       title:
@@ -144,7 +144,7 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Flexisource",
       tags: ["React", "Advanced Optimization", "Flexisource"],
       image:
-        "/images/certificates/Flexisource-Mastering-React-from-Essentials-to-Advanced-Optimization.png", // Example image, replace with actual
+        "/images/certificates/Flexisource-Mastering-React-from-Essentials-to-Advanced-Optimization.webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -154,7 +154,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 5,
-    src: "/images/certificates/Direcho_Trabaho-Web-Development-With-React.jpg",
+    src: "/images/certificates/Direcho_Trabaho-Web-Development-With-React.webp",
     alt: "Direcho Trabaho Web Development With React Certificate",
     metadata: {
       title: "Direcho Trabaho Web Development With React",
@@ -164,7 +164,7 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Direcho Trabaho",
       tags: ["Web", "React", "Web Development", "Direcho Trabaho"],
       image:
-        "/images/certificates/Direcho_Trabaho-Web-Development-With-React.jpg", // Example image, replace with actual
+        "/images/certificates/Direcho_Trabaho-Web-Development-With-React.webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -174,7 +174,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 6,
-    src: "/images/certificates/One-Month-HTML-and-CSS-Fundamentals-(DA8E536A).png",
+    src: "/images/certificates/One-Month-HTML-and-CSS-Fundamentals-(DA8E536A).webp",
     alt: "One Month HTML and CSS Fundamentals Certificate",
     metadata: {
       title: "One Month HTML and CSS Fundamentals",
@@ -184,7 +184,7 @@ export const CertificatesData: TCertificate[] = [
       issuer: "One Month",
       tags: ["Web", "HTML", "CSS", "Fundamentals", "One Month"],
       image:
-        "/images/certificates/One-Month-HTML-and-CSS-Fundamentals-(DA8E536A).png", // Example image, replace with actual
+        "/images/certificates/One-Month-HTML-and-CSS-Fundamentals-(DA8E536A).webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -194,7 +194,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 7,
-    src: "/images/certificates/One-Month-Javascript-(2A4547EA).png",
+    src: "/images/certificates/One-Month-Javascript-(2A4547EA).webp",
     alt: "One Month JavaScript Certificate",
     metadata: {
       title: "One Month JavaScript",
@@ -203,7 +203,7 @@ export const CertificatesData: TCertificate[] = [
       date: "2023-02-27",
       issuer: "One Month",
       tags: ["JavaScript", "Fundamentals", "One Month"],
-      image: "/images/certificates/One-Month-Javascript-(2A4547EA).png", // Example image, replace with actual
+      image: "/images/certificates/One-Month-Javascript-(2A4547EA).webp", // Example image, replace with actual
     },
     link: {
       href: "#", // Replace with actual link
@@ -213,7 +213,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 8,
-    src: "/images/certificates/Hicap_Tesda_NCIII_Java_Programming_page-0001.jpg",
+    src: "/images/certificates/Hicap_Tesda_NCIII_Java_Programming_page-0001.webp",
     alt: "TESDA Programming (Java) NC III Certificate",
     metadata: {
       title: "Programming (Java) NC III",
@@ -224,7 +224,7 @@ export const CertificatesData: TCertificate[] = [
         "Technical Education and Skills Development Authority (TESDA)",
       tags: ["Java", "Programming", "TESDA", "NCIII"],
       image:
-        "/images/certificates/Hicap_Tesda_NCIII_Java_Programming_page-0001.jpg",
+        "/images/certificates/Hicap_Tesda_NCIII_Java_Programming_page-0001.webp",
     },
     link: {
       href: "#",
@@ -234,7 +234,7 @@ export const CertificatesData: TCertificate[] = [
   },
   {
     id: 9,
-    src: "/images/certificates/aws-cloud-quest-cloud-practitioner-training-badge.png",
+    src: "/images/certificates/aws-cloud-quest-cloud-practitioner-training-badge.webp",
     alt: "AWS Cloud Quest Cloud Practitioner Training Badge",
     metadata: {
       title: "AWS Cloud Practitioner (Cloud Quest)",
@@ -243,7 +243,7 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Amazon Web Services",
       tags: ["AWS", "Cloud", "Cloud Quest", "Cloud Practitioner"],
       image:
-        "/images/certificates/aws-cloud-quest-cloud-practitioner-training-badge.png",
+        "/images/certificates/aws-cloud-quest-cloud-practitioner-training-badge.webp",
     },
     link: {
       href: "https://www.credly.com/badges/713669d7-6115-4916-88c0-4fe38f28a964",
@@ -270,7 +270,7 @@ export const ProjectsData: TProjectData[] = [
     description:
       "A B2B e-commerce platform for the Southeast Asian peptide industry. I built core features across the Next.js frontend and a NestJS + Prisma + PostgreSQL backend, with Redis caching for hot reads. Infrastructure runs on AWS, provisioned with Terraform and shipped as Docker containers.",
     metadata: {
-      imageSrc: "/images/projects/redbiomed-thumbnail.png",
+      imageSrc: "/images/projects/redbiomed-thumbnail.webp",
       imageAlt:
         "RED BioMed — Manufacturer & Institutional Partnerships landing page",
       demoLink: "https://redbiomed.com",
@@ -295,7 +295,7 @@ export const ProjectsData: TProjectData[] = [
       "A web-based learning platform for IT students at Cavite State University. Node.js + Express + Prisma API on PostgreSQL with Amazon S3 for assets. The frontend uses Zustand for state and Zod for form validation; the backend uses Zod for request validation.",
     link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     metadata: {
-      imageSrc: "/images/projects/topcit-thumbnail.png",
+      imageSrc: "/images/projects/topcit-thumbnail.webp",
       imageAlt: "TOPCIT Learners Content Management System",
       serverLink: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
     },
@@ -307,7 +307,7 @@ export const ProjectsData: TProjectData[] = [
       "An e-library for the City Public Library of General Trias, Cavite. Lets the community browse and manage library resources online. Built with Next.js and TypeScript, with light animations via Framer Motion.",
     link: "https://github.com/Hakdoooooooooooog/e-library",
     metadata: {
-      imageSrc: "/images/projects/ecplgt-thumbnail.png",
+      imageSrc: "/images/projects/ecplgt-thumbnail.webp",
       imageAlt: "E-CPLGT E-Library",
       demoLink: "https://e-cplgt.netlify.app/",
     },
