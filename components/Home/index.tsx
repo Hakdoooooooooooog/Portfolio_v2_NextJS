@@ -101,12 +101,12 @@ const HomeSection = () => {
               <span ref={refSpanText} className="text-blue-500 relative" />
             </h1>
             <p className="text-md leading-8 mb-4 text-justify dark:text-gray-300 text-gray-700">
-              I&apos;m a passionate IT graduate from Cavite State University
-              with a love for creating digital solutions. Currently specializing
-              in full-stack development using the PERN stack, I bring both
-              technical expertise in cloud computing and hands-on experience
-              from IT support roles. I thrive on turning ideas into functional
-              web applications and am always eager to tackle new challenges.
+              I am a Junior Full-Stack Developer at GP Synergia and a Cum Laude
+              BSIT graduate of Cavite State University. I engineer, automate, and
+              deploy production-ready web applications — combining TypeScript,
+              React, and Next.js on the frontend with Node.js and Spring Boot
+              services, AWS infrastructure provisioned via Terraform, and
+              containerized deployments through Docker and GitLab CI/CD.
             </p>
           </div>
           <div className="relative flex-1 w-full max-w-[250px] order-1 md:order-2">
