@@ -70,7 +70,7 @@ export default function ContactBlock({ className }: { className?: string }) {
         <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" />
       </a>
 
-      <div className="flex gap-2 mt-4">
+      <div className="flex justify-center gap-2 mt-4">
         {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
           <a
             key={label}

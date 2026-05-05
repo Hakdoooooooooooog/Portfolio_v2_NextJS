@@ -4,10 +4,8 @@ import ContactBlock from "./components/contact-block";
 
 export default function HomeSection() {
   return (
-    <section className="container-page py-16">
-      <p className="text-eyebrow text-muted">
-        {sectionNumbers.about} / About
-      </p>
+    <section className="container-page">
+      <p className="text-eyebrow text-muted">{sectionNumbers.about} / About</p>
 
       <div className="grid md:grid-cols-3 gap-8 mt-8">
         <div className="md:col-span-2 order-last md:order-first">
@@ -39,7 +37,7 @@ export default function HomeSection() {
           </p>
         </div>
 
-        <div className="md:col-span-1 order-first md:order-last flex flex-col items-center md:items-start w-full">
+        <div className="md:col-span-1 order-first md:order-last flex flex-col items-center w-full">
           <div className="relative w-[250px] aspect-square">
             <div
               aria-hidden
@@ -57,7 +55,7 @@ export default function HomeSection() {
             />
           </div>
 
-          <ContactBlock className="mt-8 w-[250px] md:w-full" />
+          <ContactBlock className="mt-8 w-[250px]" />
         </div>
       </div>
     </section>
