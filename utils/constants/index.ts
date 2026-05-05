@@ -228,6 +228,28 @@ export const CertificatesData: TCertificate[] = [
       rel: "noopener noreferrer",
     },
   },
+  {
+    id: 9,
+    alt: "AWS Cloud Practitioner Cloud Quest Badge",
+    embed: {
+      provider: "credly",
+      badgeId: "713669d7-6115-4916-88c0-4fe38f28a964",
+      width: 150,
+      height: 270,
+    },
+    metadata: {
+      title: "AWS Cloud Practitioner (Cloud Quest)",
+      description: "AWS Cloud Quest Cloud Practitioner badge.",
+      date: "2025-12-07",
+      issuer: "Amazon Web Services",
+      tags: ["AWS", "Cloud", "Cloud Quest", "Cloud Practitioner"],
+    },
+    link: {
+      href: "https://www.credly.com/badges/713669d7-6115-4916-88c0-4fe38f28a964",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+  },
 ];
 
 export const ProjectsData: TProjectData[] = [

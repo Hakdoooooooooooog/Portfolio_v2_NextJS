@@ -3,13 +3,51 @@ import { TCertificate } from "@/portfolio/utils/types";
 import Tags from "./tags";
 import useIsSmallDevice from "@/portfolio/utils/hooks/useIsSmallDevice";
 
-const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
+const CredlyEmbed = ({
+  badgeId,
+  width = 150,
+  height = 270,
+  alt,
+}: {
+  badgeId: string;
+  width?: number;
+  height?: number;
+  alt: string;
+}) => {
+  return (
+    <div
+      className="flex items-center justify-center w-full h-60"
+      aria-label={alt}
+    >
+      <div
+        data-iframe-width={String(width)}
+        data-iframe-height={String(height)}
+        data-share-badge-id={badgeId}
+        data-share-badge-host="https://www.credly.com"
+      />
+    </div>
+  );
+};
+
+const Certificates = ({
+  src,
+  alt,
+  embed,
+  metadata,
+}: Omit<TCertificate, "id">) => {
   const isSmallDevice = useIsSmallDevice();
 
   return (
     <div className="certificates bg-gray-300/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-clip">
       <div className="relative">
-        {src && (
+        {embed ? (
+          <CredlyEmbed
+            badgeId={embed.badgeId}
+            width={embed.width}
+            height={embed.height}
+            alt={alt}
+          />
+        ) : src ? (
           <>
             <ImageModal
               src={src}
@@ -48,7 +86,7 @@ const Certificates = ({ src, alt, metadata }: Omit<TCertificate, "id">) => {
               </div>
             )}
           </>
-        )}
+        ) : null}
       </div>
       {metadata && (
         <div className="p-4">
