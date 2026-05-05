@@ -6,25 +6,21 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "../../button";
 import ThemeSwitch from "../../switch";
 import NavItems from "./nav-item";
+import { RESUME_URL } from "@/portfolio/utils/constants";
 
 const Drawers = ({ items }: { items: TNavigationLink[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleDrawer = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isOpen) {
-        setIsOpen(false);
-      }
+      if (event.key === "Escape" && isOpen) setIsOpen(false);
     };
 
     if (isOpen) {
       document.addEventListener("keydown", handleKeyDown);
-      // Focus the first focusable element in the drawer
       setTimeout(() => {
         const firstFocusable = drawerRef.current?.querySelector(
           'a, button, [tabindex="0"]'
@@ -42,7 +38,7 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
     <>
       <NavigationMenu.Trigger
         onClick={toggleDrawer}
-        className="text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+        className="text-muted hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent rounded-md"
       >
         <span className="sr-only">Open menu</span>
         <svg
@@ -51,6 +47,7 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden
         >
           <path
             strokeLinecap="round"
@@ -66,20 +63,18 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 z-999 rounded-lg transform-gpu transition-all duration-300 ease-in-out origin-top-right ${
+        className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-surface border border-border rounded-xl shadow-lg dark:shadow-none z-999 transform-gpu transition-all duration-300 ease-in-out origin-top-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
         }`}
-        style={{
-          transformOrigin: "top right",
-        }}
+        style={{ transformOrigin: "top right" }}
       >
         <div className="size-full p-4">
           <button
             type="button"
             onClick={toggleDrawer}
-            className="absolute top-4 right-4 text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:dark:text-blue-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 rounded-md p-1"
+            className="absolute top-4 right-4 text-muted hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent rounded-md p-1"
             aria-label="Close menu"
           >
             <svg
@@ -88,6 +83,7 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden
             >
               <path
                 strokeLinecap="round"
@@ -105,21 +101,18 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
           >
             <NavItems items={items} />
             <NavigationMenu.Item>
-              <Button
-                variant="ghost"
-                size="md"
-                className="text-md font-bold no-underline cursor-pointer"
-              >
+              <Button variant="outline" size="md">
                 <NavigationMenu.Link
-                  href="https://drive.google.com/drive/folders/1z5k0cXU6HfPy3AV9yGlnmxecilbXYYRm"
+                  href={RESUME_URL}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="size-full block"
                 >
                   My Resume
                 </NavigationMenu.Link>
               </Button>
             </NavigationMenu.Item>
-            <div className="self-center w-fit pt-6 rounded-lg">
+            <div className="self-center w-fit pt-8">
               <ThemeSwitch />
             </div>
           </nav>
