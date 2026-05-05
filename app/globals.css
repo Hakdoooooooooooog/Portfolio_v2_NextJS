@@ -53,6 +53,46 @@
 }
 
 @layer components {
+  /* Semantic typography scale. Matches the foundation spec; do not add new sizes here. */
+  .text-display-xl {
+    font: 400 clamp(2.75rem, 6vw, 4.5rem) / 1.05 var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .text-display-lg {
+    font: 400 clamp(2rem, 4vw, 3rem) / 1.1 var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .text-heading {
+    font: 600 1.5rem / 1.25 var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  .text-body-lg {
+    font: 400 1.125rem / 1.6 var(--font-sans);
+  }
+  .text-body {
+    font: 400 1rem / 1.65 var(--font-sans);
+  }
+  .text-small {
+    font: 500 0.875rem / 1.5 var(--font-sans);
+  }
+  .text-eyebrow {
+    font: 400 0.75rem / 1 var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Single canonical content container. Replaces ad-hoc widths in spec 2. */
+  .container-page {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
   .bg-grid-pattern {
     background-size: 50px 50px;
 
