@@ -26,7 +26,7 @@ export default function FeaturedProjectCard({
 
   return (
     <article>
-      <div className="relative w-full max-w-2xl mx-auto aspect-[16/9]">
+      <div className="relative w-full max-w-2xl mx-auto aspect-[16/10]">
         <div
           aria-hidden
           className="absolute inset-0 translate-x-2 translate-y-2 border border-border rounded-xl"
