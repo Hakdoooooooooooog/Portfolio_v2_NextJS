@@ -46,13 +46,11 @@ export default function HomeSection() {
             />
             <Image
               priority
-              loading="eager"
               src="/images/profile.webp"
               alt="A picture of Darenz Jasper A. Hicap, dressed in a white barong, smiling at the camera with arms crossed."
-              width={250}
-              height={250}
-              sizes="(max-width: 250px) 100vw, 250px"
-              className="relative rounded-md w-full object-cover shadow-sm dark:shadow-none"
+              fill
+              sizes="250px"
+              className="rounded-md object-cover shadow-sm dark:shadow-none"
             />
           </div>
 

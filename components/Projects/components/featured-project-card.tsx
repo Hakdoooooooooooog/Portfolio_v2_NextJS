@@ -26,7 +26,7 @@ export default function FeaturedProjectCard({
 
   return (
     <article>
-      <div className="relative w-full max-w-2xl mx-auto">
+      <div className="relative w-full max-w-2xl mx-auto aspect-[16/9]">
         <div
           aria-hidden
           className="absolute inset-0 translate-x-2 translate-y-2 border border-border rounded-xl"
@@ -34,11 +34,10 @@ export default function FeaturedProjectCard({
         <Image
           src={imageSrc}
           alt={imageAlt}
-          width={1280}
-          height={720}
+          fill
           priority
           sizes="(max-width: 768px) 100vw, 672px"
-          className="relative w-full h-auto rounded-xl shadow-sm dark:shadow-none"
+          className="rounded-xl object-cover shadow-sm dark:shadow-none"
         />
       </div>
 
