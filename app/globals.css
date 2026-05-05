@@ -116,6 +116,27 @@
     letter-spacing: -0.005em;
   }
 
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal[data-revealed="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal[data-revealed="true"] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   /* Single canonical content container. Replaces ad-hoc widths in spec 2. */
   .container-page {
     height: 100%;
