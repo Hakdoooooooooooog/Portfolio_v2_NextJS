@@ -15,19 +15,17 @@ export default function HomeSection() {
           </h1>
 
           <p className="text-body-lg text-muted mt-8">
-            I&apos;m a full-stack developer who delivers web applications
-            end-to-end, from the interface down to the infrastructure. I work
-            across modern frontend frameworks, server-side APIs, and the cloud
-            and DevOps tooling that connect them, with a focus on software that
-            performs reliably in production and stays easy for the next person
-            to maintain.
+            I&apos;m a full-stack developer. I build web apps end to end, from
+            the interface down to the infrastructure: frontends, APIs, and the
+            cloud and DevOps tooling that runs them. I care about software
+            that holds up in production and stays easy for the next person to
+            maintain.
           </p>
 
           <p className="text-body-lg text-muted mt-4">
-            I also use Claude Code for AI-assisted development: designing and
-            adapting agents and workflows, and authoring reusable,
-            context-aware skills to accelerate delivery without compromising
-            code quality.
+            I also use Claude Code for AI-assisted development, building
+            agents, workflows, and reusable skills for whatever I&apos;m
+            building.
           </p>
 
           <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-2 gap-y-1">
