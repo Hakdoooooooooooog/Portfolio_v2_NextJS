@@ -2,12 +2,6 @@ export type TCertificate = {
   id: number;
   src?: string;
   alt: string;
-  embed?: {
-    provider: "credly";
-    badgeId: string;
-    width?: number;
-    height?: number;
-  };
   metadata?: {
     title: string;
     description: string;

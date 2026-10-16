@@ -10,7 +10,7 @@ const Navbar = () => {
     <header>
       <NavigationMenu.Root className="fixed z-999 w-full bg-background/80 backdrop-blur-md border-b border-border">
         <NavigationMenu.List className="flex items-center justify-end md:justify-center p-4">
-          <NavigationMenu.List className="hidden w-full sm:flex items-center justify-center gap-4">
+          <div className="hidden w-full sm:flex items-center justify-center gap-4">
             <NavItems items={navLinks} />
             <NavigationMenu.Item>
               <Button variant="outline" size="md">
@@ -24,7 +24,7 @@ const Navbar = () => {
                 </NavigationMenu.Link>
               </Button>
             </NavigationMenu.Item>
-          </NavigationMenu.List>
+          </div>
 
           <NavigationMenu.Item className="hidden sm:block">
             <ThemeSwitch />

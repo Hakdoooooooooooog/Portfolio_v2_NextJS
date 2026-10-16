@@ -10,7 +10,6 @@ type CompactCertificateRowProps = {
   date: string;
   alt: string;
   imageSrc?: string;
-  embed?: { provider: "credly"; badgeId: string };
   verifyHref?: string;
   delayMs?: number;
 };
@@ -25,26 +24,12 @@ function formatDate(iso: string): string {
   });
 }
 
-function CredlyBadge({ badgeId, alt }: { badgeId: string; alt: string }) {
-  return (
-    <div className="grid place-items-center size-full p-2" aria-label={alt}>
-      <div
-        data-iframe-width="80"
-        data-iframe-height="80"
-        data-share-badge-id={badgeId}
-        data-share-badge-host="https://www.credly.com"
-      />
-    </div>
-  );
-}
-
 export default function CompactCertificateRow({
   title,
   issuer,
   date,
   alt,
   imageSrc,
-  embed,
   verifyHref,
   delayMs = 0,
 }: CompactCertificateRowProps) {
@@ -57,9 +42,7 @@ export default function CompactCertificateRow({
       style={{ "--reveal-delay": `${delayMs}ms` } as CSSProperties}
     >
       <div className="relative w-32 h-24 shrink-0 rounded-md overflow-hidden border border-border bg-surface">
-        {embed ? (
-          <CredlyBadge badgeId={embed.badgeId} alt={alt} />
-        ) : imageSrc ? (
+        {imageSrc ? (
           <CertificateThumbnail src={imageSrc} alt={alt} />
         ) : null}
       </div>

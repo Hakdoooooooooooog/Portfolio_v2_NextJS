@@ -63,7 +63,6 @@ export default function SkillsAndCertificatesSection() {
                   date={cert.metadata?.date ?? ""}
                   alt={cert.alt}
                   imageSrc={cert.src}
-                  embed={cert.embed}
                   verifyHref={verifyHref}
                   delayMs={delayMs}
                 />

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
 import ThemeScript from "../components/theme-script";
+import { SITE_URL } from "@/portfolio/utils/constants";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -24,10 +25,6 @@ const fraunces = Fraunces({
   weight: "variable",
   display: "optional",
 });
-
-// Canonical origin of the live site. `darenzhicap.dev` redirects here (see
-// netlify.toml), so all canonical/OG URLs must point at the Netlify host.
-const SITE_URL = "https://darenzhicap.netlify.app";
 
 export const metadata: Metadata = {
   title: "Hicap's Portfolio",

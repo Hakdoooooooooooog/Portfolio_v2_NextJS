@@ -52,7 +52,7 @@ export default function OpengraphImage() {
               background: "#9494BC",
             }}
           />
-          darenzhicap.dev
+          {"Hicap's Portfolio"}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>

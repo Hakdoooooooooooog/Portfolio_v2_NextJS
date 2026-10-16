@@ -1,94 +1,66 @@
-# Portfolio v2
+# My Portfolio
 
-Personal portfolio of [Darenz Jasper Hicap](https://darenzhicap.dev) — a single-page Next.js site covering projects, skills & certificates, and work experience.
+I'm **Darenz Jasper A. Hicap**, a full-stack developer. This is my personal
+portfolio — a single-page Next.js site where I show what I've built, what I can do,
+and where I've worked. I link it from my resume and LinkedIn so anyone can get the
+full picture in one place.
 
-## Stack
+**Live:** https://darenzhicap.netlify.app
 
-- **Next.js 16** (App Router, Turbopack) + **React 19**
-- **TypeScript 5**
-- **Tailwind CSS v4** (CSS-first `@theme` config in `app/globals.css`)
-- **Zustand 5** with `persist` middleware for theming state
-- **`@base-ui-components/react`** for headless UI primitives (navigation, switch, modal)
-- **ESLint 9** with `eslint-config-next` flat config
+## Why I built it
 
-Package manager: `bun` (a `bun.lock` is checked in), but the npm scripts work with any of `npm` / `pnpm` / `yarn`.
+It's my home base. Instead of a static PDF that goes stale, it's a living site I keep
+up to date as my work changes — and it doubles as a demo of how I build: a production
+Next.js app with a real design system, accessible components, and an automated deploy.
 
-## Commands
+## What you'll find
 
-```bash
-bun dev          # dev server at http://localhost:3000
-bun run build    # production build (Turbopack)
-bun start        # serve the production build
-bun run lint     # eslint . — flat config in eslint.config.mjs
-```
+### About Me — `/`
+A quick intro to who I am and how I work, the disciplines I work across
+(**Frontend, Backend, Cloud, DevOps**), my photo, and how to reach me — email,
+GitHub, LinkedIn, and Facebook — plus a link to my resume.
 
-There is no test runner configured.
+### Projects — `/projects`
+A selection of my work, led by one featured build and followed by the rest:
 
-## Architecture
+- **Redbiomed** (featured) — a B2B e-commerce platform for the Southeast Asian
+  peptide industry.
+- **TOPCIT LCMS** — a learning-management platform I built for Cavite State
+  University.
+- **E-CPLGT** — an e-library for the City Public Library of General Trias.
+- **Event Management System API** — a REST API for managing events.
 
-### Routing
+For each one I list the stack, a short note on my role, and links to the live site
+and/or source where they exist.
 
-All user-facing pages live under one route group, `app/(root)/`, which provides the shared `<main>` shell with the grid background.
+### Skills & Certificates — `/skills-and-certificates`
+- **My stack**, grouped into Frontend, Backend, and Platform, each skill shown as a
+  chip with its icon.
+- **My credentials** — my certificates (TESDA Java NC III, AWS Cloud Practitioner,
+  DICT cloud & web development, Flexisource React, Direcho Trabaho, One Month),
+  newest-first, with issuer, date, and a verify link where I have one.
 
-- `app/(root)/page.tsx` → renders the **About Me** landing.
-- `app/(root)/[slug]/page.tsx` → switches over `slug` and renders one of three section components: `projects`, `skills-and-certificates`, `experiences`. Anything else calls `notFound()`. The valid slugs are also listed in `generateStaticParams` so they are statically generated at build time.
+### Experiences — `/experiences`
+My work history as a timeline — from my junior full-stack and IT support roles at GP
+Synergia and my municipal IT internship, back through earlier roles — with dates,
+location, highlights, and the skills I used.
 
-To add a new top-level section:
+## How I keep it updated
 
-1. Add the slug to `generateStaticParams` and the `switch` in `app/(root)/[slug]/page.tsx`.
-2. Add a `<TNavigationLink>` to `navLinks` in `utils/constants/index.ts`.
-3. Create the section component under `components/<Section>/index.tsx`.
+Everything on the site comes from one data file:
+[`utils/constants/index.ts`](utils/constants/index.ts), typed by
+[`utils/types.ts`](utils/types.ts). My projects, skills, certificates, experience,
+nav links, resume URL, and site URL all live there — I edit that file and never
+hard-code content into components.
 
-### Theming (no flash, no `next-themes`)
+## Under the hood
 
-Theming is hand-rolled on top of a Zustand store with the `persist` middleware (`utils/store/theme-store.ts`, key `theme-storage`).
+I built it with Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, and
+Zustand, and I deploy it to Netlify. For the full architecture, design system, and
+conventions, see the [specification](docs/SPECIFICATION.md).
 
-- `<html>` carries `data-theme="light" | "dark"`. Tailwind v4 custom variants in `app/globals.css` (`@custom-variant dark (...)`) drive all themed styles — use `dark:` / `light:` classes as usual.
-- `components/theme-script.tsx` is a blocking inline `<script>` injected into `<head>` that reads `localStorage['theme-storage']` (or `prefers-color-scheme`) and sets `data-theme` **before paint** to avoid FOUC. The Zustand store hydrates afterwards.
-- The theme switch (`components/switch.tsx`) subscribes to `useThemeStore.persist.onFinishHydration` via `useSyncExternalStore`, so it only writes `data-theme` once persist rehydration is genuinely done.
-- `<html suppressHydrationWarning>` is required because the inline script mutates the DOM before React hydrates.
+## More
 
-### Component layout
-
-Each major section under `components/` is a folder with `index.tsx` as the entry and a nested `components/` folder for its private subcomponents:
-
-```
-components/
-  Home/                    # About Me
-  Projects/
-  Skills-certificates/
-  Experiences/
-  Navbar/
-  button.tsx               # shared primitives sit at the root
-  switch.tsx
-  modal-image.tsx
-  theme-script.tsx
-  footer.tsx
-```
-
-### Path alias
-
-`tsconfig.json` defines a single alias: `@/portfolio/*` → repo root (NOT `@/*`). All internal imports use this prefix:
-
-```ts
-import Projects from "@/portfolio/components/Projects";
-```
-
-### Data & types
-
-Static content (nav links, skills, certificates, projects, experiences) lives in `utils/constants/index.ts` and is typed via `utils/types.ts`. Edit constants there rather than hard-coding into components.
-
-## Performance notes
-
-- **Images** are served as **WebP** under `public/images/`. The `<Image>` slots that need a fixed layout box (the home profile, the featured project card) use a wrapper with an explicit `aspect-[…]` and `<Image fill>` so a source asset whose natural aspect ratio differs from the layout slot can't trigger a reflow on load.
-- `next.config.ts` sets `images.minimumCacheTTL = 31536000` (1 year) so the optimizer's variants serve with a long `Cache-Control: max-age` header. The optimizer keys its cache by source content, so swapping a source image still busts the cache.
-- All three `next/font/google` fonts (Fraunces, Noto Sans, Noto Sans Mono) use `display: "optional"` to eliminate layout shift from font swap. On a slow first visit the user sees the system fallback for that page load; repeat visits hit the font cache.
-- The featured project image is marked `priority` (LCP candidate). Other below-the-fold images lazy-load via the Next.js default.
-
-## Deployment
-
-Deployed at https://darenzhicap.dev. The URL is hard-coded in `app/layout.tsx` `metadata.metadataBase` and OpenGraph fields — update both if the domain changes.
-
-## Dependency overrides
-
-`package.json` declares `overrides` and `resolutions` pinning `minimatch`, `brace-expansion`, `flatted`, `picomatch`, and `postcss` to patched versions. These force-resolve transitive vulnerabilities in the eslint / tailwind / next dep trees that the parent packages haven't yet bumped. They can be removed once the parents pin patched versions natively.
+- [`docs/SPECIFICATION.md`](docs/SPECIFICATION.md) — the specification of record:
+  purpose, pages, content model, design system, architecture, and deployment.
+- [`docs/README.md`](docs/README.md) — what's in the `docs` folder.

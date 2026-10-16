@@ -30,6 +30,11 @@ export const sectionNumbers: Record<string, string> = {
 export const RESUME_URL =
   "https://drive.google.com/file/d/1AkTlqKIMGDQVnbBBLfmYqtrznzSysXEQ/view";
 
+// Canonical origin of the live site. `darenzhicap.dev` is a parked domain that
+// redirects here (see netlify.toml), so all canonical / OG / robots URLs use
+// this host instead.
+export const SITE_URL = "https://darenzhicap.netlify.app";
+
 export const skillCategories: TSkillCategory[] = [
   {
     label: "Frontend",
@@ -324,11 +329,12 @@ export const experiencesData: TExperienceData[] = [
       subtitle: "GP Synergia",
       location: "Philippines",
       startDate: "Dec 2025",
+      endDate: "Jun 2026",
     },
     additionalInfo: {
       bullets: [
-        "Set up a self-hosted GitLab and wired up CI/CD so the team could ship faster and with fewer manual steps.",
-        "Containerized our apps with Docker and managed AWS infrastructure as code with Terraform.",
+        "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments and enhance security.",
+        "Orchestrated containerized application deployments via Docker and provisioned AWS cloud infrastructure using Terraform.",
       ],
       skills: ["GitLab CI/CD", "Docker", "Terraform", "AWS"],
     },
@@ -343,7 +349,7 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       bullets: [
-        "Handled day-to-day technical support, managed users in Microsoft Entra, and improved the ticket automation flow so issues got resolved faster.",
+        "Delivered technical support, managed Microsoft Entra users, and enhanced the support ticket automation pipeline for faster resolution.",
       ],
       skills: ["Microsoft Entra", "Technical Support", "Automation"],
     },
@@ -358,7 +364,7 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       description:
-        "Supported library staff and visitors with day-to-day IT issues and kept the public computers running. Built and shipped a digital library platform that made resources easier to find for the community.",
+        "Provided Level 1 infrastructure support and deployed the CPLGT e-Library platform to improve public access to digital municipal services.",
       skills: [
         "Technical Support",
         "Web Development",

@@ -15,22 +15,23 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
   const toggleDrawer = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isOpen) setIsOpen(false);
-    };
+    if (!isOpen) return;
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-      setTimeout(() => {
-        const firstFocusable = drawerRef.current?.querySelector(
-          'a, button, [tabindex="0"]'
-        ) as HTMLElement;
-        firstFocusable?.focus();
-      }, 0);
-    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    const timer = setTimeout(() => {
+      const firstFocusable = drawerRef.current?.querySelector(
+        'a, button, [tabindex="0"]'
+      ) as HTMLElement | null;
+      firstFocusable?.focus();
+    }, 0);
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(timer);
     };
   }, [isOpen]);
 
@@ -63,6 +64,8 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
         className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-surface border border-border rounded-xl shadow-lg dark:shadow-none z-999 transform-gpu transition-all duration-300 ease-in-out origin-top-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"

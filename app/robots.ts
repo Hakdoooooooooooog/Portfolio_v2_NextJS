@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/portfolio/utils/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -13,6 +14,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "WhatsApp", allow: "/" },
       { userAgent: "TelegramBot", allow: "/" },
     ],
-    host: "https://darenzhicap.dev",
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }
