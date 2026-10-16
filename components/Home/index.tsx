@@ -23,6 +23,12 @@ export default function HomeSection() {
             next person to work on.
           </p>
 
+          <p className="text-body-lg text-muted mt-4">
+            I also use Claude Code for AI-assisted programming — configuring
+            agents and workflows and authoring reusable skills tailored to
+            whatever I&apos;m building.
+          </p>
+
           <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-2 gap-y-1">
             {stack.map((s, i) => (
               <span key={s}>

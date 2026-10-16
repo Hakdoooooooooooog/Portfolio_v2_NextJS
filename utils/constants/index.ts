@@ -18,6 +18,7 @@ export const stack: readonly string[] = [
   "Backend",
   "Cloud",
   "DevOps",
+  "AI",
 ];
 
 export const sectionNumbers: Record<string, string> = {
