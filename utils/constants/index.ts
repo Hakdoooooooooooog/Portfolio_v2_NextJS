@@ -274,7 +274,7 @@ export const ProjectsData: TProjectData[] = [
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.webp",
       imageAlt:
-        "RED BioMed — Manufacturer & Institutional Partnerships landing page",
+        "RED BioMed manufacturer and institutional partnerships landing page",
       demoLink: "https://redbiomed.com",
     },
   },
@@ -318,7 +318,7 @@ export const ProjectsData: TProjectData[] = [
     title: "Event Management System API",
     tags: ["API", "Node.js", "Express", "Prisma", "PostgreSQL"],
     description:
-      "A REST API for managing events — create, update, and read endpoints backed by Node.js, Express, Prisma, and PostgreSQL.",
+      "A REST API for managing events: create, update, and read endpoints backed by Node.js, Express, Prisma, and PostgreSQL.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
 ];
@@ -360,7 +360,7 @@ export const experiencesData: TExperienceData[] = [
   {
     workInfo: {
       title: "IT Support Internship",
-      subtitle: "ICT E-Library — City Public Library of General Trias",
+      subtitle: "ICT E-Library, City Public Library of General Trias",
       location: "Brgy. Bagumbayan, General Trias, Cavite",
       startDate: "Mar 2025",
       endDate: "Jun 2025",

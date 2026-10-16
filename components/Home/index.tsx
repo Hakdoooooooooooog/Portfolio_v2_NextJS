@@ -16,7 +16,7 @@ export default function HomeSection() {
 
           <p className="text-body-lg text-muted mt-8">
             I&apos;m a full-stack developer who delivers web applications
-            end-to-end — from the interface down to the infrastructure. I work
+            end-to-end, from the interface down to the infrastructure. I work
             across modern frontend frameworks, server-side APIs, and the cloud
             and DevOps tooling that connect them, with a focus on software that
             performs reliably in production and stays easy for the next person
@@ -24,9 +24,9 @@ export default function HomeSection() {
           </p>
 
           <p className="text-body-lg text-muted mt-4">
-            I also use Claude Code for AI-assisted development — designing and
-            adapting agents and workflows and authoring reusable,
-            context-aware skills — to accelerate delivery without compromising
+            I also use Claude Code for AI-assisted development: designing and
+            adapting agents and workflows, and authoring reusable,
+            context-aware skills to accelerate delivery without compromising
             code quality.
           </p>
 

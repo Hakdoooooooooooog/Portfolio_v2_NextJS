@@ -29,7 +29,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Hicap's Portfolio",
   description:
-    "Personal portfolio of Darenz Jasper Hicap — Full Stack Developer. Projects, skills, and experience.",
+    "Personal portfolio of Darenz Jasper Hicap, Full Stack Developer. Projects, skills, and experience.",
   authors: [{ name: "Darenz Hicap" }],
   keywords: [
     "Portfolio",

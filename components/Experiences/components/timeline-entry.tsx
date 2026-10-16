@@ -23,7 +23,7 @@ export default function TimelineEntry({
   const { description, bullets, skills, project } = additionalInfo;
 
   const dateLabel = startDate
-    ? `${startDate} — ${endDate ?? "Present"}`
+    ? `${startDate} to ${endDate ?? "Present"}`
     : null;
 
   const dotClasses = isActive
