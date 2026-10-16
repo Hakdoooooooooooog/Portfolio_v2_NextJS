@@ -335,8 +335,10 @@ export const experiencesData: TExperienceData[] = [
       bullets: [
         "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments and enhance security.",
         "Orchestrated containerized application deployments via Docker and provisioned AWS cloud infrastructure using Terraform.",
+        "Customized and self-hosted ERPNext to support the company's internal pipelines, including inventory management.",
+        "Communicated with stakeholders to clarify project requirements and translated them into working systems.",
       ],
-      skills: ["GitLab CI/CD", "Docker", "Terraform", "AWS"],
+      skills: ["GitLab CI/CD", "Docker", "Terraform", "AWS", "ERPNext"],
     },
   },
   {
