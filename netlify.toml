@@ -4,3 +4,25 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# darenzhicap.dev is kept only as a redirector for links already printed on
+# resumes/PDFs. `.dev` is HSTS-preloaded (HTTPS-only) so registrar-level URL
+# forwarding cannot serve it; the request must terminate on Netlify so Netlify
+# can present a valid certificate for the domain before the 301 is issued.
+#
+# Prerequisites (dashboard/DNS side, outside this repo):
+#   1. `darenzhicap.dev` is added as a custom domain on this Netlify site.
+#   2. The domain's DNS points at Netlify (Netlify DNS nameservers, or
+#      `A @ 75.2.60.5` + `CNAME www -> darenzhicap.netlify.app`).
+#   3. Netlify has provisioned a certificate for `darenzhicap.dev`.
+[[redirects]]
+  from = "https://darenzhicap.dev/*"
+  to = "https://darenzhicap.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.darenzhicap.dev/*"
+  to = "https://darenzhicap.netlify.app/:splat"
+  status = 301
+  force = true

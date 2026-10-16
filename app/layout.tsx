@@ -25,6 +25,10 @@ const fraunces = Fraunces({
   display: "optional",
 });
 
+// Canonical origin of the live site. `darenzhicap.dev` redirects here (see
+// netlify.toml), so all canonical/OG URLs must point at the Netlify host.
+const SITE_URL = "https://darenzhicap.netlify.app";
+
 export const metadata: Metadata = {
   title: "Hicap's Portfolio",
   description:
@@ -41,12 +45,15 @@ export const metadata: Metadata = {
     "Darenz Hicap",
   ],
   creator: "Darenz Hicap",
-  metadataBase: new URL("https://darenzhicap.dev"),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Hicap's Portfolio - Full Stack Developer",
     description:
       "Full Stack Developer working with React, Next.js, and TypeScript. See my projects, skills, and experience.",
-    url: "https://darenzhicap.dev",
+    url: SITE_URL,
     siteName: "Hicap's Portfolio",
     locale: "en_US",
     type: "website",
