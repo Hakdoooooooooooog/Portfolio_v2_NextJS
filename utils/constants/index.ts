@@ -270,7 +270,7 @@ export const ProjectsData: TProjectData[] = [
       "Docker",
     ],
     description:
-      "A B2B e-commerce platform for the Southeast Asian peptide industry. I built core features across the Next.js frontend and a NestJS + Prisma + PostgreSQL backend, with Redis caching for hot reads. Infrastructure runs on AWS, provisioned with Terraform and shipped as Docker containers.",
+      "A commercial B2B e-commerce platform for the Southeast Asian peptide industry. Engineered modular backend services in NestJS (TypeScript) leveraging OOP patterns, dependency injection, and Prisma ORM with PostgreSQL, paired with Redis caching for high-speed reads and a responsive Next.js frontend. Infrastructure is containerized with Docker and provisioned on AWS via Terraform.",
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.webp",
       imageAlt:
@@ -334,12 +334,24 @@ export const experiencesData: TExperienceData[] = [
     },
     additionalInfo: {
       bullets: [
-        "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments and enhance security.",
-        "Orchestrated containerized application deployments via Docker and provisioned AWS cloud infrastructure using Terraform.",
+        "Contributed to full-stack development of Redbiomed (B2B e-commerce platform), building modular backend services in NestJS (TypeScript) using OOP patterns and dependency injection alongside responsive frontend interfaces in React/Next.js.",
+        "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments, run automated test suites, and enhance code quality.",
+        "Orchestrated containerized application deployments via Docker and provisioned reproducible AWS cloud infrastructure using Terraform.",
         "Customized and self-hosted ERPNext to support the company's internal pipelines, including inventory management.",
         "Communicated with stakeholders to clarify project requirements and translated them into working systems.",
       ],
-      skills: ["GitLab CI/CD", "Docker", "Terraform", "AWS", "ERPNext"],
+      skills: [
+        "NestJS",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Terraform",
+        "GitLab CI/CD",
+        "ERPNext",
+      ],
     },
   },
   {
