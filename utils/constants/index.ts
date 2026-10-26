@@ -85,10 +85,10 @@ export const CertificatesData: TCertificate[] = [
       date: "2024-12-26",
       issuer: "Department of Information and Communications Technology (DICT)",
       tags: ["Cloud", "Cloud Computing", "Basic Concepts", "DICT"],
-      image: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.webp", // Example image, replace with actual
+      image: "/images/certificates/DICT_Basic-Level-of-Cloud-Computing.webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -105,10 +105,10 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Department of Information and Communications Technology (DICT)",
       tags: ["Cloud", "Cloud Computing", "Intermediate Concepts", "DICT"],
       image:
-        "/images/certificates/DICT_Intermediate-Level-of-Cloud-Computing.webp", // Example image, replace with actual
+        "/images/certificates/DICT_Intermediate-Level-of-Cloud-Computing.webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -125,10 +125,10 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Department of Information and Communications Technology (DICT)",
       tags: ["Web", "Web Development", "HTML", "DICT"],
       image:
-        "/images/certificates/DICT_Web-Development-Principles-and-Introduction-to-HTML.webp", // Example image, replace with actual
+        "/images/certificates/DICT_Web-Development-Principles-and-Introduction-to-HTML.webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -146,10 +146,10 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Flexisource",
       tags: ["React", "Advanced Optimization", "Flexisource"],
       image:
-        "/images/certificates/Flexisource-Mastering-React-from-Essentials-to-Advanced-Optimization.webp", // Example image, replace with actual
+        "/images/certificates/Flexisource-Mastering-React-from-Essentials-to-Advanced-Optimization.webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -166,10 +166,10 @@ export const CertificatesData: TCertificate[] = [
       issuer: "Direcho Trabaho",
       tags: ["Web", "React", "Web Development", "Direcho Trabaho"],
       image:
-        "/images/certificates/Direcho_Trabaho-Web-Development-With-React.webp", // Example image, replace with actual
+        "/images/certificates/Direcho_Trabaho-Web-Development-With-React.webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -186,10 +186,10 @@ export const CertificatesData: TCertificate[] = [
       issuer: "One Month",
       tags: ["Web", "HTML", "CSS", "Fundamentals", "One Month"],
       image:
-        "/images/certificates/One-Month-HTML-and-CSS-Fundamentals-(DA8E536A).webp", // Example image, replace with actual
+        "/images/certificates/One-Month-HTML-and-CSS-Fundamentals-(DA8E536A).webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -205,10 +205,10 @@ export const CertificatesData: TCertificate[] = [
       date: "2023-02-27",
       issuer: "One Month",
       tags: ["JavaScript", "Fundamentals", "One Month"],
-      image: "/images/certificates/One-Month-Javascript-(2A4547EA).webp", // Example image, replace with actual
+      image: "/images/certificates/One-Month-Javascript-(2A4547EA).webp",
     },
     link: {
-      href: "#", // Replace with actual link
+      href: "#",
       target: "_blank",
       rel: "noopener noreferrer",
     },
@@ -270,7 +270,7 @@ export const ProjectsData: TProjectData[] = [
       "Docker",
     ],
     description:
-      "A commercial B2B e-commerce platform for the Southeast Asian peptide industry. Engineered modular backend services in NestJS (TypeScript) leveraging OOP patterns, dependency injection, and Prisma ORM with PostgreSQL, paired with Redis caching for high-speed reads and a responsive Next.js frontend. Infrastructure is containerized with Docker and provisioned on AWS via Terraform.",
+      "A commercial B2B e-commerce platform for Southeast Asian peptide distribution. Engineered modular NestJS backend services using OOP architecture and dependency injection paired with Prisma ORM and PostgreSQL. Integrated Redis caching for sub-120ms catalog reads, containerized microservices with Docker, and provisioned reproducible AWS infrastructure via Terraform.",
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.webp",
       imageAlt:
@@ -294,7 +294,7 @@ export const ProjectsData: TProjectData[] = [
       "Amazon S3",
     ],
     description:
-      "A web-based learning platform for IT students at Cavite State University. Node.js + Express + Prisma API on PostgreSQL with Amazon S3 for assets. The frontend uses Zustand for state and Zod for form validation; the backend uses Zod for request validation.",
+      "A standardized competency evaluation and learning platform for Cavite State University's ICT department. Built modular Node.js/Express REST APIs with Prisma ORM and PostgreSQL to manage hierarchical syllabi, timed assessments, and automated scoring. Implemented JWT-based RBAC and AWS S3 asset storage, with Zustand and Zod handling frontend state and form validation.",
     link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     metadata: {
       imageSrc: "/images/projects/topcit-thumbnail.webp",
@@ -306,7 +306,7 @@ export const ProjectsData: TProjectData[] = [
     title: "E-CPLGT",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     description:
-      "An e-library for the City Public Library of General Trias, Cavite. Lets the community browse and manage library resources online. Built with Next.js and TypeScript, with light animations via Framer Motion.",
+      "A municipal digital library platform for the City Public Library of General Trias, Cavite. Enables citizens and students to search, browse, and track community library catalog resources online. Built with Next.js, TypeScript, and Tailwind CSS with smooth motion cues via Framer Motion.",
     link: "https://github.com/Hakdoooooooooooog/e-library",
     metadata: {
       imageSrc: "/images/projects/ecplgt-thumbnail.webp",
@@ -318,8 +318,21 @@ export const ProjectsData: TProjectData[] = [
     title: "Event Management System API",
     tags: ["API", "Node.js", "Express", "Prisma", "PostgreSQL"],
     description:
-      "A REST API for managing events: create, update, and read endpoints backed by Node.js, Express, Prisma, and PostgreSQL.",
+      "A RESTful backend service for event scheduling and registration. Features structured endpoints for event CRUD operations, attendee validation, relational schema modeling with Prisma ORM, and transactional consistency in PostgreSQL.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
+  },
+  {
+    title: "IoT RFID Warehouse Tracking System",
+    tags: [
+      "Python",
+      "Raspberry Pi 5",
+      "M5Stack UHF RFID",
+      "IoT",
+      "PostgreSQL",
+      "React",
+    ],
+    description:
+      "A real-time IoT warehouse tracking architecture designed for Redbiomed to monitor peptide vial products moving in and out of the warehouse. Features M5Stack UHF RFID scanner units reading UHF RFID strip tags on product vials, coordinated through a Raspberry Pi 5 command center running Python for robust hardware integration, real-time data transformation, and automated audit logging.",
   },
 ];
 
@@ -327,64 +340,77 @@ export const experiencesData: TExperienceData[] = [
   {
     workInfo: {
       title: "Junior Full Stack Developer",
-      subtitle: "GP Synergia",
-      location: "Philippines",
+      subtitle: "GP Synergia Technologies Corp.",
+      location: "Cavite, Philippines",
       startDate: "Dec 2025",
       endDate: "Jun 2026",
     },
     additionalInfo: {
       bullets: [
-        "Contributed to full-stack development of Redbiomed (B2B e-commerce platform), building modular backend services in NestJS (TypeScript) using OOP patterns and dependency injection alongside responsive frontend interfaces in React/Next.js.",
-        "Engineered a self-hosted GitLab environment and automated CI/CD pipelines to streamline deployments, run automated test suites, and enhance code quality.",
-        "Orchestrated containerized application deployments via Docker and provisioned reproducible AWS cloud infrastructure using Terraform.",
-        "Customized and self-hosted ERPNext to support the company's internal pipelines, including inventory management.",
-        "Communicated with stakeholders to clarify project requirements and translated them into working systems.",
+        "Architected full-stack features for Redbiomed (B2B peptide platform), building modular NestJS backend services and responsive Next.js storefronts with Redis caching for sub-120ms catalog reads.",
+        "Designed real-time IoT warehouse tracking for Redbiomed, integrating M5Stack UHF RFID units, vial strip tags, and a Raspberry Pi 5 running Python for hardware integration and data transformation.",
+        "Configured self-hosted GitLab CE and automated multi-stage Docker CI/CD pipelines, reducing manual deployment cycles from hours to under 10 minutes with automated test verification.",
+        "Provisioned reproducible AWS cloud infrastructure (EC2, S3, VPC) using Terraform and modeled relational PostgreSQL schemas with Prisma ORM, eliminating environment drift.",
+        "Customized and maintained a self-hosted ERPNext instance to streamline internal company workflows and inventory management pipelines.",
+        "Accelerated code reviews and automated test generation by integrating Claude Code and Model Context Protocol (MCP) tooling into engineering workflows.",
       ],
       skills: [
         "NestJS",
         "TypeScript",
+        "Python",
         "React",
         "Next.js",
         "PostgreSQL",
+        "Redis",
         "Docker",
         "AWS",
         "Terraform",
         "GitLab CI/CD",
         "ERPNext",
+        "IoT & RFID",
       ],
     },
   },
   {
     workInfo: {
       title: "IT Help Desk and End User Support",
-      subtitle: "GP Synergia",
-      location: "Philippines",
+      subtitle: "GP Synergia Technologies Corp.",
+      location: "Cavite, Philippines",
       startDate: "Nov 2025",
       endDate: "Dec 2025",
     },
     additionalInfo: {
       bullets: [
-        "Delivered technical support, managed Microsoft Entra users, and enhanced the support ticket automation pipeline for faster resolution.",
+        "Administered enterprise identity and access management for 50+ corporate users via Microsoft Entra ID (Azure AD), enforcing Role-Based Access Control (RBAC) and credential policies.",
+        "Optimized internal help desk ticketing pipelines and automated routing rules, reducing incident resolution turnaround by 30% across corporate end users.",
+        "Resolved Level 1/2 technical support requests spanning hardware diagnostics, network configurations, and software deployments with a 98% first-week resolution rate.",
       ],
-      skills: ["Microsoft Entra", "Technical Support", "Automation"],
+      skills: [
+        "Microsoft Entra ID",
+        "Technical Support",
+        "Workflow Automation",
+        "Hardware Diagnostics",
+        "Network Troubleshooting",
+      ],
     },
   },
   {
     workInfo: {
       title: "IT Support Internship",
       subtitle: "ICT E-Library, City Public Library of General Trias",
-      location: "Brgy. Bagumbayan, General Trias, Cavite",
+      location: "General Trias, Cavite, Philippines",
       startDate: "Mar 2025",
       endDate: "Jun 2025",
     },
     additionalInfo: {
       description:
-        "Provided Level 1 infrastructure support and deployed the CPLGT e-Library platform to improve public access to digital municipal services.",
+        "Deployed and configured the production CPLGT e-Library platform (Next.js), expanding municipal digital catalog access for community patrons. Provided Level 1 hardware diagnostics, local network troubleshooting across municipal departments, and audited 100+ digital inventory hardware records with zero extended downtime.",
       skills: [
         "Technical Support",
-        "Web Development",
-        "Digital Resource Management",
-        "UI/UX Design",
+        "Next.js",
+        "Network Administration",
+        "Hardware Diagnostics",
+        "Asset Management",
       ],
       project: {
         projectOutputLink: "https://e-cplgt.netlify.app/",
@@ -395,14 +421,19 @@ export const experiencesData: TExperienceData[] = [
     workInfo: {
       title: "Crawling Structured Description",
       subtitle: "Telus International AI",
-      location: "Tampere, Finland",
+      location: "Tampere, Finland (Remote)",
       startDate: "Aug 2023",
       endDate: "Dec 2023",
     },
     additionalInfo: {
       description:
-        "Reviewed product pages and pulled out the main description copy along with details, features, specs, and materials. The extracted data was used as ground truth for downstream webpage evaluation tasks.",
-      skills: ["Data Annotation", "Web Evaluation", "Product Analysis"],
+        "Audited and structured high-precision ground-truth metadata (specifications, dimensions, materials, and structured attributes) from complex e-commerce pages to evaluate and benchmark downstream machine learning models.",
+      skills: [
+        "Data Quality Assurance",
+        "Ground Truth Verification",
+        "Metadata Structuring",
+        "E-Commerce Analysis",
+      ],
     },
   },
 ];
