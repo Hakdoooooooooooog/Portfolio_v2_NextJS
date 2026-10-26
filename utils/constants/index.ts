@@ -322,17 +322,17 @@ export const ProjectsData: TProjectData[] = [
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
   {
-    title: "IoT RFID Warehouse Tracking System",
+    title: "IoT RFID Warehouse Tracking System (Proposed)",
     tags: [
       "Python",
       "Raspberry Pi 5",
+      "Linux CLI",
       "M5Stack UHF RFID",
       "IoT",
       "PostgreSQL",
-      "React",
     ],
     description:
-      "A real-time IoT warehouse tracking architecture designed for Redbiomed to monitor peptide vial products moving in and out of the warehouse. Features M5Stack UHF RFID scanner units reading UHF RFID strip tags on product vials, coordinated through a Raspberry Pi 5 command center running Python for robust hardware integration, real-time data transformation, and automated audit logging.",
+      "A proposed real-time IoT warehouse tracking architecture running live internally as a terminal-based system on Linux (Raspberry Pi 5). Engineered to track peptide vial products for Redbiomed during warehouse ingress/egress, using M5Stack UHF RFID units and vial strip tags with Python powering hardware integration, real-time data transformation, and automated audit logging.",
   },
 ];
 
@@ -348,7 +348,7 @@ export const experiencesData: TExperienceData[] = [
     additionalInfo: {
       bullets: [
         "Architected full-stack features for Redbiomed (B2B peptide platform), building modular NestJS backend services and responsive Next.js storefronts with Redis caching for sub-120ms catalog reads.",
-        "Designed real-time IoT warehouse tracking for Redbiomed, integrating M5Stack UHF RFID units, vial strip tags, and a Raspberry Pi 5 running Python for hardware integration and data transformation.",
+        "Designed a proposed IoT warehouse tracking system running live internally via a terminal-based Linux setup on Raspberry Pi 5, utilizing Python for M5Stack UHF RFID hardware integration and data transformation.",
         "Configured self-hosted GitLab CE and automated multi-stage Docker CI/CD pipelines, reducing manual deployment cycles from hours to under 10 minutes with automated test verification.",
         "Provisioned reproducible AWS cloud infrastructure (EC2, S3, VPC) using Terraform and modeled relational PostgreSQL schemas with Prisma ORM, eliminating environment drift.",
         "Customized and maintained a self-hosted ERPNext instance to streamline internal company workflows and inventory management pipelines.",
@@ -368,6 +368,7 @@ export const experiencesData: TExperienceData[] = [
         "GitLab CI/CD",
         "ERPNext",
         "IoT & RFID",
+        "Linux CLI",
       ],
     },
   },
