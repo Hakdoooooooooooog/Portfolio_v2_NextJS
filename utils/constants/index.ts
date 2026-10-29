@@ -279,6 +279,27 @@ export const ProjectsData: TProjectData[] = [
     },
   },
   {
+    title: "TicketSupport",
+    tags: [
+      "Next.js",
+      "NestJS",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Redis",
+      "Prisma",
+      "Docker",
+    ],
+    description:
+      "An enterprise IT service desk and incident triage monorepo with dedicated workspaces for customer requests and engineering operations. Features Server-Sent Events for live queue synchronization, client-side AES-GCM 256-bit encrypted attachments, automated round-robin engineer dispatch, and real-time knowledge base deflection before ticket submission.",
+    link: "https://github.com/Hakdoooooooooooog/ticket-support-v1",
+    metadata: {
+      imageSrc: "/images/projects/ticketsupport-thumbnail.webp",
+      imageAlt:
+        "TicketSupport IT service desk queue and incident triage console",
+    },
+  },
+  {
     title: "TOPCIT LCMS",
     tags: [
       "React",
