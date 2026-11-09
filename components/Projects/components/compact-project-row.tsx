@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ProjectThumbnail from "./project-thumbnail";
+import { ArrowUpRightIcon } from "@/portfolio/components/icons";
 
 const MAX_VISIBLE_TAGS = 4;
 
@@ -86,9 +87,10 @@ export default function CompactProjectRow({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
             >
-              Visit live <span aria-hidden>↗</span>
+              <span>Visit live</span>
+              <ArrowUpRightIcon className="size-3.5" />
             </a>
           ) : null}
           {sourceUrl ? (
@@ -96,9 +98,10 @@ export default function CompactProjectRow({
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
             >
-              {sourceLabel} <span aria-hidden>↗</span>
+              <span>{sourceLabel}</span>
+              <ArrowUpRightIcon className="size-3.5" />
             </a>
           ) : null}
           {serverSourceUrl ? (
@@ -106,9 +109,10 @@ export default function CompactProjectRow({
               href={serverSourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
             >
-              View API source <span aria-hidden>↗</span>
+              <span>View API source</span>
+              <ArrowUpRightIcon className="size-3.5" />
             </a>
           ) : null}
         </p>

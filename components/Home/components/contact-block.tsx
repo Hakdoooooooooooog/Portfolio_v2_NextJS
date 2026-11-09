@@ -1,4 +1,7 @@
+"use client";
+
 import type { ComponentType, SVGProps } from "react";
+import { socialLinks } from "@/portfolio/utils/constants";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -20,7 +23,7 @@ const FacebookIcon = (props: IconProps) => (
   </svg>
 );
 
-const ArrowRightIcon = (props: IconProps) => (
+const FallbackIcon = (props: IconProps) => (
   <svg
     fill="none"
     stroke="currentColor"
@@ -31,58 +34,38 @@ const ArrowRightIcon = (props: IconProps) => (
     aria-hidden
     {...props}
   >
-    <path d="M5 12h14M13 5l7 7-7 7" />
+    <circle cx="12" cy="12" r="10" />
+    <line x1="12" y1="8" x2="12" y2="12" />
+    <line x1="12" y1="16" x2="12.01" y2="16" />
   </svg>
 );
 
-type SocialLink = {
-  label: string;
-  href: string;
-  icon: ComponentType<IconProps>;
+const ICON_MAP: Record<string, ComponentType<IconProps>> = {
+  github: GithubIcon,
+  linkedin: LinkedinIcon,
+  facebook: FacebookIcon,
 };
-
-const SOCIAL_LINKS: readonly SocialLink[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/Hakdoooooooooooog",
-    icon: GithubIcon,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/darenz-jasper-hicap",
-    icon: LinkedinIcon,
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/drnz.hcp",
-    icon: FacebookIcon,
-  },
-];
 
 export default function ContactBlock({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <a
-        href="mailto:hicap.darenzjasper@gmail.com"
-        className="group flex items-center justify-between gap-2 bg-accent text-accent-foreground rounded-md px-4 py-2 text-small font-medium transition-colors hover:bg-accent/90"
-      >
-        <span>Email me</span>
-        <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" />
-      </a>
-
-      <div className="flex justify-center gap-2 mt-4">
-        {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            className="grid place-items-center size-9 rounded-md border border-border text-muted transition-colors hover:text-foreground hover:border-accent"
-          >
-            <Icon className="size-4" />
-          </a>
-        ))}
+      <div className="flex items-center justify-center gap-2.5">
+        {socialLinks.map(({ label, href, type }) => {
+          const Icon = ICON_MAP[type] ?? FallbackIcon;
+          return (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              title={label}
+              className="grid place-items-center size-9 rounded-full border border-border bg-surface/70 hover:bg-surface text-muted transition-all duration-200 hover:text-foreground hover:border-accent hover:scale-105 shadow-xs cursor-pointer"
+            >
+              <Icon className="size-4" />
+            </a>
+          );
+        })}
       </div>
     </div>
   );

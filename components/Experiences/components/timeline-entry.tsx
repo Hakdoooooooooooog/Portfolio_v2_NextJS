@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useReveal } from "@/portfolio/components/use-reveal";
 import type { TExperienceData } from "@/portfolio/utils/types";
+import { ArrowUpRightIcon } from "@/portfolio/components/icons";
 
 type TimelineEntryProps = {
   experience: TExperienceData;
@@ -47,9 +48,9 @@ export default function TimelineEntry({
       </p>
 
       {bullets && bullets.length > 0 ? (
-        <ul className="list-disc list-outside marker:text-muted text-body text-muted mt-4 pl-5 flex flex-col gap-2">
-          {bullets.map((bullet, i) => (
-            <li key={i}>{bullet}</li>
+        <ul className="list-disc list-outside marker:text-muted text-body text-muted mt-4 pl-4 flex flex-col gap-2">
+          {bullets.map((bullet) => (
+            <li key={bullet.slice(0, 40)}>{bullet}</li>
           ))}
         </ul>
       ) : description ? (
@@ -76,9 +77,9 @@ export default function TimelineEntry({
           href={project.projectOutputLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-4 text-small font-mono text-muted transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+          className="group inline-flex items-center gap-1.5 mt-4 text-small font-mono text-muted transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
         >
-          View output <span aria-hidden>↗</span>
+          View output <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       ) : null}
     </li>

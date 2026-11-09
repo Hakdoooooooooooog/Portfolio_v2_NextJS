@@ -14,17 +14,17 @@ export default function SkillsAndCertificatesSection() {
   const sortedCerts = [...CertificatesData].sort(
     (a, b) =>
       new Date(b.metadata?.date ?? 0).getTime() -
-      new Date(a.metadata?.date ?? 0).getTime()
+      new Date(a.metadata?.date ?? 0).getTime(),
   );
 
   return (
-    <section className="container-page">
+    <section id="skills" className="container-page">
       <p className="text-eyebrow text-muted">
-        {sectionNumbers.skills} / Skills & Certificates
+        {sectionNumbers.skills} / Skills & Credentials
       </p>
 
       <h2 className="text-display-lg text-foreground mt-4">
-        Toolkit & credentials
+        Skils & credentials
       </h2>
 
       <div className="border-t border-border mt-8" aria-hidden />

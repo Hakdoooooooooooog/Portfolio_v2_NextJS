@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useReveal } from "@/portfolio/components/use-reveal";
 import CertificateThumbnail from "./certificate-thumbnail";
+import { ArrowUpRightIcon } from "@/portfolio/components/icons";
 
 type CompactCertificateRowProps = {
   title: string;
@@ -57,9 +58,10 @@ export default function CompactCertificateRow({
             href={verifyHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-2 text-small font-mono text-muted transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+            className="inline-flex items-center gap-1.5 mt-2 text-small font-mono text-muted transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
           >
-            Verify <span aria-hidden>↗</span>
+            <span>Verify</span>
+            <ArrowUpRightIcon className="size-3.5" />
           </a>
         ) : null}
       </div>

@@ -5,7 +5,7 @@ const ENTRY_DELAY_MS = 80;
 
 export default function Experiences() {
   return (
-    <section className="container-page">
+    <section id="experiences" className="container-page">
       <p className="text-eyebrow text-muted">
         {sectionNumbers.experiences} / Experiences
       </p>
