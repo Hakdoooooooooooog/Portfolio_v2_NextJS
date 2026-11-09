@@ -20,6 +20,8 @@ export const contactFormSchema = z.object({
   turnstileToken: z
     .string()
     .min(1, { message: "Please complete the verification check." }),
+  // Invisible honeypot field
+  honeypot: z.string().optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

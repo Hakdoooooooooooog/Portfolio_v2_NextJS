@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition, type SubmitEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+  type SubmitEvent,
+} from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
@@ -36,6 +42,7 @@ export default function ContactForm() {
       subject: "",
       message: "",
       turnstileToken: "",
+      honeypot: "",
     },
   });
 
@@ -81,6 +88,7 @@ export default function ContactForm() {
             subject: "",
             message: "",
             turnstileToken: "",
+            honeypot: "",
           });
           turnstileRef.current?.reset();
         } else {
@@ -92,8 +100,7 @@ export default function ContactForm() {
   };
 
   const turnstileSiteKey =
-    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
-    "1x00000000000000000000AA";
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
   return (
     <form
@@ -101,6 +108,22 @@ export default function ContactForm() {
       noValidate
       className="rounded-xl border border-border bg-surface p-6 md:p-8 flex flex-col gap-5"
     >
+      {/* Invisible honeypot field */}
+      <div
+        aria-hidden="true"
+        style={{ display: "none" }}
+        className="hidden opacity-0 pointer-events-none absolute -left-[9999px]"
+      >
+        <label htmlFor="contact-hp">Company</label>
+        <input
+          id="contact-hp"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("honeypot")}
+        />
+      </div>
+
       {/* Name & Email Fields */}
       <div className="grid md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
