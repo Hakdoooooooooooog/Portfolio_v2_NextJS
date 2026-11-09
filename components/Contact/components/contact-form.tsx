@@ -7,7 +7,7 @@ import {
   useTransition,
   type SubmitEvent,
 } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { AnimatePresence, motion } from "motion/react";
@@ -33,6 +33,7 @@ export default function ContactForm() {
     handleSubmit,
     setValue,
     reset,
+    control,
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -45,6 +46,21 @@ export default function ContactForm() {
       honeypot: "",
     },
   });
+
+  const [nameValue, emailValue, subjectValue, messageValue, turnstileTokenValue] =
+    useWatch({
+      control,
+      name: ["name", "email", "subject", "message", "turnstileToken"],
+    });
+
+  const isFormFilled =
+    Boolean(nameValue?.trim()) &&
+    Boolean(emailValue?.trim()) &&
+    Boolean(subjectValue?.trim()) &&
+    Boolean(messageValue?.trim());
+
+  const isTurnstileGranted = Boolean(turnstileTokenValue?.trim());
+  const isSubmitDisabled = isPending || !isFormFilled || !isTurnstileGranted;
 
   // Listen for custom event from TicketSupport "Request walkthrough / demo" CTA
   useEffect(() => {
@@ -276,8 +292,15 @@ export default function ContactForm() {
       {/* Submit Button */}
       <button
         type="submit"
-        disabled={isPending}
-        className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-small font-medium text-accent-foreground transition-colors hover:bg-accent/90 disabled:opacity-50 cursor-pointer shadow-sm"
+        disabled={isSubmitDisabled}
+        title={
+          !isFormFilled
+            ? "Please complete all fields before sending"
+            : !isTurnstileGranted
+            ? "Please complete the verification check"
+            : undefined
+        }
+        className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-small font-medium text-accent-foreground transition-colors hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-accent cursor-pointer shadow-sm"
       >
         <span>{isPending ? "Sending message..." : "Send Message"}</span>
         <ArrowRightIcon
