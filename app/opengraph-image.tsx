@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Hicap's Portfolio - Full Stack Developer Showcase";
+export const alt = "Darenz Jasper Hicap - Junior Full-Stack Developer Portfolio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -37,46 +37,72 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "16px",
-            fontSize: "24px",
+            justifyContent: "space-between",
+            fontSize: "22px",
             color: "#9494BC",
-            letterSpacing: "0.18em",
+            letterSpacing: "0.14em",
             textTransform: "uppercase",
           }}
         >
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div
+              style={{
+                width: "10px",
+                height: "10px",
+                borderRadius: "9999px",
+                background: "#9494BC",
+              }}
+            />
+            <span>Darenz Jasper Hicap</span>
+          </div>
+
           <div
             style={{
-              width: "12px",
-              height: "12px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "6px 16px",
               borderRadius: "9999px",
-              background: "#9494BC",
+              border: "1px solid rgba(148,148,188,0.3)",
+              fontSize: "16px",
             }}
-          />
-          {"Hicap's Portfolio"}
+          >
+            <div
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "9999px",
+                background: "#4ade80",
+              }}
+            />
+            <span>Open to Junior Full-Stack & Backend Roles</span>
+          </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <div
             style={{
-              fontSize: "112px",
+              fontSize: "88px",
               fontWeight: 700,
-              lineHeight: 1.02,
+              lineHeight: 1.05,
               letterSpacing: "-0.03em",
               color: "#F7F7FB",
               display: "flex",
             }}
           >
-            Darenz Jasper Hicap
+            Junior Full-Stack Developer
           </div>
           <div
             style={{
-              fontSize: "44px",
+              fontSize: "32px",
               color: "#9494BC",
               letterSpacing: "-0.01em",
               display: "flex",
+              lineHeight: 1.4,
+              maxWidth: "900px",
             }}
           >
-            Full Stack Developer
+            Next.js · NestJS · TypeScript · PostgreSQL · Redis · Docker
           </div>
         </div>
 
@@ -85,32 +111,45 @@ export default function OpengraphImage() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            fontSize: "26px",
+            fontSize: "24px",
             color: "#9494BC",
+            borderTop: "1px solid rgba(148,148,188,0.2)",
+            paddingTop: "24px",
           }}
         >
-          <div style={{ display: "flex", gap: "32px" }}>
-            <span>React</span>
+          <div style={{ display: "flex", gap: "24px" }}>
+            <span>TicketSupport</span>
             <span style={{ color: "#4F5689" }}>·</span>
-            <span>Next.js</span>
+            <span>TOPCIT LCMS</span>
             <span style={{ color: "#4F5689" }}>·</span>
-            <span>TypeScript</span>
+            <span>E-CPLGT</span>
           </div>
+
           <div
             style={{
               display: "flex",
-              padding: "14px 28px",
-              borderRadius: "9999px",
-              border: "2px solid #9494BC",
-              color: "#EDEDF6",
-              fontSize: "24px",
+              alignItems: "center",
+              gap: "8px",
+              color: "#F7F7FB",
             }}
           >
-            View Portfolio →
+            <span>darenzhicap.netlify.app</span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F7F7FB"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
           </div>
         </div>
       </div>
     ),
-    size,
+    size
   );
 }

@@ -1,16 +1,19 @@
 import {
+  TAboutData,
   TCertificate,
   TExperienceData,
   TNavigationLink,
   TProjectData,
   TSkillCategory,
+  TSocialLink,
 } from "../types";
 
 export const navLinks: TNavigationLink[] = [
-  { label: "About Me", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Skills & certificates", href: "/skills-and-certificates" },
-  { label: "Experiences", href: "/experiences" },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#projects" },
+  { label: "Experience", href: "#experiences" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const stack: readonly string[] = [
@@ -24,17 +27,54 @@ export const stack: readonly string[] = [
 export const sectionNumbers: Record<string, string> = {
   about: "01",
   projects: "02",
-  skills: "03",
-  experiences: "04",
+  experiences: "03",
+  skills: "04",
+  contact: "05",
 };
 
 export const RESUME_URL =
   "https://drive.google.com/file/d/1AkTlqKIMGDQVnbBBLfmYqtrznzSysXEQ/view";
 
-// Canonical origin of the live site. `darenzhicap.dev` is a parked domain that
-// redirects here (see netlify.toml), so all canonical / OG / robots URLs use
-// this host instead.
+export const CONTACT_EMAIL = "hicap.darenzjasper@gmail.com";
+
+// Canonical origin of the live site.
 export const SITE_URL = "https://darenzhicap.netlify.app";
+
+export const aboutData: TAboutData = {
+  greeting: "Hello! My name is",
+  name: "Darenz Jasper A. Hicap",
+  availability: "Open to Junior Full-Stack & Backend roles",
+  location: "Cavite, Philippines",
+  timezone: "UTC+8",
+  email: CONTACT_EMAIL,
+  bio: [
+    "I build web applications end to end, from interactive interfaces to backend services, database schemas, and cloud deployments. I focus on clean architecture, predictable data flow, and code that remains straightforward for the next developer to maintain.",
+    "My primary stack centers on TypeScript, React, Next.js, and NestJS, backed by PostgreSQL, Redis, and Docker. I also design AI-assisted developer workflows and specialized tooling with Claude Code and Model Context Protocol (MCP).",
+  ],
+  stack: ["Frontend", "Backend", "Cloud", "DevOps", "AI"],
+  profileImage: {
+    src: "/images/profile.webp",
+    alt: "Darenz Jasper A. Hicap smiling in traditional white barong with arms crossed.",
+  },
+};
+
+export const socialLinks: readonly TSocialLink[] = [
+  {
+    label: "GitHub",
+    href: "https://github.com/Hakdoooooooooooog",
+    type: "github",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/darenz-jasper-hicap",
+    type: "linkedin",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/drnz.hcp",
+    type: "facebook",
+  },
+];
 
 export const skillCategories: TSkillCategory[] = [
   {
@@ -257,46 +297,115 @@ export const CertificatesData: TCertificate[] = [
 
 export const ProjectsData: TProjectData[] = [
   {
+    title: "TicketSupport",
+    featured: true,
+    status: "In Progress",
+    isPrivateRepo: true,
+    walkthroughAvailable: true,
+    statusNote: "Personal project · Private repository",
+    role: "Junior Full-Stack Developer",
+    tags: [
+      "Turborepo",
+      "Next.js 16",
+      "NestJS 12",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Socket.IO",
+      "TanStack Query",
+      "Prisma 7",
+      "PostgreSQL 16",
+      "Redis 7",
+      "MinIO (S3)",
+      "Cloudflare Turnstile",
+      "Docker",
+    ],
+    description:
+      "An IT service desk and incident triage monorepo I am building to replace disorganized shared inboxes with a single tracked workflow. It splits customer requests (/portal) and engineering operations (/admin) into dedicated workspaces, syncs live queues and agent presence over Socket.IO so two engineers never duplicate a reply, and tracks SLA timers against Philippine business hours (Asia/Manila) with automatic holiday and needs-info pauses.",
+    highlights: [
+      "Real-time knowledge-base deflection as customers type, plus client-side compressed and encrypted diagnostic file uploads to S3-compatible MinIO storage.",
+      "Fair round-robin department dispatch, one-click ticket claiming, team workload balancing, private staff notes, and 1-5 star CSAT tracking.",
+      "Admin console for runtime Cloudflare Turnstile bot gates, dual SendGrid v3 / SMTP email delivery, a Handlebars email template customizer with live desktop and mobile preview, and PostgreSQL trigger-locked audit logs.",
+    ],
+    architectureNotes: [
+      {
+        title: "1. Submission & Instant Deflection (/portal)",
+        detail:
+          "As a customer drafts a ticket, the deflection engine searches published knowledge-base articles in real time so common issues are solved without filing a ticket. Diagnostic screenshots are compressed and encrypted in the browser before upload.",
+      },
+      {
+        title: "2. Round-Robin Dispatch & Philippine SLA Engine",
+        detail:
+          "New tickets route automatically to the least-loaded specialist in that department. SLA timers evaluate first-response and resolution targets against Philippine working hours (Asia/Manila, UTC+8, Mon-Fri 08:00-12:00 and 13:00-17:00), pausing on weekends, public holidays, and NEEDS_INFO states, with warning alerts at 75% elapsed time.",
+      },
+      {
+        title: "3. Real-Time Collision Avoidance (/admin)",
+        detail:
+          "Bidirectional Socket.IO channels broadcast active viewer and typing presence across connected browsers so support engineers never write duplicate replies. Staff can collaborate via private internal notes and respond with canned templates.",
+      },
+      {
+        title: "4. Resolution, CSAT & Immutable Audit Logs",
+        detail:
+          "Resolved tickets trigger transactional email alerts (SendGrid v3 or outbound SMTP) and invite a 1-5 star CSAT rating. Security-critical events are locked at the database layer using PostgreSQL triggers.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/projects/ticketsupport-01-dashboard.webp",
+        alt: "TicketSupport IT Service Desk Queue dashboard showing live SLA metrics, CSAT score, team workload, and triage queue",
+        caption: "IT Service Desk Queue: Live SLA metrics, engineer workload balancing, and one-click ticket claiming",
+      },
+      {
+        src: "/images/projects/ticketsupport-03-customer-portal.webp",
+        alt: "TicketSupport Customer Support Portal with slide-over ticket progress drawer and knowledge base deflection",
+        caption: "Customer Portal (/portal): Real-time article deflection, encrypted attachments, and slide-over ticket tracker",
+      },
+      {
+        src: "/images/projects/ticketsupport-02-email-preview.webp",
+        alt: "TicketSupport Email Templates and Layout Customizer with Handlebars tokens and live desktop/mobile inbox preview",
+        caption: "Email Layout Customizer: Handlebars variable tokens, brand accent picker, and live inbox preview",
+      },
+      {
+        src: "/images/projects/ticketsupport-04-integrations.webp",
+        alt: "TicketSupport Operational System Settings for Cloudflare Turnstile bot protection and outbound SMTP or SendGrid delivery",
+        caption: "Operational Settings: Runtime Cloudflare Turnstile challenge gate and dual SMTP / SendGrid v3 failover",
+      },
+      {
+        src: "/images/projects/ticketsupport-05-login.webp",
+        alt: "TicketSupport sign-in portal protected by Cloudflare Turnstile anti-bot verification",
+        caption: "Authentication Portal: Sign-in and registration protected by Cloudflare Turnstile",
+      },
+    ],
+    metadata: {
+      imageSrc: "/images/projects/ticketsupport-01-dashboard.webp",
+      imageAlt:
+        "TicketSupport IT Service Desk Queue dashboard showing live SLA metrics, CSAT score, team workload, and triage queue",
+    },
+  },
+  {
     title: "Redbiomed",
     featured: true,
+    status: "Offline",
+    isPrivateRepo: true,
+    walkthroughAvailable: false,
+    statusNote: "Company build at GP Synergia · Site offline (frontpage preview)",
+    role: "Full-Stack Developer",
     tags: [
       "Next.js",
       "NestJS",
       "TypeScript",
       "PostgreSQL",
+      "Prisma",
       "Redis",
       "AWS",
       "Terraform",
       "Docker",
     ],
     description:
-      "A commercial B2B e-commerce platform for Southeast Asian peptide distribution. Engineered modular NestJS backend services using OOP architecture and dependency injection paired with Prisma ORM and PostgreSQL. Integrated Redis caching for sub-120ms catalog reads, containerized microservices with Docker, and provisioned reproducible AWS infrastructure via Terraform.",
+      "During my time at GP Synergia, I built the storefront and backend services for Redbiomed, a commercial B2B peptide distributor for institutional buyers in Southeast Asia. I structured the backend around modular NestJS services with Prisma and PostgreSQL, added Redis caching to keep catalog reads under 120ms, containerized the stack with Docker, and provisioned AWS infrastructure with Terraform. The commercial storefront is currently offline and the repository remains private to the company, so only the landing page capture is shown here.",
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.webp",
       imageAlt:
         "RED BioMed manufacturer and institutional partnerships landing page",
-      demoLink: "https://redbiomed.com",
-    },
-  },
-  {
-    title: "TicketSupport",
-    tags: [
-      "Next.js",
-      "NestJS",
-      "TypeScript",
-      "Tailwind CSS",
-      "PostgreSQL",
-      "Redis",
-      "Prisma",
-      "Docker",
-    ],
-    description:
-      "An enterprise IT service desk and incident triage monorepo with dedicated workspaces for customer requests and engineering operations. Features Server-Sent Events for live queue synchronization, client-side AES-GCM 256-bit encrypted attachments, automated round-robin engineer dispatch, and real-time knowledge base deflection before ticket submission.",
-    link: "https://github.com/Hakdoooooooooooog/ticket-support-v1",
-    metadata: {
-      imageSrc: "/images/projects/ticketsupport-thumbnail.webp",
-      imageAlt:
-        "TicketSupport IT service desk queue and incident triage console",
     },
   },
   {
@@ -315,7 +424,7 @@ export const ProjectsData: TProjectData[] = [
       "Amazon S3",
     ],
     description:
-      "A standardized competency evaluation and learning platform for Cavite State University's ICT department. Built modular Node.js/Express REST APIs with Prisma ORM and PostgreSQL to manage hierarchical syllabi, timed assessments, and automated scoring. Implemented JWT-based RBAC and AWS S3 asset storage, with Zustand and Zod handling frontend state and form validation.",
+      "A standardized competency evaluation and learning platform for Cavite State University's ICT department. Built modular Node.js and Express REST APIs with Prisma ORM and PostgreSQL to manage hierarchical syllabi, timed assessments, and automated scoring. Implemented JWT-based RBAC and AWS S3 asset storage, with Zustand and Zod handling client state and form validation.",
     link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     metadata: {
       imageSrc: "/images/projects/topcit-thumbnail.webp",
@@ -369,10 +478,10 @@ export const experiencesData: TExperienceData[] = [
     additionalInfo: {
       bullets: [
         "Architected full-stack features for Redbiomed (B2B peptide platform), building modular NestJS backend services and responsive Next.js storefronts with Redis caching for sub-120ms catalog reads.",
-        "Designed a proposed terminal-based IoT warehouse tracking prototype on Linux (Raspberry Pi 5), utilizing Python for M5Stack UHF RFID hardware integration and data transformation.",
+        "Designed a proposed terminal-based IoT warehouse tracking prototype on Linux (Raspberry Pi 5), using Python for M5Stack UHF RFID hardware integration and data transformation.",
         "Configured self-hosted GitLab CE and automated multi-stage Docker CI/CD pipelines, reducing manual deployment cycles from hours to under 10 minutes with automated test verification.",
         "Provisioned reproducible AWS cloud infrastructure (EC2, S3, VPC) using Terraform and modeled relational PostgreSQL schemas with Prisma ORM, eliminating environment drift.",
-        "Customized and maintained a self-hosted ERPNext instance to streamline internal company workflows and inventory management pipelines.",
+        "Customized and maintained a self-hosted ERPNext instance for company operations, payroll, and inventory tracking.",
         "Accelerated code reviews and automated test generation by integrating Claude Code and Model Context Protocol (MCP) tooling into engineering workflows.",
       ],
       skills: [
