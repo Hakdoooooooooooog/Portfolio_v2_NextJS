@@ -16,12 +16,7 @@ export default function NavItems({
   variant = "pill",
   onItemClick,
 }: NavItemsProps) {
-  const [activeSection, setActiveSection] = useState<string>(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      return window.location.hash;
-    }
-    return "#about";
-  });
+  const [activeSection, setActiveSection] = useState<string>("#about");
 
   const isClickingRef = useRef(false);
   const scrollEndTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -87,6 +82,17 @@ export default function NavItems({
       }
     };
 
+    // Align initial active section asynchronously after client mount
+    const initialSyncTimer = setTimeout(() => {
+      const hash = window.location.hash;
+      const cleanId = hash ? hash.replace("#", "") : "";
+      if (cleanId && sectionIds.includes(cleanId)) {
+        setActiveSection(hash);
+      } else {
+        updateActiveSection();
+      }
+    }, 0);
+
     const onScroll = () => {
       // If clicking, extend the lock until smooth scrolling ceases
       if (isClickingRef.current) {
@@ -124,6 +130,7 @@ export default function NavItems({
     window.addEventListener("hashchange", onHashChange);
 
     return () => {
+      clearTimeout(initialSyncTimer);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       window.removeEventListener("hashchange", onHashChange);

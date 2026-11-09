@@ -3,7 +3,7 @@ import { Fraunces, Noto_Sans, Noto_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/portfolio/components/Navbar";
 import Footer from "@/portfolio/components/footer";
-import ThemeScript from "@/portfolio/components/theme-script";
+import { themeInitScript } from "@/portfolio/components/theme-script";
 import SplashScreen from "@/portfolio/components/splash-screen";
 import PwaRegister from "@/portfolio/components/pwa-register";
 import {
@@ -157,7 +157,11 @@ export default function RootLayout({
       className={`${notoSans.variable} ${notoSansMono.variable} ${fraunces.variable} transition-colors duration-300 ease-in-out`}
     >
       <head>
-        <ThemeScript />
+        <script
+          id="theme-script"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
