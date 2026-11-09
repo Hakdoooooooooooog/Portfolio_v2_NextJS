@@ -1,24 +1,25 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import { TNavigationLink } from "@/portfolio/utils/types";
 import { NavigationMenu } from "@base-ui-components/react";
-import { useState, useRef, useEffect } from "react";
-import { Button } from "../../button";
-import ThemeSwitch from "../../switch";
+import { AnimatePresence, motion } from "motion/react";
 import NavItems from "./nav-item";
 import { RESUME_URL } from "@/portfolio/utils/constants";
+import { CloseIcon, ArrowUpRightIcon } from "@/portfolio/components/icons";
 
-const Drawers = ({ items }: { items: TNavigationLink[] }) => {
+export default function Drawers({ items }: { items: TNavigationLink[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  const toggleDrawer = () => setIsOpen(!isOpen);
+  const toggleDrawer = () => setIsOpen((prev) => !prev);
+  const closeDrawer = () => setIsOpen(false);
 
   useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsOpen(false);
+      if (event.key === "Escape") closeDrawer();
     };
     document.addEventListener("keydown", handleKeyDown);
 
@@ -27,7 +28,7 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
         'a, button, [tabindex="0"]'
       ) as HTMLElement | null;
       firstFocusable?.focus();
-    }, 0);
+    }, 50);
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
@@ -39,12 +40,14 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
     <>
       <NavigationMenu.Trigger
         onClick={toggleDrawer}
-        className="text-muted hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent rounded-md"
+        aria-expanded={isOpen}
+        aria-controls="mobile-nav-dialog"
+        className="grid place-items-center size-9 rounded-full border border-border bg-surface/70 hover:bg-surface text-foreground transition-all duration-200 hover:border-accent hover:text-accent cursor-pointer shadow-xs focus:outline-none focus:ring-2 focus:ring-accent"
       >
-        <span className="sr-only">Open menu</span>
+        <span className="sr-only">{isOpen ? "Close menu" : "Open menu"}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="size-4.5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -54,75 +57,81 @@ const Drawers = ({ items }: { items: TNavigationLink[] }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M4 6h16M4 12h16m-7 6h7"
+            d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
           />
         </svg>
       </NavigationMenu.Trigger>
 
-      <div
-        ref={drawerRef}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        aria-hidden={!isOpen}
-        inert={!isOpen}
-        className={`absolute py-8 min-w-[200px] -top-4 -right-4 bg-surface border border-border rounded-xl shadow-lg dark:shadow-none z-999 transform-gpu transition-all duration-300 ease-in-out origin-top-right ${
-          isOpen
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-        }`}
-        style={{ transformOrigin: "top right" }}
-      >
-        <div className="size-full p-4">
-          <button
-            type="button"
-            onClick={toggleDrawer}
-            className="absolute top-4 right-4 text-muted hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent rounded-md p-1"
-            aria-label="Close menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-[70] sm:hidden">
+            {/* Backdrop */}
+            <motion.div
+              key="drawer-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.16 }}
+              onClick={closeDrawer}
+              className="absolute inset-0 bg-background/60 backdrop-blur-xs cursor-pointer"
+            />
 
-          <nav
-            className="flex flex-col gap-4"
-            role="navigation"
-            aria-label="Mobile navigation"
-          >
-            <NavItems items={items} />
-            <NavigationMenu.Item>
-              <Button variant="outline" size="md">
-                <NavigationMenu.Link
+            {/* Panel */}
+            <motion.div
+              key="drawer-panel"
+              ref={drawerRef}
+              id="mobile-nav-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
+              initial={{ opacity: 0, scale: 0.95, y: -8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -8 }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-16 right-4 w-64 bg-surface border border-border rounded-2xl shadow-2xl overflow-hidden p-5 flex flex-col gap-4"
+            >
+              <div className="flex items-center justify-between pb-3 border-b border-border">
+                <span className="text-xs font-mono font-semibold tracking-wider uppercase text-muted">
+                  Navigation
+                </span>
+                <button
+                  type="button"
+                  onClick={closeDrawer}
+                  aria-label="Close menu"
+                  className="grid place-items-center size-7 rounded-md border border-border/80 text-muted hover:text-foreground hover:border-accent transition-colors cursor-pointer"
+                >
+                  <CloseIcon className="size-3.5" />
+                </button>
+              </div>
+
+              <nav
+                className="flex flex-col gap-1.5"
+                role="navigation"
+                aria-label="Mobile navigation links"
+              >
+                <NavItems
+                  items={items}
+                  variant="vertical"
+                  onItemClick={closeDrawer}
+                />
+              </nav>
+
+              <div className="pt-3 border-t border-border flex flex-col gap-3">
+                <a
                   href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="size-full block"
+                  className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-mono font-medium border border-border bg-background hover:bg-surface text-foreground hover:border-accent hover:text-accent transition-all duration-150 text-center"
+                  onClick={closeDrawer}
                 >
-                  My Resume
-                </NavigationMenu.Link>
-              </Button>
-            </NavigationMenu.Item>
-            <div className="self-center w-fit pt-8">
-              <ThemeSwitch />
-            </div>
-          </nav>
-        </div>
-      </div>
+                  <span>My Resume</span>
+                  <ArrowUpRightIcon className="size-3.5" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
-};
-
-export default Drawers;
+}

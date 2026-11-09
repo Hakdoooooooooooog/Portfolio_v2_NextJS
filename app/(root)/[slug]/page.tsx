@@ -1,13 +1,11 @@
-import { notFound } from "next/navigation";
-import Experiences from "@/portfolio/components/Experiences";
-import Projects from "@/portfolio/components/Projects";
-import SkillsAndCertificatesSection from "@/portfolio/components/Skills-certificates";
+import { notFound, redirect } from "next/navigation";
 
 export async function generateStaticParams() {
   return [
     { slug: "projects" },
     { slug: "skills-and-certificates" },
     { slug: "experiences" },
+    { slug: "contact" },
   ];
 }
 
@@ -18,19 +16,16 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  const renderSection = (slug: string) => {
-    switch (slug) {
-      case "projects":
-        return <Projects />;
-      case "skills-and-certificates":
-        return <SkillsAndCertificatesSection />;
-      case "experiences":
-        return <Experiences />;
-      default:
-        notFound();
-        return null;
-    }
-  };
-
-  return <div className="relative w-full m-auto">{renderSection(slug)}</div>;
+  switch (slug) {
+    case "projects":
+      redirect("/#projects");
+    case "skills-and-certificates":
+      redirect("/#skills");
+    case "experiences":
+      redirect("/#experiences");
+    case "contact":
+      redirect("/#contact");
+    default:
+      notFound();
+  }
 }

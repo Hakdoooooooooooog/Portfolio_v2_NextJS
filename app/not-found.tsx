@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRightIcon } from "@/portfolio/components/icons";
 
 export default function NotFound() {
   return (
@@ -10,10 +11,10 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-4 inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-small font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+        className="group mt-4 inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-small font-medium text-accent-foreground transition-colors hover:bg-accent/90"
       >
         Back to About
-        <span aria-hidden>→</span>
+        <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
       </Link>
     </div>
   );
