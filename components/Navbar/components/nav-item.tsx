@@ -17,6 +17,7 @@ export default function NavItems({
   onItemClick,
 }: NavItemsProps) {
   const [activeSection, setActiveSection] = useState<string>("#about");
+  const [mounted, setMounted] = useState(false);
 
   const isClickingRef = useRef(false);
   const scrollEndTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -84,6 +85,7 @@ export default function NavItems({
 
     // Align initial active section asynchronously after client mount
     const initialSyncTimer = setTimeout(() => {
+      setMounted(true);
       const hash = window.location.hash;
       const cleanId = hash ? hash.replace("#", "") : "";
       if (cleanId && sectionIds.includes(cleanId)) {
@@ -169,7 +171,7 @@ export default function NavItems({
             }`}
           >
             <span>{item.label}</span>
-            {isActive ? (
+            {mounted && isActive ? (
               <span className="size-1.5 rounded-full bg-accent" aria-hidden />
             ) : null}
           </NavigationMenu.Link>
@@ -188,7 +190,7 @@ export default function NavItems({
               : "text-muted hover:text-foreground"
           }`}
         >
-          {isActive ? (
+          {mounted && isActive ? (
             <motion.span
               layoutId="nav-pill-active"
               aria-hidden

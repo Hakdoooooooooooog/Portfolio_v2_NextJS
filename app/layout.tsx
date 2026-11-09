@@ -156,7 +156,9 @@ export default function RootLayout({
       lang="en"
       className={`${notoSans.variable} ${notoSansMono.variable} ${fraunces.variable} transition-colors duration-300 ease-in-out`}
     >
-      <head>
+      <body
+        className={`${notoSans.variable} ${notoSansMono.variable} ${fraunces.variable} antialiased`}
+      >
         <script
           id="theme-script"
           suppressHydrationWarning
@@ -166,10 +168,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body
-        className={`${notoSans.variable} ${notoSansMono.variable} ${fraunces.variable} antialiased`}
-      >
         <SplashScreen />
         <PwaRegister />
         <Navbar />
