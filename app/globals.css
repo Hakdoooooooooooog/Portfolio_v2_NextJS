@@ -222,6 +222,59 @@
     -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 90%);
     mask-image: radial-gradient(ellipse at center, #000 40%, transparent 90%);
   }
+
+  /* Splash screen pre-paint skip guard & Frame-0 CSS animations */
+  .splash-item-1 {
+    animation: splash-fade-up 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+  }
+
+  .splash-item-2 {
+    animation: splash-fade-up 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .splash-item-3 {
+    animation: splash-fade-up 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+
+  .splash-bar-fill {
+    animation: splash-bar-scale 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+  }
+}
+
+:root[data-splash="skip"] #splash-screen {
+  display: none !important;
+}
+
+@keyframes splash-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-bar-scale {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #splash-screen {
+    display: none !important;
+  }
+  .splash-item-1,
+  .splash-item-2,
+  .splash-item-3,
+  .splash-bar-fill {
+    animation: none !important;
+  }
 }
 
 @keyframes name-underline-draw {

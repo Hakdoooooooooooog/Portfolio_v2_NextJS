@@ -64,14 +64,16 @@ export default function Drawers({ items }: { items: TNavigationLink[] }) {
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[70] sm:hidden">
+          <motion.div
+            key="mobile-nav-root"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.16 }}
+            className="fixed inset-0 z-[70] sm:hidden"
+          >
             {/* Backdrop */}
-            <motion.div
-              key="drawer-backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.16 }}
+            <div
               onClick={closeDrawer}
               className="absolute inset-0 bg-background/60 backdrop-blur-xs cursor-pointer"
             />
@@ -129,7 +131,7 @@ export default function Drawers({ items }: { items: TNavigationLink[] }) {
                 </a>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

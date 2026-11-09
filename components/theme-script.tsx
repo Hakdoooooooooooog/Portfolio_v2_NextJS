@@ -1,5 +1,13 @@
 export const themeInitScript = `(function() {
   try {
+    var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var seenSplash = sessionStorage.getItem('portfolio-splash-seen');
+    if (seenSplash === '1' || motionQuery.matches) {
+      document.documentElement.setAttribute('data-splash', 'skip');
+    }
+  } catch (e) {}
+
+  try {
     const stored = localStorage.getItem('theme-storage');
     if (stored) {
       const parsed = JSON.parse(stored);

@@ -1,4 +1,4 @@
-const CACHE_NAME = "hicap-portfolio-v2";
+const CACHE_NAME = "hicap-portfolio-v3";
 const STATIC_ASSETS = [
   "/",
   "/manifest.webmanifest",

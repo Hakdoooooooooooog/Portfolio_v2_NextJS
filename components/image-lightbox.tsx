@@ -90,19 +90,19 @@ export default function ImageLightbox({
   const content = (
     <AnimatePresence>
       {Boolean(isOpen && currentImage) && (
-        <div
+        <motion.div
+          key="lightbox-dialog"
           role="dialog"
           aria-modal="true"
           aria-label={currentImage.caption ?? currentImage.alt}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[100] flex flex-col justify-between overflow-hidden"
         >
           {/* Backdrop with blur */}
-          <motion.div
-            key="lightbox-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+          <div
             onClick={onClose}
             className="absolute inset-0 bg-background/90 backdrop-blur-md cursor-pointer"
           />
@@ -113,7 +113,7 @@ export default function ImageLightbox({
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 flex items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 pointer-events-auto"
           >
             <div className="flex items-center gap-3">
@@ -142,14 +142,21 @@ export default function ImageLightbox({
           </motion.div>
 
           {/* Center Stage: Image and Navigation */}
-          <div className="relative z-10 flex-1 min-h-0 w-full flex items-center justify-center px-4 sm:px-8 py-2 sm:py-4 overflow-hidden pointer-events-none">
-            <AnimatePresence mode="wait">
+          <motion.div
+            key="lightbox-stage"
+            initial={{ opacity: 0, scale: 0.95, y: 8 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 8 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 flex-1 min-h-0 w-full flex items-center justify-center px-4 sm:px-8 py-2 sm:py-4 overflow-hidden pointer-events-none"
+          >
+            <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={currentImage.src}
-                initial={{ opacity: 0, scale: 0.96 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
                 className="relative flex items-center justify-center pointer-events-auto max-h-full max-w-full"
               >
                 <Image
@@ -159,7 +166,7 @@ export default function ImageLightbox({
                   height={1000}
                   priority
                   sizes="(max-width: 1024px) 90vw, 1400px"
-                  className="max-h-[calc(100dvh-290px)] sm:max-h-[calc(100dvh-270px)] max-h-[54vh] sm:max-h-[58vh] max-w-[86vw] w-auto h-auto object-contain rounded-lg border border-border/60 shadow-2xl bg-surface/30"
+                  className="max-h-[calc(100dvh-260px)] max-w-[88vw] w-auto h-auto object-contain rounded-lg border border-border/60 shadow-2xl bg-surface/30"
                 />
               </motion.div>
             </AnimatePresence>
@@ -171,7 +178,7 @@ export default function ImageLightbox({
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous image"
-                  className="pointer-events-auto absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 size-11 sm:size-12 rounded-full border border-border bg-surface/85 text-foreground backdrop-blur-md flex items-center justify-center text-foreground shadow-lg transition-transform hover:scale-105 active:scale-95 hover:border-accent hover:text-accent cursor-pointer"
+                  className="pointer-events-auto absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 size-11 sm:size-12 rounded-full border border-border bg-surface/85 text-foreground backdrop-blur-md flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 hover:border-accent hover:text-accent cursor-pointer"
                 >
                   <ChevronLeftIcon className="size-6" />
                 </button>
@@ -180,13 +187,13 @@ export default function ImageLightbox({
                   type="button"
                   onClick={handleNext}
                   aria-label="Next image"
-                  className="pointer-events-auto absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 size-11 sm:size-12 rounded-full border border-border bg-surface/85 text-foreground backdrop-blur-md flex items-center justify-center text-foreground shadow-lg transition-transform hover:scale-105 active:scale-95 hover:border-accent hover:text-accent cursor-pointer"
+                  className="pointer-events-auto absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 size-11 sm:size-12 rounded-full border border-border bg-surface/85 text-foreground backdrop-blur-md flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 hover:border-accent hover:text-accent cursor-pointer"
                 >
                   <ChevronRightIcon className="size-6" />
                 </button>
               </>
             ) : null}
-          </div>
+          </motion.div>
 
           {/* Bottom Toolbar: Caption & Thumbnails */}
           <motion.div
@@ -194,7 +201,7 @@ export default function ImageLightbox({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 flex flex-col items-center gap-3 px-4 pb-4 sm:pb-6 pt-6 pointer-events-auto max-w-4xl mx-auto w-full shrink-0"
           >
             {currentImage.caption ? (
@@ -234,7 +241,7 @@ export default function ImageLightbox({
               </div>
             ) : null}
           </motion.div>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
