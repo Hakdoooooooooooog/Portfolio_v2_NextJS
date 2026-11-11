@@ -5,7 +5,7 @@ import { ArrowDownIcon, ArrowRightIcon } from "@/portfolio/components/icons";
 
 export default function HomeSection() {
   return (
-    <section id="about" className="container-page pt-16 sm:pt-4">
+    <section id="about" className="container-page">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <p className="text-eyebrow text-muted">
           {sectionNumbers.about} / About
@@ -87,11 +87,12 @@ export default function HomeSection() {
             />
             <Image
               priority
+              unoptimized
               src={aboutData.profileImage.src}
               alt={aboutData.profileImage.alt}
               fill
               sizes="(max-width: 640px) 230px, 250px"
-              className="rounded-md object-cover object-[50%_20%] shadow-sm dark:shadow-none"
+              className="rounded-md object-cover object-center shadow-sm dark:shadow-none"
             />
           </div>
 
