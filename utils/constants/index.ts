@@ -54,7 +54,7 @@ export const aboutData: TAboutData = {
   stack: ["Frontend", "Backend", "Cloud", "DevOps", "AI"],
   profileImage: {
     src: "/images/profile.webp",
-    alt: "Darenz Jasper A. Hicap smiling in traditional white barong with arms crossed.",
+    alt: "Darenz Jasper A. Hicap in a navy blue suit, white collared shirt, and blue tie.",
   },
 };
 
