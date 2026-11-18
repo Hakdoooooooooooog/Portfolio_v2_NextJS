@@ -25,6 +25,7 @@ import { ArrowRightIcon, CloseIcon } from "@/portfolio/components/icons";
 export default function ContactForm() {
   const theme = useThemeStore((s) => s.theme);
   const turnstileRef = useRef<TurnstileInstance | null>(null);
+  const [turnstileActivated, setTurnstileActivated] = useState(false);
   const [result, setResult] = useState<ContactActionResult | null>(null);
   const [isPending, startTransition] = useTransition();
 
@@ -47,11 +48,16 @@ export default function ContactForm() {
     },
   });
 
-  const [nameValue, emailValue, subjectValue, messageValue, turnstileTokenValue] =
-    useWatch({
-      control,
-      name: ["name", "email", "subject", "message", "turnstileToken"],
-    });
+  const [
+    nameValue,
+    emailValue,
+    subjectValue,
+    messageValue,
+    turnstileTokenValue,
+  ] = useWatch({
+    control,
+    name: ["name", "email", "subject", "message", "turnstileToken"],
+  });
 
   const isFormFilled =
     Boolean(nameValue?.trim()) &&
@@ -70,6 +76,7 @@ export default function ContactForm() {
         message?: string;
       }>;
       if (customEvent.detail) {
+        setTurnstileActivated(true);
         if (customEvent.detail.subject) {
           setValue("subject", customEvent.detail.subject, {
             shouldValidate: true,
@@ -121,6 +128,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
+      onFocus={() => setTurnstileActivated(true)}
       noValidate
       className="min-w-0 rounded-[6px] border border-border bg-surface p-4 sm:p-6 md:p-8 flex flex-col gap-5"
     >
@@ -231,26 +239,28 @@ export default function ContactForm() {
         ) : null}
       </div>
 
-      {/* Cloudflare Turnstile Verification Gate */}
+      {/* Cloudflare Turnstile Verification Gate (lazy-mounted on form interaction) */}
       <div className="flex flex-col gap-1.5 py-1">
-        <div className="overflow-hidden rounded-md min-h-[65px]">
-          <Turnstile
-            ref={turnstileRef}
-            siteKey={turnstileSiteKey}
-            options={{
-              theme: theme === "dark" ? "dark" : "light",
-              size: "flexible",
-            }}
-            onSuccess={(token) => {
-              setValue("turnstileToken", token, { shouldValidate: true });
-            }}
-            onExpire={() => {
-              setValue("turnstileToken", "", { shouldValidate: true });
-            }}
-            onError={() => {
-              setValue("turnstileToken", "", { shouldValidate: true });
-            }}
-          />
+        <div className="overflow-hidden rounded-md min-h-fit">
+          {turnstileActivated ? (
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={turnstileSiteKey}
+              options={{
+                theme: theme === "dark" ? "dark" : "light",
+                size: "flexible",
+              }}
+              onSuccess={(token) => {
+                setValue("turnstileToken", token, { shouldValidate: true });
+              }}
+              onExpire={() => {
+                setValue("turnstileToken", "", { shouldValidate: true });
+              }}
+              onError={() => {
+                setValue("turnstileToken", "", { shouldValidate: true });
+              }}
+            />
+          ) : null}
         </div>
         {errors.turnstileToken ? (
           <p className="text-xs text-red-500 font-mono">
@@ -297,8 +307,8 @@ export default function ContactForm() {
           !isFormFilled
             ? "Please complete all fields before sending"
             : !isTurnstileGranted
-            ? "Please complete the verification check"
-            : undefined
+              ? "Please complete the verification check"
+              : undefined
         }
         className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-small font-medium text-accent-foreground transition-colors hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-accent cursor-pointer shadow-sm"
       >
