@@ -103,8 +103,19 @@ export function CredentialsBand() {
 
           const delayMs = Math.min(i * CERT_DELAY_MS, MAX_REVEAL_DELAY_MS);
 
+          const lastRowStart =
+            sortedCerts.length % 2 === 0
+              ? sortedCerts.length - 2
+              : sortedCerts.length - 1;
+          const mobileBorder =
+            i < sortedCerts.length - 1 ? "border-b border-border" : "";
+          const desktopBorder =
+            i < lastRowStart
+              ? "md:border-b md:border-border"
+              : "md:border-b-0";
+
           return (
-            <li key={cert.id} className="border-b border-border">
+            <li key={cert.id} className={`${mobileBorder} ${desktopBorder}`}>
               <CompactCertificateRow
                 title={cert.metadata?.title ?? cert.alt}
                 issuer={cert.metadata?.issuer ?? ""}

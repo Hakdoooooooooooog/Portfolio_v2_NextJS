@@ -69,24 +69,35 @@ export default function Projects() {
           <p className="text-eyebrow text-muted">Other work &amp; prototypes</p>
 
           <ul className="mt-6 list-none p-0 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-2">
-            {rest.map((project, i) => (
-              <li
-                key={project.title}
-                className="border-b border-border lg:last:border-b"
-              >
-                <CompactProjectRow
-                  index={i + 1}
-                  title={project.title}
-                  tags={project.tags ?? []}
-                  description={project.description}
-                  imageSrc={project.metadata?.imageSrc}
-                  imageAlt={project.metadata?.imageAlt}
-                  liveUrl={project.metadata?.demoLink}
-                  sourceUrl={project.link}
-                  serverSourceUrl={project.metadata?.serverLink}
-                />
-              </li>
-            ))}
+            {rest.map((project, i) => {
+              const lastRowStart =
+                rest.length % 2 === 0 ? rest.length - 2 : rest.length - 1;
+              const mobileBorder =
+                i < rest.length - 1 ? "border-b border-border" : "";
+              const desktopBorder =
+                i < lastRowStart
+                  ? "lg:border-b lg:border-border"
+                  : "lg:border-b-0";
+
+              return (
+                <li
+                  key={project.title}
+                  className={`${mobileBorder} ${desktopBorder}`}
+                >
+                  <CompactProjectRow
+                    index={i + 1}
+                    title={project.title}
+                    tags={project.tags ?? []}
+                    description={project.description}
+                    imageSrc={project.metadata?.imageSrc}
+                    imageAlt={project.metadata?.imageAlt}
+                    liveUrl={project.metadata?.demoLink}
+                    sourceUrl={project.link}
+                    serverSourceUrl={project.metadata?.serverLink}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : null}
