@@ -3,10 +3,10 @@ import { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
-    name: "Darenz Jasper Hicap — Junior Full-Stack Developer",
-    short_name: "Hicap Portfolio",
+    name: "Darenz Jasper Hicap — Full-Stack & Cloud Infrastructure Engineer",
+    short_name: "Darenz Hicap",
     description:
-      "Personal portfolio of Darenz Jasper Hicap, junior full-stack developer specializing in Next.js, NestJS, TypeScript, and cloud architecture.",
+      "Personal engineering portfolio of Darenz Jasper Hicap. Full-stack TypeScript systems, AWS & Terraform infrastructure, and practical AI tooling.",
     start_url: "/",
     scope: "/",
     display: "standalone",
@@ -53,28 +53,36 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "Work",
         description: "View featured full-stack projects and case studies",
         url: "/#projects",
-        icons: [{ src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" }],
+        icons: [
+          { src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" },
+        ],
       },
       {
         name: "Experience",
         short_name: "Experience",
-        description: "View professional work history and timeline",
+        description: "View engineering background and work history",
         url: "/#experiences",
-        icons: [{ src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" }],
+        icons: [
+          { src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" },
+        ],
       },
       {
-        name: "Skills & Credentials",
-        short_name: "Skills",
-        description: "Inspect technical skills and verified credentials",
+        name: "About & Stack",
+        short_name: "About",
+        description: "Inspect engineering approach, stack, and credentials",
         url: "/#skills",
-        icons: [{ src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" }],
+        icons: [
+          { src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" },
+        ],
       },
       {
-        name: "Contact Me",
+        name: "Contact",
         short_name: "Contact",
-        description: "Send a message or request a project walkthrough",
+        description: "Direct email and links",
         url: "/#contact",
-        icons: [{ src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" }],
+        icons: [
+          { src: "/images/pwa-icons/android-chrome-192x192.png", sizes: "192x192" },
+        ],
       },
     ],
     screenshots: [
