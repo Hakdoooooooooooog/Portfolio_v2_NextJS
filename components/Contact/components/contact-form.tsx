@@ -122,7 +122,7 @@ export default function ContactForm() {
     <form
       onSubmit={handleFormSubmit}
       noValidate
-      className="rounded-xl border border-border bg-surface p-6 md:p-8 flex flex-col gap-5"
+      className="min-w-0 rounded-[6px] border border-border bg-surface p-4 sm:p-6 md:p-8 flex flex-col gap-5"
     >
       {/* Invisible honeypot field */}
       <div

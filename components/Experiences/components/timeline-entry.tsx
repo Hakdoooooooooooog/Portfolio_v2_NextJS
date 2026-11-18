@@ -7,14 +7,12 @@ import { ArrowUpRightIcon } from "@/portfolio/components/icons";
 
 type TimelineEntryProps = {
   experience: TExperienceData;
-  isActive: boolean;
   delayMs?: number;
   className?: string;
 };
 
 export default function TimelineEntry({
   experience,
-  isActive,
   delayMs = 0,
   className,
 }: TimelineEntryProps) {
@@ -24,46 +22,53 @@ export default function TimelineEntry({
   const { description, bullets, skills, project } = additionalInfo;
 
   const dateLabel = startDate
-    ? `${startDate} to ${endDate ?? "Present"}`
+    ? `${startDate} — ${endDate ?? "Present"}`
     : null;
-
-  const dotClasses = isActive
-    ? "before:bg-accent dot-pulse"
-    : "before:bg-border";
 
   return (
     <li
       ref={ref}
-      className={`reveal relative ${dotClasses} before:absolute before:-left-[33px] before:top-1 before:size-2.5 before:rounded-full ${className ?? ""}`}
+      className={`reveal py-7 first:pt-2 last:pb-0 ${className ?? ""}`}
       style={{ "--reveal-delay": `${delayMs}ms` } as CSSProperties}
     >
-      {dateLabel ? (
-        <p className="text-eyebrow text-muted">{dateLabel}</p>
-      ) : null}
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <div>
+          <h3 className="text-heading-row text-foreground">{title}</h3>
+          <p className="text-small text-foreground/90 mt-0.5">{subtitle}</p>
+        </div>
 
-      <h3 className="text-heading-row text-foreground mt-2">{title}</h3>
-
-      <p className="text-small font-mono text-muted mt-1">
-        {subtitle} · {location}
-      </p>
+        <div className="text-xs font-mono text-muted">
+          {dateLabel ? (
+            <span className="text-accent font-medium uppercase tracking-wider">
+              {dateLabel}
+            </span>
+          ) : null}
+          <span className="mx-2 text-muted/50" aria-hidden>
+            ·
+          </span>
+          <span>{location}</span>
+        </div>
+      </div>
 
       {bullets && bullets.length > 0 ? (
-        <ul className="list-disc list-outside marker:text-muted text-body text-muted mt-4 pl-4 flex flex-col gap-2">
+        <ul className="list-disc list-outside marker:text-muted text-small text-muted mt-4 pl-4 flex flex-col gap-1.5 leading-relaxed">
           {bullets.map((bullet) => (
             <li key={bullet.slice(0, 40)}>{bullet}</li>
           ))}
         </ul>
       ) : description ? (
-        <p className="text-body text-muted mt-4">{description}</p>
+        <p className="text-small text-muted mt-4 leading-relaxed">
+          {description}
+        </p>
       ) : null}
 
       {skills && skills.length > 0 ? (
-        <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-2 gap-y-1">
+        <p className="text-xs font-mono text-muted mt-4 pt-3 border-t border-border/60 flex flex-wrap gap-x-2 gap-y-1">
           {skills.map((skill, i) => (
             <span key={skill}>
               {skill}
               {i < skills.length - 1 ? (
-                <span className="ml-2 text-muted/60" aria-hidden>
+                <span className="ml-2 text-muted/50" aria-hidden>
                   ·
                 </span>
               ) : null}
@@ -77,9 +82,10 @@ export default function TimelineEntry({
           href={project.projectOutputLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5 mt-4 text-small font-mono text-muted transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+          className="group inline-flex items-center gap-1.5 mt-3 text-xs font-mono text-foreground transition-colors hover:text-accent hover:underline underline-offset-4"
         >
-          View output <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <span>View deployed output</span>
+          <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       ) : null}
     </li>
