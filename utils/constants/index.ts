@@ -60,15 +60,15 @@ export const aboutData: TAboutData = {
   currently: [
     {
       label: "Building",
-      detail: "2D platformer movement and physics mechanics in Godot 4.6",
+      detail: "A Modern Ticket System for triaging end-user issues, for technical support convenience and to easily resolves end-user problems",
     },
     {
       label: "Learning",
       detail: "Japanese Hiragana reading and grammar via Genki I",
     },
     {
-      label: "Tinkering",
-      detail: "Custom PC builds, airflow tuning, and peripheral repairs",
+      label: "Tinkering & Testing out",
+      detail: "New technological tools to speed up web development process and come up with more ideas, turning them to reality.",
     },
   ],
   stack,
