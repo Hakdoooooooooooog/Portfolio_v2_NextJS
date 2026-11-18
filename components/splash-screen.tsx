@@ -20,7 +20,7 @@ export default function SplashScreen() {
         sessionStorage.setItem("portfolio-splash-seen", "1");
       }
     } catch {
-      // In case sessionStorage is restricted (e.g. strict iframe)
+      // Ignore storage restrictions in strict iframes
     }
 
     if (isSkip || alreadySeen) {
@@ -30,7 +30,6 @@ export default function SplashScreen() {
       return () => clearTimeout(skipTimer);
     }
 
-    // Account for load & hydration time so mobile doesn't linger unnecessarily
     const elapsed = typeof performance !== "undefined" ? performance.now() : 0;
     const remainingTime = Math.max(220, Math.min(850, 950 - elapsed));
 
@@ -56,20 +55,15 @@ export default function SplashScreen() {
           className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-background bg-grid-pattern px-6 select-none"
         >
           <div className="flex flex-col items-center text-center max-w-md w-full pointer-events-none">
-            <p className="splash-item-1 text-eyebrow text-muted tracking-widest uppercase font-mono">
-              00 / Portfolio
-            </p>
-
-            <p className="splash-item-2 text-display-lg text-foreground mt-2 font-display">
+            <p className="splash-item-2 text-display-lg text-foreground font-display">
               {aboutData.name}
             </p>
 
             <p className="splash-item-3 text-small font-mono text-muted mt-2">
-              Full-Stack Developer
+              Full-Stack &amp; Cloud Infrastructure Engineer
             </p>
 
-            {/* Accent loading line */}
-            <div className="w-48 h-0.5 bg-border rounded-full mt-6 overflow-hidden">
+            <div className="w-48 h-0.5 bg-border mt-6 overflow-hidden">
               <div className="splash-bar-fill size-full bg-accent origin-left" />
             </div>
           </div>

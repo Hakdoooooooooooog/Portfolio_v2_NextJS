@@ -1,32 +1,38 @@
-import { experiencesData, sectionNumbers } from "@/portfolio/utils/constants";
+import { experiencesData } from "@/portfolio/utils/constants";
 import TimelineEntry from "./components/timeline-entry";
 
-const ENTRY_DELAY_MS = 80;
+const ENTRY_DELAY_MS = 70;
 
-export default function Experiences() {
+export default function Experiences({
+  className = "",
+}: {
+  className?: string;
+}) {
   return (
-    <section id="experiences" className="container-page">
-      <p className="text-eyebrow text-muted">
-        {sectionNumbers.experiences} / Experiences
-      </p>
+    <section id="experiences" className={className}>
+      <div>
+        <p className="text-eyebrow text-muted">Experience</p>
 
-      <h2 className="text-display-lg text-foreground mt-4">
-        Where I&apos;ve worked
-      </h2>
+        <h2 className="text-display-lg text-foreground mt-3">
+          Engineering background
+        </h2>
 
-      <div className="border-t border-border mt-8" aria-hidden />
+        <p className="text-body text-muted mt-3">
+          From IT help desk triage and municipal systems support to shipping
+          full-stack platforms and Terraform-managed cloud infrastructure.
+        </p>
+      </div>
 
-      <ol className="relative border-l border-border ml-2 pl-8 mt-8 list-none p-0">
+      <div className="border-t border-border mt-6" aria-hidden />
+
+      <ol className="list-none p-0 divide-y divide-border mt-4">
         {experiencesData.map((experience, i) => {
-          const isActive = !experience.workInfo.endDate;
           const delayMs = i * ENTRY_DELAY_MS;
           return (
             <TimelineEntry
               key={`${experience.workInfo.title}-${experience.workInfo.startDate ?? ""}`}
               experience={experience}
-              isActive={isActive}
               delayMs={delayMs}
-              className={i === 0 ? undefined : "mt-8"}
             />
           );
         })}

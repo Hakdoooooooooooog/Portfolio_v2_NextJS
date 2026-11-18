@@ -1,76 +1,51 @@
 import Image from "next/image";
-import { aboutData, sectionNumbers } from "@/portfolio/utils/constants";
+import { RESUME_URL, aboutData } from "@/portfolio/utils/constants";
 import ContactBlock from "./components/contact-block";
-import { ArrowDownIcon, ArrowRightIcon } from "@/portfolio/components/icons";
+import { ArrowDownIcon, ArrowUpRightIcon } from "@/portfolio/components/icons";
 
 export default function HomeSection() {
   return (
-    <section id="about" className="container-page">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <p className="text-eyebrow text-muted">
-          {sectionNumbers.about} / About
-        </p>
+    <section id="about" className="container-page pt-8 pb-16 sm:pt-10 md:pt-14 md:pb-24">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-12 items-start">
+        <div className="md:col-span-8 order-last md:order-first min-w-0 max-w-4xl">
+          <p className="text-sm font-mono font-medium text-accent">
+            {aboutData.name}
+          </p>
 
-        {/* Availability & Timezone badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface text-small font-mono text-muted w-fit">
-          <span
-            className="size-2 rounded-full bg-accent animate-pulse shrink-0"
-            aria-hidden
-          />
-          <span>{aboutData.availability}</span>
-          <span className="text-muted/50" aria-hidden>
-            ·
-          </span>
-          <span>
-            {aboutData.location} ({aboutData.timezone})
-          </span>
-        </div>
-      </div>
+          <h1 className="text-display-xl mt-3 text-foreground">
+            {aboutData.headline}
+          </h1>
 
-      <div className="grid md:grid-cols-3 gap-8 mt-8">
-        <div className="md:col-span-2 order-last md:order-first">
-          {/* Reconstructed Headline */}
-          <div className="flex flex-col">
-            <p className="text-sm sm:text-base font-mono text-accent font-semibold tracking-wide">
-              {aboutData.name}
-            </p>
+          <p className="text-body-lg text-muted mt-5 md:mt-6 leading-relaxed max-w-3xl">
+            {aboutData.subheadline}
+          </p>
 
-            <h1 className="text-display-xl hero-headline mt-2 text-foreground">
-              Junior Full-Stack <span className="name-underline">Developer</span>
-            </h1>
-          </div>
-
-          {aboutData.bio.map((paragraph, idx) => (
-            <p key={idx} className="text-body-lg text-muted mt-6">
-              {paragraph}
-            </p>
-          ))}
-
-          {/* Quick CTA row */}
-          <div className="flex flex-wrap items-center gap-3 mt-8">
+          <div className="flex flex-wrap items-center gap-3 mt-7 md:mt-8">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground rounded-md px-5 py-2.5 text-small font-medium transition-colors hover:bg-accent/90 shadow-sm cursor-pointer"
+              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground rounded-md px-4 py-2 text-small font-medium transition-colors hover:bg-accent/90 cursor-pointer"
             >
-              <span>View selected work</span>
+              <span>View Selected Work</span>
               <ArrowDownIcon className="size-4 transition-transform group-hover:translate-y-0.5" />
             </a>
 
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 border border-border text-foreground rounded-md px-5 py-2.5 text-small font-medium transition-colors hover:border-accent hover:text-accent cursor-pointer"
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 border border-border bg-surface text-foreground rounded-md px-4 py-2 text-small font-medium transition-colors hover:border-accent hover:text-accent cursor-pointer"
             >
-              <span>Get in touch</span>
-              <ArrowRightIcon className="size-4" />
+              <span>Resume / CV</span>
+              <ArrowUpRightIcon className="size-3.5" />
             </a>
           </div>
 
-          <p className="text-small font-mono text-muted mt-8 flex flex-wrap gap-x-2 gap-y-1">
-            {aboutData.stack.map((s, i) => (
-              <span key={s}>
-                {s}
+          <p className="text-xs font-mono text-muted mt-8 md:mt-10 pt-5 md:pt-6 border-t border-border flex flex-wrap items-center gap-x-2.5 gap-y-1">
+            {aboutData.stack.map((item, i) => (
+              <span key={item} className="inline-flex items-center">
+                <span>{item}</span>
                 {i < aboutData.stack.length - 1 ? (
-                  <span className="ml-2 text-muted/60" aria-hidden>
+                  <span className="ml-2.5 text-muted/50" aria-hidden>
                     ·
                   </span>
                 ) : null}
@@ -79,25 +54,22 @@ export default function HomeSection() {
           </p>
         </div>
 
-        <div className="md:col-span-1 order-first md:order-last flex flex-col items-center w-full">
-          <div className="relative w-[230px] sm:w-[250px] aspect-square">
-            <div
-              aria-hidden
-              className="absolute inset-0 translate-x-1 sm:translate-x-2 translate-y-1 sm:translate-y-2 border border-border rounded-md"
-            />
+        <div className="md:col-span-4 order-first md:order-last min-w-0 flex flex-col items-center md:items-end">
+          <div className="relative w-40 sm:w-48 md:w-full max-w-[260px] aspect-[4/5] rounded-md overflow-hidden border border-border bg-surface">
             <Image
               priority
               unoptimized
               src={aboutData.profileImage.src}
               alt={aboutData.profileImage.alt}
               fill
-              sizes="(max-width: 640px) 230px, 250px"
-              className="rounded-md object-cover object-center shadow-sm dark:shadow-none"
+              sizes="(max-width: 640px) 192px, 260px"
+              className="object-cover object-center"
             />
           </div>
-
-          {/* Social Profiles underneath profile picture */}
-          <ContactBlock className="mt-5 w-[230px] sm:w-[250px]" />
+          <p className="text-xs font-mono text-muted mt-3 text-center md:text-right">
+            {aboutData.location} · {aboutData.timezone}
+          </p>
+          <ContactBlock className="mt-2.5" />
         </div>
       </div>
     </section>

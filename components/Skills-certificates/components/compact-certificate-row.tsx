@@ -39,18 +39,18 @@ export default function CompactCertificateRow({
   return (
     <article
       ref={ref}
-      className="reveal flex gap-4 py-4 border-b border-border last:border-b-0"
+      className="reveal flex gap-3 sm:gap-4 py-4 min-w-0"
       style={{ "--reveal-delay": `${delayMs}ms` } as CSSProperties}
     >
-      <div className="relative w-32 h-24 shrink-0 rounded-md overflow-hidden border border-border bg-surface">
-        {imageSrc ? (
+      {imageSrc ? (
+        <div className="relative w-20 h-16 sm:w-28 sm:h-20 shrink-0 rounded-[4px] overflow-hidden border border-border bg-surface">
           <CertificateThumbnail src={imageSrc} alt={alt} />
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 max-w-3xl">
         <h3 className="text-heading-row text-foreground">{title}</h3>
-        <p className="text-small font-mono text-muted mt-2">
+        <p className="text-xs font-mono text-muted mt-1.5">
           {issuer} · {formatDate(date)}
         </p>
         {verifyHref ? (
@@ -58,9 +58,9 @@ export default function CompactCertificateRow({
             href={verifyHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 mt-2 text-small font-mono text-muted transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+            className="inline-flex items-center gap-1 mt-2 text-xs font-mono text-foreground transition-colors hover:text-accent hover:underline underline-offset-4"
           >
-            <span>Verify</span>
+            <span>Verify credential</span>
             <ArrowUpRightIcon className="size-3.5" />
           </a>
         ) : null}

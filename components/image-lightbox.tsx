@@ -37,7 +37,6 @@ export default function ImageLightbox({
   const [cachedImages, setCachedImages] = useState(images);
   const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
 
-  // Adjust state during render when props change
   if (images.length > 0 && images !== cachedImages) {
     setCachedImages(images);
   }
@@ -61,7 +60,6 @@ export default function ImageLightbox({
     setCurrentIndex((prev) => (prev < activeImages.length - 1 ? prev + 1 : 0));
   }, [activeImages.length]);
 
-  // Lock body scroll and register keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
 
@@ -101,13 +99,11 @@ export default function ImageLightbox({
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[100] flex flex-col justify-between overflow-hidden"
         >
-          {/* Backdrop with blur */}
           <div
             onClick={onClose}
-            className="absolute inset-0 bg-background/90 backdrop-blur-md cursor-pointer"
+            className="absolute inset-0 bg-background/92 backdrop-blur-md cursor-pointer"
           />
 
-          {/* Top Header Toolbar */}
           <motion.div
             key="lightbox-toolbar"
             initial={{ opacity: 0, y: -16 }}
@@ -117,7 +113,7 @@ export default function ImageLightbox({
             className="relative z-10 flex items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 pointer-events-auto"
           >
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-medium border border-border bg-surface/80 text-foreground">
+              <span className="inline-flex items-center px-2.5 py-1 rounded-[4px] text-xs font-mono font-medium border border-border bg-surface text-foreground">
                 {hasMultiple
                   ? `${currentIndex + 1} / ${activeImages.length}`
                   : "Preview"}
@@ -131,17 +127,16 @@ export default function ImageLightbox({
               type="button"
               onClick={onClose}
               aria-label="Close preview (Escape)"
-              className="group flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-surface/80 text-foreground hover:border-accent hover:text-accent transition-all duration-150 cursor-pointer shadow-sm"
+              className="group flex items-center gap-2 px-3 py-1.5 rounded-[4px] border border-border bg-surface text-foreground hover:border-accent hover:text-accent transition-colors cursor-pointer"
             >
               <span className="text-xs font-mono font-medium">Close</span>
-              <kbd className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-background/80 border border-border text-muted group-hover:text-foreground">
+              <kbd className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded-[4px] bg-background border border-border text-muted group-hover:text-foreground">
                 Esc
               </kbd>
               <CloseIcon className="size-3.5" />
             </button>
           </motion.div>
 
-          {/* Center Stage: Image and Navigation */}
           <motion.div
             key="lightbox-stage"
             initial={{ opacity: 0, scale: 0.95, y: 8 }}
@@ -166,47 +161,45 @@ export default function ImageLightbox({
                   height={1000}
                   priority
                   sizes="(max-width: 1024px) 90vw, 1400px"
-                  className="max-h-[calc(100dvh-260px)] max-w-[88vw] w-auto h-auto object-contain rounded-lg border border-border/60 shadow-2xl bg-surface/30"
+                  className="max-h-[calc(100dvh-260px)] max-w-[88vw] w-auto h-auto object-contain rounded-[6px] border border-border shadow-2xl bg-surface"
                 />
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Arrows */}
             {hasMultiple ? (
               <>
                 <button
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous image"
-                  className="pointer-events-auto absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 size-11 sm:size-12 rounded-full border border-border bg-surface/85 text-foreground backdrop-blur-md flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 hover:border-accent hover:text-accent cursor-pointer"
+                  className="pointer-events-auto absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 size-10 sm:size-11 rounded-[4px] border border-border bg-surface/90 text-foreground backdrop-blur-md flex items-center justify-center shadow-lg transition-colors hover:border-accent hover:text-accent cursor-pointer"
                 >
-                  <ChevronLeftIcon className="size-6" />
+                  <ChevronLeftIcon className="size-5" />
                 </button>
 
                 <button
                   type="button"
                   onClick={handleNext}
                   aria-label="Next image"
-                  className="pointer-events-auto absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 size-11 sm:size-12 rounded-full border border-border bg-surface/85 text-foreground backdrop-blur-md flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 hover:border-accent hover:text-accent cursor-pointer"
+                  className="pointer-events-auto absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 size-10 sm:size-11 rounded-[4px] border border-border bg-surface/90 text-foreground backdrop-blur-md flex items-center justify-center shadow-lg transition-colors hover:border-accent hover:text-accent cursor-pointer"
                 >
-                  <ChevronRightIcon className="size-6" />
+                  <ChevronRightIcon className="size-5" />
                 </button>
               </>
             ) : null}
           </motion.div>
 
-          {/* Bottom Toolbar: Caption & Thumbnails */}
           <motion.div
             key="lightbox-bottom"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 flex flex-col items-center gap-3 px-4 pb-4 sm:pb-6 pt-6 pointer-events-auto max-w-4xl mx-auto w-full shrink-0"
+            className="relative z-10 flex flex-col items-center gap-3 px-4 pb-4 sm:pb-6 pt-4 pointer-events-auto max-w-4xl mx-auto w-full shrink-0"
           >
             {currentImage.caption ? (
-              <div className="px-5 py-2 rounded-2xl sm:rounded-full bg-surface/90 border border-border/80 backdrop-blur-md max-w-2xl shadow-md text-center">
-                <p className="text-xs sm:text-sm font-sans text-foreground/90 leading-relaxed">
+              <div className="px-4 py-2 rounded-[4px] bg-surface border border-border max-w-2xl text-center">
+                <p className="text-xs sm:text-sm font-mono text-foreground leading-relaxed">
                   {currentImage.caption}
                 </p>
               </div>
@@ -222,10 +215,10 @@ export default function ImageLightbox({
                       type="button"
                       onClick={() => setCurrentIndex(idx)}
                       aria-label={`Jump to image ${idx + 1}`}
-                      className={`relative size-12 sm:size-14 shrink-0 rounded-md overflow-hidden border transition-all cursor-pointer ${
+                      className={`relative size-12 sm:size-14 shrink-0 rounded-[4px] overflow-hidden border transition-all cursor-pointer ${
                         isActive
-                          ? "border-accent ring-2 ring-accent/60 scale-105 shadow-md"
-                          : "border-border/60 opacity-60 hover:opacity-100"
+                          ? "border-accent ring-1 ring-accent"
+                          : "border-border opacity-60 hover:opacity-100"
                       }`}
                     >
                       <Image

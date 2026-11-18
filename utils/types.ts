@@ -49,6 +49,7 @@ export type TProjectArchitectureItem = {
 export type TProjectData = {
   title: string;
   tags?: string[];
+  context?: string;
   description: string;
   link?: string;
   featured?: boolean;
@@ -89,17 +90,26 @@ export type TExperienceData = {
 export type TSocialLink = {
   label: string;
   href: string;
+  handle?: string;
   type: "github" | "linkedin" | "facebook" | "email";
+};
+
+export type TCurrentlyItem = {
+  label: string;
+  detail: string;
 };
 
 export type TAboutData = {
   greeting: string;
   name: string;
+  headline: string;
+  subheadline: string;
   availability: string;
   location: string;
   timezone: string;
   email: string;
-  bio: string[];
+  narrative: readonly string[];
+  currently: readonly TCurrentlyItem[];
   stack: readonly string[];
   profileImage: {
     src: string;

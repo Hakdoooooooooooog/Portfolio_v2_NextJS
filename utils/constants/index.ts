@@ -9,27 +9,29 @@ import {
 } from "../types";
 
 export const navLinks: TNavigationLink[] = [
-  { label: "About", href: "#about" },
+  { label: "Home", href: "#about" },
   { label: "Work", href: "#projects" },
   { label: "Experience", href: "#experiences" },
-  { label: "Skills", href: "#skills" },
+  { label: "About", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const stack: readonly string[] = [
-  "Frontend",
-  "Backend",
-  "Cloud",
-  "DevOps",
-  "AI",
+  "TypeScript",
+  "Next.js",
+  "NestJS",
+  "PostgreSQL",
+  "Redis",
+  "Docker",
+  "AWS & Terraform",
 ];
 
 export const sectionNumbers: Record<string, string> = {
-  about: "01",
-  projects: "02",
-  experiences: "03",
-  skills: "04",
-  contact: "05",
+  about: "00",
+  projects: "01",
+  experiences: "02",
+  skills: "03",
+  contact: "04",
 };
 
 export const RESUME_URL =
@@ -37,21 +39,39 @@ export const RESUME_URL =
 
 export const CONTACT_EMAIL = "hicap.darenzjasper@gmail.com";
 
-// Canonical origin of the live site.
 export const SITE_URL = "https://darenzhicap.netlify.app";
 
 export const aboutData: TAboutData = {
-  greeting: "Hello! My name is",
+  greeting: "Darenz Jasper A. Hicap",
   name: "Darenz Jasper A. Hicap",
-  availability: "Open to Junior Full-Stack & Backend roles",
+  headline:
+    "Building reliable full-stack systems, cloud infrastructure, and practical AI tooling.",
+  subheadline:
+    "Cum Laude BS IT graduate from Cavite State University. Former Full Stack Developer and IT Help Desk Specialist who has shipped production B2B platforms, AWS/Terraform setups, ERPNext modules, and event-driven internal tools.",
+  availability:
+    "Available for Full-Stack & AI Engineering roles — Cavite / Remote",
   location: "Cavite, Philippines",
   timezone: "UTC+8",
   email: CONTACT_EMAIL,
-  bio: [
-    "I build web applications end to end, from interactive interfaces to backend services, database schemas, and cloud deployments. I focus on clean architecture, predictable data flow, and code that remains straightforward for the next developer to maintain.",
-    "My primary stack centers on TypeScript, React, Next.js, and NestJS, backed by PostgreSQL, Redis, and Docker. I also design AI-assisted developer workflows and specialized tooling with Claude Code and Model Context Protocol (MCP).",
+  narrative: [
+    "I started out diagnosing hardware, networks, and corporate access tickets before moving into full-stack development. That background shapes how I build software: I care about how a NestJS queue behaves under load, how Terraform provisions the host it runs on, and whether the interface stays fast for the person using it all day.",
+    "Most of my work lives in TypeScript across Next.js, NestJS, Prisma, PostgreSQL, and Redis—integrating third party application. I prefer explicit data schemas, automated CI/CD checks, and systems that are straightforward for the next engineer to debug.",
   ],
-  stack: ["Frontend", "Backend", "Cloud", "DevOps", "AI"],
+  currently: [
+    {
+      label: "Building",
+      detail: "A Modern Ticket System for triaging end-user issues, for technical support convenience and to easily resolves end-user problems",
+    },
+    {
+      label: "Learning",
+      detail: "Japanese Hiragana reading and grammar via Genki I",
+    },
+    {
+      label: "Tinkering & Testing out",
+      detail: "New technological tools to speed up web development process and come up with more ideas, turning them to reality.",
+    },
+  ],
+  stack,
   profileImage: {
     src: "/images/profile.webp",
     alt: "Darenz Jasper A. Hicap in a navy blue suit, white collared shirt, and blue tie.",
@@ -61,18 +81,15 @@ export const aboutData: TAboutData = {
 export const socialLinks: readonly TSocialLink[] = [
   {
     label: "GitHub",
+    handle: "@Hakdoooooooooooog",
     href: "https://github.com/Hakdoooooooooooog",
     type: "github",
   },
   {
     label: "LinkedIn",
+    handle: "darenz-jasper-hicap",
     href: "https://www.linkedin.com/in/darenz-jasper-hicap",
     type: "linkedin",
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/drnz.hcp",
-    type: "facebook",
   },
 ];
 
@@ -90,11 +107,11 @@ export const skillCategories: TSkillCategory[] = [
     ],
   },
   {
-    label: "Backend",
+    label: "Backend & Data",
     skills: [
-      { src: "/images/skills/java.webp", name: "Java" },
-      { src: "/images/skills/nodejs-express-js.webp", name: "Node.js" },
       { src: "/images/skills/nest-js.webp", name: "NestJS" },
+      { src: "/images/skills/nodejs-express-js.webp", name: "Node.js / Express" },
+      { src: "/images/skills/java.webp", name: "Java" },
       { src: "/images/skills/prisma.webp", name: "Prisma" },
       { src: "/images/skills/postgresql.webp", name: "PostgreSQL" },
       { src: "/images/skills/mysql.webp", name: "MySQL" },
@@ -102,12 +119,12 @@ export const skillCategories: TSkillCategory[] = [
     ],
   },
   {
-    label: "Platform",
+    label: "Cloud & Platform",
     skills: [
       { src: "/images/skills/aws.webp", name: "AWS" },
       { src: "/images/skills/aws-s3.webp", name: "AWS S3" },
-      { src: "/images/skills/docker.webp", name: "Docker" },
       { src: "/images/skills/terraform.webp", name: "Terraform" },
+      { src: "/images/skills/docker.webp", name: "Docker" },
       { src: "/images/skills/git.webp", name: "Git" },
     ],
   },
@@ -302,77 +319,82 @@ export const ProjectsData: TProjectData[] = [
     status: "In Progress",
     isPrivateRepo: true,
     walkthroughAvailable: true,
-    statusNote: "Personal project · Private repository",
-    role: "Junior Full-Stack Developer",
+    statusNote: "Personal Monorepo · Private Repo",
+    role: "Full-Stack Architect",
     tags: [
       "Turborepo",
       "Next.js 16",
       "NestJS 12",
       "TypeScript",
-      "Tailwind CSS v4",
-      "Socket.IO",
-      "TanStack Query",
-      "Prisma 7",
       "PostgreSQL 16",
+      "Prisma 7",
       "Redis 7",
+      "Socket.IO",
       "MinIO (S3)",
-      "Cloudflare Turnstile",
       "Docker",
     ],
+    context:
+      "Built after handling corporate help-desk triage firsthand, replacing shared inboxes with a single tracked workflow.",
     description:
-      "An IT service desk and incident triage monorepo I am building to replace disorganized shared inboxes with a single tracked workflow. It splits customer requests (/portal) and engineering operations (/admin) into dedicated workspaces, syncs live queues and agent presence over Socket.IO so two engineers never duplicate a reply, and tracks SLA timers against Philippine business hours (Asia/Manila) with automatic holiday and needs-info pauses.",
+      "Splits customer submissions (/portal) and engineering triage (/admin) inside one Turborepo monorepo with live queue sync and Philippine business-hour SLA tracking.",
     highlights: [
-      "Real-time knowledge-base deflection as customers type, plus client-side compressed and encrypted diagnostic file uploads to S3-compatible MinIO storage.",
-      "Fair round-robin department dispatch, one-click ticket claiming, team workload balancing, private staff notes, and 1-5 star CSAT tracking.",
-      "Admin console for runtime Cloudflare Turnstile bot gates, dual SendGrid v3 / SMTP email delivery, a Handlebars email template customizer with live desktop and mobile preview, and PostgreSQL trigger-locked audit logs.",
+      "Real-time Socket.IO viewer and typing presence stops two support engineers from writing duplicate replies.",
+      "SLA engine evaluates targets against Asia/Manila working hours (Mon-Fri 08:00-12:00, 13:00-17:00), pausing automatically on holidays and NEEDS_INFO states.",
+      "Client-side compressed and encrypted diagnostic uploads stored in S3-compatible MinIO, paired with knowledge-base deflection as users type.",
+      "Runtime Cloudflare Turnstile gates, dual SendGrid v3 / SMTP failover, Handlebars email layout previewer, and PostgreSQL trigger-locked audit logs.",
     ],
     architectureNotes: [
       {
-        title: "1. Submission & Instant Deflection (/portal)",
+        title: "Submission & Deflection (/portal)",
         detail:
-          "As a customer drafts a ticket, the deflection engine searches published knowledge-base articles in real time so common issues are solved without filing a ticket. Diagnostic screenshots are compressed and encrypted in the browser before upload.",
+          "Searches published knowledge-base articles as a customer drafts a ticket so routine fixes happen before submission. Diagnostic screenshots are compressed and encrypted in the browser prior to upload.",
       },
       {
-        title: "2. Round-Robin Dispatch & Philippine SLA Engine",
+        title: "Round-Robin Dispatch & SLA Engine",
         detail:
-          "New tickets route automatically to the least-loaded specialist in that department. SLA timers evaluate first-response and resolution targets against Philippine working hours (Asia/Manila, UTC+8, Mon-Fri 08:00-12:00 and 13:00-17:00), pausing on weekends, public holidays, and NEEDS_INFO states, with warning alerts at 75% elapsed time.",
+          "Routes new tickets to the least-loaded specialist in the target department and triggers warning alerts at 75% of elapsed SLA business hours.",
       },
       {
-        title: "3. Real-Time Collision Avoidance (/admin)",
+        title: "Collision Avoidance (/admin)",
         detail:
-          "Bidirectional Socket.IO channels broadcast active viewer and typing presence across connected browsers so support engineers never write duplicate replies. Staff can collaborate via private internal notes and respond with canned templates.",
+          "Broadcasts active agent presence over Socket.IO across connected browsers and keeps internal staff notes separate from public customer replies.",
       },
       {
-        title: "4. Resolution, CSAT & Immutable Audit Logs",
+        title: "Transactional Mail & Audit Trail",
         detail:
-          "Resolved tickets trigger transactional email alerts (SendGrid v3 or outbound SMTP) and invite a 1-5 star CSAT rating. Security-critical events are locked at the database layer using PostgreSQL triggers.",
+          "Sends status notifications via SendGrid v3 or outbound SMTP, collects 1-5 star CSAT ratings on closure, and locks security-critical logs at the database layer via PostgreSQL triggers.",
       },
     ],
     images: [
       {
         src: "/images/projects/ticketsupport-01-dashboard.webp",
         alt: "TicketSupport IT Service Desk Queue dashboard showing live SLA metrics, CSAT score, team workload, and triage queue",
-        caption: "IT Service Desk Queue: Live SLA metrics, engineer workload balancing, and one-click ticket claiming",
+        caption:
+          "IT Service Desk Queue: Live SLA metrics, workload balancing, and one-click ticket claiming",
       },
       {
         src: "/images/projects/ticketsupport-03-customer-portal.webp",
         alt: "TicketSupport Customer Support Portal with slide-over ticket progress drawer and knowledge base deflection",
-        caption: "Customer Portal (/portal): Real-time article deflection, encrypted attachments, and slide-over ticket tracker",
+        caption:
+          "Customer Portal (/portal): Live article deflection, encrypted attachments, and slide-over ticket tracker",
       },
       {
         src: "/images/projects/ticketsupport-02-email-preview.webp",
         alt: "TicketSupport Email Templates and Layout Customizer with Handlebars tokens and live desktop/mobile inbox preview",
-        caption: "Email Layout Customizer: Handlebars variable tokens, brand accent picker, and live inbox preview",
+        caption:
+          "Email Layout Customizer: Handlebars variable tokens and live desktop/mobile preview",
       },
       {
         src: "/images/projects/ticketsupport-04-integrations.webp",
         alt: "TicketSupport Operational System Settings for Cloudflare Turnstile bot protection and outbound SMTP or SendGrid delivery",
-        caption: "Operational Settings: Runtime Cloudflare Turnstile challenge gate and dual SMTP / SendGrid v3 failover",
+        caption:
+          "Operational Settings: Runtime Cloudflare Turnstile gate and dual SMTP / SendGrid v3 failover",
       },
       {
         src: "/images/projects/ticketsupport-05-login.webp",
         alt: "TicketSupport sign-in portal protected by Cloudflare Turnstile anti-bot verification",
-        caption: "Authentication Portal: Sign-in and registration protected by Cloudflare Turnstile",
+        caption:
+          "Authentication Portal: Sign-in and registration gated by Cloudflare Turnstile",
       },
     ],
     metadata: {
@@ -387,7 +409,7 @@ export const ProjectsData: TProjectData[] = [
     status: "Offline",
     isPrivateRepo: true,
     walkthroughAvailable: false,
-    statusNote: "Company build at GP Synergia · Site offline (frontpage preview)",
+    statusNote: "GP Synergia Build · Frontpage Preview",
     role: "Full-Stack Developer",
     tags: [
       "Next.js",
@@ -400,8 +422,15 @@ export const ProjectsData: TProjectData[] = [
       "Terraform",
       "Docker",
     ],
+    context:
+      "Commercial B2B storefront and ordering API built at GP Synergia for institutional peptide buyers across Southeast Asia.",
     description:
-      "During my time at GP Synergia, I built the storefront and backend services for Redbiomed, a commercial B2B peptide distributor for institutional buyers in Southeast Asia. I structured the backend around modular NestJS services with Prisma and PostgreSQL, added Redis caching to keep catalog reads under 120ms, containerized the stack with Docker, and provisioned AWS infrastructure with Terraform. The commercial storefront is currently offline and the repository remains private to the company, so only the landing page capture is shown here.",
+      "Modular NestJS API and Next.js storefront deployed on AWS infrastructure managed with Terraform and Docker.",
+    highlights: [
+      "Added Redis catalog caching on top of Prisma and PostgreSQL to keep catalog reads under 120ms.",
+      "Containerized services with multi-stage Docker builds and automated GitLab CE CI/CD pipelines.",
+      "Provisioned reproducible EC2, S3, and VPC infrastructure via Terraform to eliminate staging/production drift.",
+    ],
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.webp",
       imageAlt:
@@ -409,34 +438,22 @@ export const ProjectsData: TProjectData[] = [
     },
   },
   {
-    title: "TOPCIT LCMS",
-    tags: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Material UI",
-      "Zustand",
-      "Zod",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Prisma",
-      "Amazon S3",
-    ],
-    description:
-      "A standardized competency evaluation and learning platform for Cavite State University's ICT department. Built modular Node.js and Express REST APIs with Prisma ORM and PostgreSQL to manage hierarchical syllabi, timed assessments, and automated scoring. Implemented JWT-based RBAC and AWS S3 asset storage, with Zustand and Zod handling client state and form validation.",
-    link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
-    metadata: {
-      imageSrc: "/images/projects/topcit-thumbnail.webp",
-      imageAlt: "TOPCIT Learners Content Management System",
-      serverLink: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
-    },
-  },
-  {
     title: "E-CPLGT",
+    featured: true,
+    status: "Production",
+    isPrivateRepo: false,
+    walkthroughAvailable: false,
+    statusNote: "City Public Library of General Trias",
+    role: "Frontend & Deployment",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    context:
+      "Municipal digital library built during my City of General Trias internship so residents and students can browse catalog resources online.",
     description:
-      "A municipal digital library platform for the City Public Library of General Trias, Cavite. Enables citizens and students to search, browse, and track community library catalog resources online. Built with Next.js, TypeScript, and Tailwind CSS with smooth motion cues via Framer Motion.",
+      "Public search and catalog interface deployed to production for the City Public Library of General Trias, Cavite.",
+    highlights: [
+      "Fast client-side catalog search and filtering built with Next.js and TypeScript.",
+      "Deployed and configured alongside on-site network and hardware support across municipal departments.",
+    ],
     link: "https://github.com/Hakdoooooooooooog/e-library",
     metadata: {
       imageSrc: "/images/projects/ecplgt-thumbnail.webp",
@@ -445,10 +462,44 @@ export const ProjectsData: TProjectData[] = [
     },
   },
   {
+    title: "TOPCIT LCMS",
+    featured: true,
+    status: "Completed",
+    isPrivateRepo: false,
+    walkthroughAvailable: false,
+    statusNote: "Cavite State University ICT Dept",
+    role: "Full-Stack Developer",
+    tags: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "Zustand",
+      "Zod",
+      "AWS S3",
+    ],
+    context:
+      "Standardized competency evaluation and learning platform created for Cavite State University's ICT department.",
+    description:
+      "Manages hierarchical syllabi, timed TOPCIT practice assessments, automated scoring, and role-based access control.",
+    highlights: [
+      "Built separate React + TypeScript web client and Express + Prisma REST API repositories.",
+      "Implemented JWT role-based access control, AWS S3 asset storage, and Zod/Zustand form state validation.",
+    ],
+    link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
+    metadata: {
+      imageSrc: "/images/projects/topcit-thumbnail.webp",
+      imageAlt: "TOPCIT Learners Content Management System",
+      serverLink: "https://github.com/Hakdoooooooooooog/topcit-lcms-app-server",
+    },
+  },
+  {
     title: "Event Management System API",
     tags: ["API", "Node.js", "Express", "Prisma", "PostgreSQL"],
     description:
-      "A RESTful backend service for event scheduling and registration. Features structured endpoints for event CRUD operations, attendee validation, relational schema modeling with Prisma ORM, and transactional consistency in PostgreSQL.",
+      "REST service for event scheduling and attendee registration, backed by relational Prisma schemas and PostgreSQL transactions.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
   {
@@ -458,11 +509,10 @@ export const ProjectsData: TProjectData[] = [
       "Raspberry Pi 5",
       "Linux CLI",
       "M5Stack UHF RFID",
-      "IoT",
       "PostgreSQL",
     ],
     description:
-      "A proposed terminal-based IoT warehouse tracking architecture designed for Redbiomed on Linux (Raspberry Pi 5). Engineered to track peptide vial products during warehouse ingress and egress, using M5Stack UHF RFID units and vial strip tags with Python powering hardware integration, real-time data transformation, and automated audit logging.",
+      "Terminal-based warehouse ingress/egress tracker prototype for Redbiomed on Raspberry Pi 5 using M5Stack UHF RFID readers and Python audit logging.",
   },
 ];
 
@@ -470,26 +520,25 @@ export const experiencesData: TExperienceData[] = [
   {
     workInfo: {
       title: "Junior Full Stack Developer",
-      subtitle: "GP Synergia Technologies Corp.",
+      subtitle: "GP Synergia Technologies Corp. / Kubernlabs Inc.",
       location: "Cavite, Philippines",
       startDate: "Dec 2025",
       endDate: "Jun 2026",
     },
     additionalInfo: {
       bullets: [
-        "Architected full-stack features for Redbiomed (B2B peptide platform), building modular NestJS backend services and responsive Next.js storefronts with Redis caching for sub-120ms catalog reads.",
-        "Designed a proposed terminal-based IoT warehouse tracking prototype on Linux (Raspberry Pi 5), using Python for M5Stack UHF RFID hardware integration and data transformation.",
-        "Configured self-hosted GitLab CE and automated multi-stage Docker CI/CD pipelines, reducing manual deployment cycles from hours to under 10 minutes with automated test verification.",
-        "Provisioned reproducible AWS cloud infrastructure (EC2, S3, VPC) using Terraform and modeled relational PostgreSQL schemas with Prisma ORM, eliminating environment drift.",
-        "Customized and maintained a self-hosted ERPNext instance for company operations, payroll, and inventory tracking.",
-        "Accelerated code reviews and automated test generation by integrating Claude Code and Model Context Protocol (MCP) tooling into engineering workflows.",
+        "Built the Redbiomed B2B platform with modular NestJS APIs and a Next.js storefront, adding Redis caching to keep catalog queries under 120ms.",
+        "Provisioned EC2, S3, and VPC infrastructure with Terraform and modeled PostgreSQL schemas via Prisma ORM.",
+        "Set up self-hosted GitLab CE and multi-stage Docker CI/CD pipelines, cutting deployment cycles from hours to under 10 minutes.",
+        "Customized and maintained a self-hosted ERPNext instance covering operations, payroll, and inventory workflows.",
+        "Designed a Raspberry Pi 5 Python prototype integrating M5Stack UHF RFID readers for warehouse vial tracking.",
+        "Integrated Claude Code and Model Context Protocol (MCP) tooling into internal code review and test-generation workflows.",
       ],
       skills: [
         "NestJS",
+        "Next.js",
         "TypeScript",
         "Python",
-        "React",
-        "Next.js",
         "PostgreSQL",
         "Redis",
         "Docker",
@@ -497,29 +546,27 @@ export const experiencesData: TExperienceData[] = [
         "Terraform",
         "GitLab CI/CD",
         "ERPNext",
-        "IoT & RFID",
-        "Linux CLI",
       ],
     },
   },
   {
     workInfo: {
-      title: "IT Help Desk and End User Support",
-      subtitle: "GP Synergia Technologies Corp.",
+      title: "IT Help Desk & End User Support",
+      subtitle: "GP Synergia Technologies Corp. / Kubernlabs Inc.",
       location: "Cavite, Philippines",
       startDate: "Nov 2025",
       endDate: "Dec 2025",
     },
     additionalInfo: {
       bullets: [
-        "Administered enterprise identity and access management for 50+ corporate users via Microsoft Entra ID (Azure AD), enforcing Role-Based Access Control (RBAC) and credential policies.",
-        "Optimized internal help desk ticketing pipelines and automated routing rules, reducing incident resolution turnaround by 30% across corporate end users.",
-        "Resolved Level 1/2 technical support requests spanning hardware diagnostics, network configurations, and software deployments with a 98% first-week resolution rate.",
+        "Managed Microsoft Entra ID (Azure AD) access policies and RBAC permissions for 50+ corporate users.",
+        "Rebuilt internal ticket routing rules, cutting average incident turnaround by 30%.",
+        "Handled Level 1/2 hardware diagnostics, network troubleshooting, and workstation rollouts with a 98% first-week resolution rate.",
       ],
       skills: [
         "Microsoft Entra ID",
-        "Technical Support",
-        "Workflow Automation",
+        "Ticketing Pipelines",
+        "RBAC",
         "Hardware Diagnostics",
         "Network Troubleshooting",
       ],
@@ -527,44 +574,26 @@ export const experiencesData: TExperienceData[] = [
   },
   {
     workInfo: {
-      title: "IT Support Internship",
-      subtitle: "ICT E-Library, City Public Library of General Trias",
-      location: "General Trias, Cavite, Philippines",
+      title: "IT Support Intern",
+      subtitle: "City Government of General Trias (ICT E-Library)",
+      location: "General Trias, Cavite",
       startDate: "Mar 2025",
       endDate: "Jun 2025",
     },
     additionalInfo: {
-      description:
-        "Deployed and configured the production CPLGT e-Library platform (Next.js), expanding municipal digital catalog access for community patrons. Provided Level 1 hardware diagnostics, local network troubleshooting across municipal departments, and audited 100+ digital inventory hardware records with zero extended downtime.",
+      bullets: [
+        "Deployed and configured the production CPLGT e-Library web platform (Next.js) for municipal patrons.",
+        "Audited 100+ digital inventory hardware records and resolved Level 1 network and hardware issues across municipal offices.",
+      ],
       skills: [
-        "Technical Support",
         "Next.js",
         "Network Administration",
         "Hardware Diagnostics",
-        "Asset Management",
+        "Asset Auditing",
       ],
       project: {
         projectOutputLink: "https://e-cplgt.netlify.app/",
       },
-    },
-  },
-  {
-    workInfo: {
-      title: "Crawling Structured Description",
-      subtitle: "Telus International AI",
-      location: "Tampere, Finland (Remote)",
-      startDate: "Aug 2023",
-      endDate: "Dec 2023",
-    },
-    additionalInfo: {
-      description:
-        "Audited and structured high-precision ground-truth metadata (specifications, dimensions, materials, and structured attributes) from complex e-commerce pages to evaluate and benchmark downstream machine learning models.",
-      skills: [
-        "Data Quality Assurance",
-        "Ground Truth Verification",
-        "Metadata Structuring",
-        "E-Commerce Analysis",
-      ],
     },
   },
 ];
