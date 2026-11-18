@@ -34,88 +34,89 @@ export default function CompactProjectRow({
   const overflow = tags.length - MAX_VISIBLE_TAGS;
 
   const paddedIndex = String(index).padStart(2, "0");
-  const kind = tags.includes("API") ? "API" : "WEB";
   const hasBothSources = Boolean(sourceUrl && serverSourceUrl);
-  const sourceLabel = hasBothSources ? "View web source" : "View source";
+  const sourceLabel = hasBothSources ? "Web Source" : "Source";
 
   return (
-    <article className="flex gap-4 py-4 border-b border-border last:border-b-0">
-      <div className="relative w-24 h-24 shrink-0 rounded-md overflow-hidden border border-border">
-        {imageSrc ? (
+    <article className="flex flex-col sm:flex-row gap-4 py-5">
+      {imageSrc ? (
+        <div className="relative w-20 h-20 shrink-0 rounded-[4px] overflow-hidden border border-border bg-surface">
           <ProjectThumbnail src={imageSrc} alt={imageAlt ?? title} />
-        ) : (
-          <div className="grid place-items-center size-full bg-surface text-surface-foreground">
-            <div className="text-center">
-              <p className="text-eyebrow">{paddedIndex}</p>
-              <p className="text-small font-mono mt-1">{kind}</p>
-            </div>
-          </div>
-        )}
-      </div>
+        </div>
+      ) : null}
 
-      <div className="flex-1 min-w-0">
-        <h3 className="text-heading-row text-foreground">{title}</h3>
-
-        <p className="text-small font-mono text-muted mt-2 flex flex-wrap gap-x-2 gap-y-1">
-          {visibleTags.map((tag, i) => (
-            <span key={tag}>
-              {tag}
-              {i < visibleTags.length - 1 || overflow > 0 ? (
-                <span className="ml-2 text-muted/60" aria-hidden>
-                  ·
-                </span>
-              ) : null}
+      <div className="flex-1 min-w-0 max-w-3xl">
+        <div className="flex items-baseline gap-2.5">
+          {!imageSrc ? (
+            <span className="text-xs font-mono text-muted shrink-0">
+              {paddedIndex}
             </span>
-          ))}
-          {overflow > 0 ? (
-            <button
-              type="button"
-              onClick={() => setExpanded((v) => !v)}
-              aria-expanded={expanded}
-              className="text-foreground transition-colors hover:text-accent underline-offset-4 hover:underline decoration-accent cursor-pointer"
-            >
-              {expanded ? "show less" : `+${overflow} more`}
-            </button>
           ) : null}
-        </p>
+          <h3 className="text-heading-row text-foreground">{title}</h3>
+        </div>
 
-        <p className="text-small text-muted mt-2">{description}</p>
+        <p className="text-small text-muted mt-1.5">{description}</p>
 
-        <p className="text-small font-mono text-muted mt-4 flex flex-wrap gap-x-4 gap-y-1">
+        <div className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-muted">
+          <span className="flex flex-wrap gap-x-2 gap-y-1">
+            {visibleTags.map((tag, i) => (
+              <span key={tag}>
+                {tag}
+                {i < visibleTags.length - 1 || overflow > 0 ? (
+                  <span className="ml-2 text-muted/50" aria-hidden>
+                    ·
+                  </span>
+                ) : null}
+              </span>
+            ))}
+            {overflow > 0 ? (
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                aria-expanded={expanded}
+                className="text-foreground transition-colors hover:text-accent underline-offset-4 hover:underline cursor-pointer"
+              >
+                {expanded ? "show less" : `+${overflow} more`}
+              </button>
+            ) : null}
+          </span>
+
           {liveUrl ? (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+              className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-accent hover:underline underline-offset-4"
             >
-              <span>Visit live</span>
+              <span>Live Demo</span>
               <ArrowUpRightIcon className="size-3.5" />
             </a>
           ) : null}
+
           {sourceUrl ? (
             <a
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+              className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-accent hover:underline underline-offset-4"
             >
               <span>{sourceLabel}</span>
               <ArrowUpRightIcon className="size-3.5" />
             </a>
           ) : null}
+
           {serverSourceUrl ? (
             <a
               href={serverSourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-accent"
+              className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-accent hover:underline underline-offset-4"
             >
-              <span>View API source</span>
+              <span>API Source</span>
               <ArrowUpRightIcon className="size-3.5" />
             </a>
           ) : null}
-        </p>
+        </div>
       </div>
     </article>
   );
