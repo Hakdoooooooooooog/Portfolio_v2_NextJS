@@ -1,19 +1,41 @@
 "use client";
 
-import { useEffect, useState, useMemo, useRef } from "react";
+import {
+  useEffect,
+  useState,
+  useMemo,
+  useRef,
+  type ComponentType,
+} from "react";
 import { TNavigationLink } from "@/portfolio/utils/types";
 import { NavigationMenu } from "@base-ui-components/react";
 import { motion } from "motion/react";
+import type { LucideProps } from "lucide-react";
+import {
+  BriefcaseIcon,
+  FolderIcon,
+  HomeIcon,
+  LayersIcon,
+  MailIcon,
+} from "@/portfolio/components/icons";
+
+const NAV_ICON_MAP: Record<string, ComponentType<LucideProps>> = {
+  "#about": HomeIcon,
+  "#projects": FolderIcon,
+  "#experiences": BriefcaseIcon,
+  "#skills": LayersIcon,
+  "#contact": MailIcon,
+};
 
 type NavItemsProps = {
   items: TNavigationLink[];
-  variant?: "pill" | "vertical";
+  variant?: "inline" | "icon-rail" | "mobile-rail";
   onItemClick?: () => void;
 };
 
 export default function NavItems({
   items,
-  variant = "pill",
+  variant = "inline",
   onItemClick,
 }: NavItemsProps) {
   const [activeSection, setActiveSection] = useState<string>("#about");
@@ -27,22 +49,19 @@ export default function NavItems({
       items
         .map((item) => (item.href.startsWith("#") ? item.href.slice(1) : null))
         .filter(Boolean) as string[],
-    [items]
+    [items],
   );
 
   useEffect(() => {
     let ticking = false;
 
     const updateActiveSection = () => {
-      // Do not recalculate while a programmatic smooth scroll from a click is in progress
       if (isClickingRef.current) return;
 
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
 
-      // 1. Last section check (#contact):
-      // If the last section has entered the viewport or we are near the bottom of the page
       const lastId = sectionIds[sectionIds.length - 1];
       const lastEl = lastId ? document.getElementById(lastId) : null;
       if (lastEl) {
@@ -56,7 +75,6 @@ export default function NavItems({
         }
       }
 
-      // 2. Top of page check (#about)
       if (scrollY < 120) {
         const first = sectionIds[0];
         if (first) {
@@ -65,16 +83,25 @@ export default function NavItems({
         }
       }
 
-      // 3. Monotonic section scan: Find the last section whose top crossed the reading threshold
       const threshold = Math.max(140, Math.min(260, windowHeight * 0.35));
       let current = sectionIds[0];
+      let bestTop = -Infinity;
 
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        if (rect.top <= threshold) {
-          current = id;
+        if (rect.top <= threshold && rect.top >= bestTop) {
+          if (Math.abs(rect.top - bestTop) < 16) {
+            const midpoint = rect.top + rect.height * 0.45;
+            if (midpoint < threshold) {
+              current = id;
+              bestTop = rect.top;
+            }
+          } else {
+            current = id;
+            bestTop = rect.top;
+          }
         }
       }
 
@@ -83,7 +110,6 @@ export default function NavItems({
       }
     };
 
-    // Align initial active section asynchronously after client mount
     const initialSyncTimer = setTimeout(() => {
       setMounted(true);
       const hash = window.location.hash;
@@ -96,7 +122,6 @@ export default function NavItems({
     }, 0);
 
     const onScroll = () => {
-      // If clicking, extend the lock until smooth scrolling ceases
       if (isClickingRef.current) {
         if (scrollEndTimerRef.current) clearTimeout(scrollEndTimerRef.current);
         scrollEndTimerRef.current = setTimeout(() => {
@@ -115,7 +140,6 @@ export default function NavItems({
       }
     };
 
-    // Initial check
     updateActiveSection();
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -147,7 +171,6 @@ export default function NavItems({
     isClickingRef.current = true;
     if (scrollEndTimerRef.current) clearTimeout(scrollEndTimerRef.current);
 
-    // Failsafe unlock after smooth scroll duration (1.2s max)
     scrollEndTimerRef.current = setTimeout(() => {
       isClickingRef.current = false;
     }, 1200);
@@ -156,24 +179,52 @@ export default function NavItems({
   };
 
   return items.map((item) => {
-    const isActive = activeSection === item.href;
+    const isActive = mounted && activeSection === item.href;
+    const Icon = NAV_ICON_MAP[item.href] ?? HomeIcon;
 
-    if (variant === "vertical") {
+    if (variant === "icon-rail") {
       return (
         <NavigationMenu.Item key={item.label} className="relative">
           <NavigationMenu.Link
             href={item.href}
+            aria-label={item.label}
             onClick={() => handleLinkClick(item.href)}
-            className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-mono font-medium transition-colors duration-150 ${
+            className={`group relative grid place-items-center size-8 rounded-[4px] transition-colors duration-150 select-none ${
               isActive
-                ? "bg-surface text-foreground font-semibold border-l-2 border-accent shadow-xs"
-                : "text-muted hover:text-foreground hover:bg-surface/50"
+                ? "bg-surface-subtle text-accent"
+                : "text-muted hover:text-foreground hover:bg-surface-subtle/60"
             }`}
           >
-            <span>{item.label}</span>
-            {mounted && isActive ? (
-              <span className="size-1.5 rounded-full bg-accent" aria-hidden />
-            ) : null}
+            <Icon className="size-4" />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute right-full mr-2.5 px-2.5 py-1 rounded-[4px] border border-border bg-surface text-foreground text-xs font-mono whitespace-nowrap shadow-md opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-all duration-150"
+            >
+              {item.label}
+            </span>
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+      );
+    }
+
+    if (variant === "mobile-rail") {
+      return (
+        <NavigationMenu.Item key={item.label}>
+          <NavigationMenu.Link
+            href={item.href}
+            onClick={() => handleLinkClick(item.href)}
+            className={`flex items-center gap-2.5 px-2.5 py-2 rounded-[4px] text-xs font-mono transition-colors duration-150 select-none ${
+              isActive
+                ? "bg-surface-subtle text-foreground font-semibold border-l-2 border-accent"
+                : "text-muted hover:text-foreground hover:bg-surface-subtle/60"
+            }`}
+          >
+            <Icon
+              className={`size-3.5 shrink-0 ${
+                isActive ? "text-accent" : "text-muted"
+              }`}
+            />
+            <span className="truncate">{item.label}</span>
           </NavigationMenu.Link>
         </NavigationMenu.Item>
       );
@@ -184,21 +235,21 @@ export default function NavItems({
         <NavigationMenu.Link
           href={item.href}
           onClick={() => handleLinkClick(item.href)}
-          className={`relative px-3 py-1 rounded-full text-xs font-mono font-medium transition-colors duration-150 block select-none ${
+          className={`relative py-1 text-xs font-mono font-medium transition-colors duration-150 block select-none ${
             isActive
               ? "text-foreground font-semibold"
               : "text-muted hover:text-foreground"
           }`}
         >
+          {item.label}
           {mounted && isActive ? (
             <motion.span
-              layoutId="nav-pill-active"
+              layoutId="nav-underline-active"
               aria-hidden
-              className="absolute inset-0 rounded-full bg-surface border border-border shadow-xs -z-10"
+              className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-accent"
               transition={{ type: "spring", damping: 28, stiffness: 360 }}
             />
           ) : null}
-          {item.label}
         </NavigationMenu.Link>
       </NavigationMenu.Item>
     );
