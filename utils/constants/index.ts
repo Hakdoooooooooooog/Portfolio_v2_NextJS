@@ -60,7 +60,8 @@ export const aboutData: TAboutData = {
   currently: [
     {
       label: "Building",
-      detail: "A Modern Ticket System for triaging end-user issues, for technical support convenience and to easily resolves end-user problems",
+      detail:
+        "TicketSupport, an IT helpdesk monorepo deployed on Netlify for triaging requests, tracking Asia/Manila SLAs, and coordinating support teams.",
     },
     {
       label: "Learning",
@@ -316,7 +317,7 @@ export const ProjectsData: TProjectData[] = [
   {
     title: "TicketSupport",
     featured: true,
-    status: "In Progress",
+    status: "Production",
     isPrivateRepo: true,
     walkthroughAvailable: true,
     statusNote: "Personal Monorepo · Private Repo",
@@ -329,40 +330,42 @@ export const ProjectsData: TProjectData[] = [
       "PostgreSQL 16",
       "Prisma 7",
       "Redis 7",
+      "BullMQ 5",
       "Socket.IO",
       "MinIO (S3)",
       "Docker",
     ],
     context:
-      "Built after handling corporate help-desk triage firsthand, replacing shared inboxes with a single tracked workflow.",
+      "Built after handling corporate help-desk triage firsthand. It replaces shared email inboxes with tracked queues, round-robin assignment, and Philippine business-hour SLAs.",
     description:
-      "Splits customer submissions (/portal) and engineering triage (/admin) inside one Turborepo monorepo with live queue sync and Philippine business-hour SLA tracking.",
+      "Separates customer requests (/portal) from staff triage (/admin) in a Turborepo monorepo backed by Next.js 16, NestJS 12, PostgreSQL, Redis, and BullMQ.",
     highlights: [
-      "Real-time Socket.IO viewer and typing presence stops two support engineers from writing duplicate replies.",
-      "SLA engine evaluates targets against Asia/Manila working hours (Mon-Fri 08:00-12:00, 13:00-17:00), pausing automatically on holidays and NEEDS_INFO states.",
-      "Client-side compressed and encrypted diagnostic uploads stored in S3-compatible MinIO, paired with knowledge-base deflection as users type.",
-      "Runtime Cloudflare Turnstile gates, dual SendGrid v3 / SMTP failover, Handlebars email layout previewer, and PostgreSQL trigger-locked audit logs.",
+      "Socket.IO with a Redis adapter syncs ticket queues across instances and flags active viewers or typists so two engineers never send duplicate replies.",
+      "BullMQ coalesces rapid updates over a 45-second window into threaded email digests, skips redundant emails when a recipient is online via WebSocket, and retries transient failures up to five times.",
+      "Business-hour SLA engine calculates response and resolution deadlines against Asia/Manila working hours (Mon-Fri, 8am-5pm) and pauses on holidays, off-hours, and pending customer replies.",
+      "Diagnostic screenshots downscale in the browser and seal server-side on S3/MinIO over TLS, keeping all encryption keys out of client bundles.",
+      "Ships with knowledge-base deflection during ticket drafting, 10-second coalesced Discord webhook threads, Cloudflare Turnstile auth gates, and trigger-locked PostgreSQL audit logs.",
     ],
     architectureNotes: [
       {
         title: "Submission & Deflection (/portal)",
         detail:
-          "Searches published knowledge-base articles as a customer drafts a ticket so routine fixes happen before submission. Diagnostic screenshots are compressed and encrypted in the browser prior to upload.",
+          "Suggests published knowledge-base articles as customers type their ticket title to solve common questions before submission, and lets them cancel open tickets before work starts.",
       },
       {
         title: "Round-Robin Dispatch & SLA Engine",
         detail:
-          "Routes new tickets to the least-loaded specialist in the target department and triggers warning alerts at 75% of elapsed SLA business hours.",
+          "Assigns new tickets to available department specialists via round-robin distribution while tracking Asia/Manila business hours and pausing automatically on holidays or customer-info holds.",
       },
       {
         title: "Collision Avoidance (/admin)",
         detail:
-          "Broadcasts active agent presence over Socket.IO across connected browsers and keeps internal staff notes separate from public customer replies.",
+          "Broadcasts live queue updates and agent viewing/typing presence via Socket.IO and Redis, while keeping internal staff notes and canned responses separate from customer replies.",
       },
       {
-        title: "Transactional Mail & Audit Trail",
+        title: "Notifications, Sealing & Audit Trail",
         detail:
-          "Sends status notifications via SendGrid v3 or outbound SMTP, collects 1-5 star CSAT ratings on closure, and locks security-critical logs at the database layer via PostgreSQL triggers.",
+          "Coalesces email and Discord alerts with online suppression, seals S3/MinIO attachments server-side, collects 1-5 star CSAT ratings on closure, and locks security logs with PostgreSQL triggers.",
       },
     ],
     images: [
@@ -376,7 +379,7 @@ export const ProjectsData: TProjectData[] = [
         src: "/images/projects/ticketsupport-03-customer-portal.webp",
         alt: "TicketSupport Customer Support Portal with slide-over ticket progress drawer and knowledge base deflection",
         caption:
-          "Customer Portal (/portal): Live article deflection, encrypted attachments, and slide-over ticket tracker",
+          "Customer Portal (/portal): Live article deflection, sealed attachments, and slide-over ticket tracker",
       },
       {
         src: "/images/projects/ticketsupport-02-email-preview.webp",
@@ -401,6 +404,7 @@ export const ProjectsData: TProjectData[] = [
       imageSrc: "/images/projects/ticketsupport-01-dashboard.webp",
       imageAlt:
         "TicketSupport IT Service Desk Queue dashboard showing live SLA metrics, CSAT score, team workload, and triage queue",
+      demoLink: "https://ticketsupport-helpdesk.netlify.app/",
     },
   },
   {
@@ -423,13 +427,13 @@ export const ProjectsData: TProjectData[] = [
       "Docker",
     ],
     context:
-      "Commercial B2B storefront and ordering API built at GP Synergia for institutional peptide buyers across Southeast Asia.",
+      "Commercial B2B storefront and ordering platform built at GP Synergia for institutional peptide buyers across Southeast Asia.",
     description:
-      "Modular NestJS API and Next.js storefront deployed on AWS infrastructure managed with Terraform and Docker.",
+      "Pairs a Next.js storefront with modular NestJS services backed by Prisma, PostgreSQL, and Redis on AWS.",
     highlights: [
-      "Added Redis catalog caching on top of Prisma and PostgreSQL to keep catalog reads under 120ms.",
-      "Containerized services with multi-stage Docker builds and automated GitLab CE CI/CD pipelines.",
-      "Provisioned reproducible EC2, S3, and VPC infrastructure via Terraform to eliminate staging/production drift.",
+      "Cached product catalog queries in Redis on top of PostgreSQL and Prisma, keeping catalog reads under 120ms.",
+      "Built multi-stage Docker images and self-hosted GitLab CE CI/CD pipelines, cutting deploy times from hours to under 10 minutes.",
+      "Defined EC2, S3, and VPC environments in Terraform so staging and production infrastructure stay identical.",
     ],
     metadata: {
       imageSrc: "/images/projects/redbiomed-thumbnail.webp",
@@ -447,12 +451,12 @@ export const ProjectsData: TProjectData[] = [
     role: "Frontend & Deployment",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     context:
-      "Municipal digital library built during my City of General Trias internship so residents and students can browse catalog resources online.",
+      "Built during my internship with the City Government of General Trias to give local students and residents online access to the public library catalog.",
     description:
-      "Public search and catalog interface deployed to production for the City Public Library of General Trias, Cavite.",
+      "Next.js and TypeScript web catalog deployed to production for the City Public Library of General Trias, Cavite.",
     highlights: [
-      "Fast client-side catalog search and filtering built with Next.js and TypeScript.",
-      "Deployed and configured alongside on-site network and hardware support across municipal departments.",
+      "Built client-side catalog search and filtering with Next.js, TypeScript, and Tailwind CSS.",
+      "Shipped the production Netlify deployment alongside on-site network and workstation support across municipal offices.",
     ],
     link: "https://github.com/Hakdoooooooooooog/e-library",
     metadata: {
@@ -481,12 +485,12 @@ export const ProjectsData: TProjectData[] = [
       "AWS S3",
     ],
     context:
-      "Standardized competency evaluation and learning platform created for Cavite State University's ICT department.",
+      "Learning and exam-prep platform built for Cavite State University's ICT department to run standardized TOPCIT competency assessments.",
     description:
-      "Manages hierarchical syllabi, timed TOPCIT practice assessments, automated scoring, and role-based access control.",
+      "Organizes hierarchical study syllabi, timed practice exams, and automated scoring behind role-based student and instructor permissions.",
     highlights: [
-      "Built separate React + TypeScript web client and Express + Prisma REST API repositories.",
-      "Implemented JWT role-based access control, AWS S3 asset storage, and Zod/Zustand form state validation.",
+      "Separated the React + TypeScript web client and the Express + Prisma REST API into dedicated repositories.",
+      "Enforced JWT role-based access control, stored course media in AWS S3, and validated client state with Zod and Zustand.",
     ],
     link: "https://github.com/Hakdoooooooooooog/lcms-topcit-app",
     metadata: {
@@ -499,7 +503,7 @@ export const ProjectsData: TProjectData[] = [
     title: "Event Management System API",
     tags: ["API", "Node.js", "Express", "Prisma", "PostgreSQL"],
     description:
-      "REST service for event scheduling and attendee registration, backed by relational Prisma schemas and PostgreSQL transactions.",
+      "Node.js and Express REST API for event scheduling and attendee registration, using PostgreSQL transactions and Prisma to keep bookings consistent.",
     link: "https://github.com/Hakdoooooooooooog/Event-management-system-server",
   },
   {
@@ -512,7 +516,7 @@ export const ProjectsData: TProjectData[] = [
       "PostgreSQL",
     ],
     description:
-      "Terminal-based warehouse ingress/egress tracker prototype for Redbiomed on Raspberry Pi 5 using M5Stack UHF RFID readers and Python audit logging.",
+      "Raspberry Pi 5 terminal prototype for Redbiomed that reads M5Stack UHF RFID tags in Python to log warehouse vial movements in PostgreSQL.",
   },
 ];
 
