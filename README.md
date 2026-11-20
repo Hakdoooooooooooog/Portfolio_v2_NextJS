@@ -21,16 +21,17 @@ The site uses a continuous single-page funnel:
 ## Featured Work
 
 ### 1. TicketSupport (Flagship Personal Project)
-- **Status:** In Progress (Personal Project · Private Repository)
-- **Stack:** Turborepo, Next.js 16, NestJS 12, TypeScript, Tailwind CSS v4, Socket.IO, TanStack Query, Prisma 7, PostgreSQL 16, Redis 7, MinIO (S3), Cloudflare Turnstile, Docker.
-- **Overview:** An IT service desk and incident triage monorepo built after handling corporate help-desk routing firsthand. Splits customer requests (`/portal`) and engineering triage (`/admin`) into distinct workspaces.
-- **Key Features:** Real-time Socket.IO agent presence to stop duplicate replies, Philippine business-hours SLA engine (`Asia/Manila`) with automatic holiday and needs-info pauses, client-side encrypted diagnostic attachments in MinIO, runtime Cloudflare Turnstile bot gates, and live Handlebars email template previews with desktop and mobile views.
-- **Walkthrough:** Includes a dedicated **Request walkthrough / demo** action that scrolls to `#contact` and pre-fills the inquiry form.
+- **Status:** Production (Personal Project · Private Repository)
+- **Live Demo:** https://ticketsupport-helpdesk.netlify.app/
+- **Stack:** Turborepo, Next.js 16, NestJS 12, TypeScript, Tailwind CSS v4, Socket.IO, TanStack Query, Prisma 7, PostgreSQL 16, Redis 7, BullMQ 5, MinIO (S3), Cloudflare Turnstile, Docker.
+- **Overview:** An IT service desk and incident triage monorepo built after handling corporate help-desk routing firsthand. Separates customer requests (`/portal`) from staff triage (`/admin`).
+- **Key Features:** Socket.IO with a Redis adapter for live queue sync and collision warnings, BullMQ 45-second email digesting with WebSocket online suppression, Philippine business-hours SLA tracking (`Asia/Manila`) with holiday and customer-hold pauses, client-side screenshot downscaling with server-side MinIO attachment sealing, 10-second coalesced Discord webhook threads, Cloudflare Turnstile auth gates, and trigger-locked PostgreSQL audit logs.
+- **Walkthrough:** Includes a **Request Walkthrough** action that scrolls to `#contact` and pre-fills the inquiry form.
 
 ### 2. Redbiomed (Commercial Build at GP Synergia)
 - **Status:** Offline (Company Repository Private · Frontpage Preview Only)
 - **Stack:** Next.js, NestJS, TypeScript, PostgreSQL, Prisma, Redis, AWS, Terraform, Docker.
-- **Overview:** B2B e-commerce platform for peptide distribution in Southeast Asia. Built modular NestJS backend services with Redis caching for sub-120ms catalog reads, containerized services with Docker, and provisioned AWS infrastructure with Terraform.
+- **Overview:** Commercial B2B storefront and ordering platform for institutional peptide buyers across Southeast Asia. Pairs a Next.js storefront with modular NestJS services, Redis catalog caching (<120ms reads), multi-stage Docker CI/CD pipelines on GitLab CE, and Terraform-managed AWS infrastructure.
 
 ---
 
